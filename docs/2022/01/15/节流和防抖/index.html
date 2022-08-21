@@ -6,22 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://hellohl.com">
-  <title>Baymax大白</title>
+  <title>节流和防抖 | Baymax大白</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="beforeCreate创建一个空白的 Vue 实例  data method 尚未被初始化，不可使用  ​     CreatedVue 实例初始化完成，完成响应式绑定  data method 都已经初始化完成，可调用  尚未开始渲染模板  beforeMount编译模板，调用 render 生成 vdom  还没有开始渲染 dom  ​     mounted完成 dom 渲染  组件创建">
+  <meta name="description" content="防抖防抖，防止抖动， 先抖动，啥时候停了，再执行下一步 限制执行次数，多次密集的触发只执行一次 单位时间内有数据只执行最后一次 注重结果 123456789101112131415&#x2F;** * @description 防抖 *&#x2F;function debounce(fn, delay &#x3D; 200) &amp;#123;  let timer &#x3D; 0;  return function () &amp;#123;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Baymax大白">
-<meta property="og:url" content="http://hellohl.com/2022/08/21/Vue%E6%AF%8F%E4%B8%AA%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E9%83%BD%E5%81%9A%E4%BA%86%E4%BB%80%E4%B9%88/index.html">
+<meta property="og:title" content="节流和防抖">
+<meta property="og:url" content="http://hellohl.com/2022/01/15/%E8%8A%82%E6%B5%81%E5%92%8C%E9%98%B2%E6%8A%96/index.html">
 <meta property="og:site_name" content="Baymax大白">
-<meta property="og:description" content="beforeCreate创建一个空白的 Vue 实例  data method 尚未被初始化，不可使用  ​     CreatedVue 实例初始化完成，完成响应式绑定  data method 都已经初始化完成，可调用  尚未开始渲染模板  beforeMount编译模板，调用 render 生成 vdom  还没有开始渲染 dom  ​     mounted完成 dom 渲染  组件创建">
+<meta property="og:description" content="防抖防抖，防止抖动， 先抖动，啥时候停了，再执行下一步 限制执行次数，多次密集的触发只执行一次 单位时间内有数据只执行最后一次 注重结果 123456789101112131415&#x2F;** * @description 防抖 *&#x2F;function debounce(fn, delay &#x3D; 200) &amp;#123;  let timer &#x3D; 0;  return function () &amp;#123;">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://img.hellohl.com/202206051350689.png">
-<meta property="article:published_time" content="2022-08-21T08:34:55.910Z">
-<meta property="article:modified_time" content="2022-06-05T06:02:17.722Z">
+<meta property="article:published_time" content="2022-01-15T06:58:00.000Z">
+<meta property="article:modified_time" content="2022-08-21T09:01:55.268Z">
 <meta property="article:author" content="大白">
 <meta property="article:tag" content="前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img.hellohl.com/202206051350689.png">
   
     <link rel="alternative" href="/atom.xml" title="Baymax大白" type="application/atom+xml">
   
@@ -162,128 +160,79 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Vue每个生命周期都做了什么" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-节流和防抖" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      节流和防抖
+    </h1>
+  
+
+        
+        <a href="/2022/01/15/%E8%8A%82%E6%B5%81%E5%92%8C%E9%98%B2%E6%8A%96/" class="archive-article-date">
+  	<time datetime="2022-01-15T06:58:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-15</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       <!-- 
-        <p><img src="https://img.hellohl.com/202206051350689.png" alt="Vue2生命周期"></p>
-<h3 id="beforeCreate"><a href="#beforeCreate" class="headerlink" title="beforeCreate"></a>beforeCreate</h3><pre><code>创建一个空白的 Vue 实例
+        <h2 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h2><p>防抖，防止抖动， 先抖动，啥时候停了，再执行下一步</p>
+<p>限制执行次数，多次密集的触发只执行一次</p>
+<p>单位时间内有数据只执行最后一次</p>
+<p>注重结果</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span> 防抖</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">debounce</span>(<span class="params">fn, delay = <span class="number">200</span></span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> timer = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">if</span>(timer) <span class="built_in">clearTimeout</span>(timer)</span><br><span class="line"></span><br><span class="line">    time = <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      fn.<span class="title function_">apply</span>(<span class="variable language_">this</span>, <span class="variable language_">arguments</span>) <span class="comment">// 透传this和参数</span></span><br><span class="line">      timer = <span class="number">0</span></span><br><span class="line">    &#125;, delay)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-data method 尚未被初始化，不可使用
-</code></pre>
-<p>​    </p>
-<h3 id="Created"><a href="#Created" class="headerlink" title="Created"></a>Created</h3><pre><code>Vue 实例初始化完成，完成响应式绑定
 
-data method 都已经初始化完成，可调用
 
-尚未开始渲染模板
-</code></pre>
-<h3 id="beforeMount"><a href="#beforeMount" class="headerlink" title="beforeMount"></a>beforeMount</h3><pre><code>编译模板，调用 render 生成 vdom
 
-还没有开始渲染 dom
-</code></pre>
-<p>​    </p>
-<h3 id="mounted"><a href="#mounted" class="headerlink" title="mounted"></a>mounted</h3><pre><code>完成 dom 渲染
 
-组件创建完成
 
-开始由&quot;创建阶段&quot; 进入 &quot;运行阶段&quot;
-</code></pre>
-<p>​    </p>
-<h3 id="beforeUpdate-–-准备更新但是还没有更新"><a href="#beforeUpdate-–-准备更新但是还没有更新" class="headerlink" title="beforeUpdate – 准备更新但是还没有更新"></a>beforeUpdate – 准备更新但是还没有更新</h3><pre><code>data 发生变化之后
 
-准备更新 dom （尚未更新dom）
-</code></pre>
-<h3 id="updated-–-已经更新完了"><a href="#updated-–-已经更新完了" class="headerlink" title="updated – 已经更新完了"></a>updated – 已经更新完了</h3><pre><code>data发生变化，且 dom 更新完毕
 
-（不要在 updated 中修改 data， 可能会导致死循环）
-</code></pre>
-<h3 id="berforeDestroy-Vue2-和-beforeUnMount（Vue3）-–-组件销毁之前"><a href="#berforeDestroy-Vue2-和-beforeUnMount（Vue3）-–-组件销毁之前" class="headerlink" title="berforeDestroy(Vue2) 和 beforeUnMount（Vue3） – 组件销毁之前"></a>berforeDestroy(Vue2) 和 beforeUnMount（Vue3） – 组件销毁之前</h3><pre><code>组件进入销毁阶段（尚未销毁，可正常使用）
 
-可移除、解绑一些全局事件、自定义事件
-</code></pre>
-<h3 id="destroyed-Vue2-和-unmounted（Vue3）"><a href="#destroyed-Vue2-和-unmounted（Vue3）" class="headerlink" title="destroyed(Vue2) 和 unmounted（Vue3）"></a>destroyed(Vue2) 和 unmounted（Vue3）</h3><pre><code>组件被销毁了
+<h2 id="节流"><a href="#节流" class="headerlink" title="节流"></a>节流</h2><p>某个时间段执行一次，不管什么操作操作了多长时间，只根据设置的时间定时执行一次</p>
+<p>限制执行频率，有节奏的执行</p>
+<p>单位时间内执行完一次，后续的不管了</p>
+<p>注重过程，有节奏</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span> 节流</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">throttle</span>(<span class="params">fn, delay = <span class="number">100</span></span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> timer = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">if</span>(timer) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    timer = <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      fn.<span class="title function_">apply</span>(<span class="variable language_">this</span>, <span class="variable language_">arguments</span>);</span><br><span class="line">      timer = <span class="number">0</span></span><br><span class="line">    &#125;, delay)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-所有子组件也都被销毁了
-</code></pre>
-<h3 id="keep-alive-组件的生命周期函数"><a href="#keep-alive-组件的生命周期函数" class="headerlink" title="keep-alive 组件的生命周期函数"></a>keep-alive 组件的生命周期函数</h3><pre><code>onActivated 缓存组件被激活
 
-onDeactivated 缓存组件被隐藏
-</code></pre>
-<h3 id="Vue-什么时候操作-dom-比较合适"><a href="#Vue-什么时候操作-dom-比较合适" class="headerlink" title="Vue 什么时候操作 dom 比较合适"></a>Vue 什么时候操作 dom 比较合适</h3><pre><code>mounted 和 updated 都不能保证子组件全部挂载完成
 
-使用 $nextTick 渲染 dom
-</code></pre>
-<h3 id="ajax应该放在哪个生命周期"><a href="#ajax应该放在哪个生命周期" class="headerlink" title="ajax应该放在哪个生命周期"></a>ajax应该放在哪个生命周期</h3><pre><code>created 或者 mounted
 
-推荐：mounted
-</code></pre>
-<h3 id="vue3-Composition-Api-生命周期有何区别？"><a href="#vue3-Composition-Api-生命周期有何区别？" class="headerlink" title="vue3 Composition Api 生命周期有何区别？"></a>vue3 Composition Api 生命周期有何区别？</h3><pre><code>用 setup 代替了 beforeCreate 和 created
 
-使用 hooks 函数形式，如 mounted 改为 onMounted()
-</code></pre>
-
+<h3 id="实际工作推荐使用https-www-lodashjs-com"><a href="#实际工作推荐使用https-www-lodashjs-com" class="headerlink" title="实际工作推荐使用https://www.lodashjs.com/"></a>实际工作推荐使用<a target="_blank" rel="noopener" href="https://www.lodashjs.com/">https://www.lodashjs.com/</a></h3>
        -->
       
         
-        <p><img src="https://img.hellohl.com/202206051350689.png" alt="Vue2生命周期"></p>
-<h3 id="beforeCreate"><a href="#beforeCreate" class="headerlink" title="beforeCreate"></a>beforeCreate</h3><pre><code>创建一个空白的 Vue 实例
+        <h2 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h2><p>防抖，防止抖动， 先抖动，啥时候停了，再执行下一步</p>
+<p>限制执行次数，多次密集的触发只执行一次</p>
+<p>单位时间内有数据只执行最后一次</p>
+<p>注重结果</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span> 防抖</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">debounce</span>(<span class="params">fn, delay = <span class="number">200</span></span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> timer = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">if</span>(timer) <span class="built_in">clearTimeout</span>(timer)</span><br><span class="line"></span><br><span class="line">    time = <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      fn.<span class="title function_">apply</span>(<span class="variable language_">this</span>, <span class="variable language_">arguments</span>) <span class="comment">// 透传this和参数</span></span><br><span class="line">      timer = <span class="number">0</span></span><br><span class="line">    &#125;, delay)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-data method 尚未被初始化，不可使用
-</code></pre>
-<p>​    </p>
-<h3 id="Created"><a href="#Created" class="headerlink" title="Created"></a>Created</h3><pre><code>Vue 实例初始化完成，完成响应式绑定
 
-data method 都已经初始化完成，可调用
 
-尚未开始渲染模板
-</code></pre>
-<h3 id="beforeMount"><a href="#beforeMount" class="headerlink" title="beforeMount"></a>beforeMount</h3><pre><code>编译模板，调用 render 生成 vdom
 
-还没有开始渲染 dom
-</code></pre>
-<p>​    </p>
-<h3 id="mounted"><a href="#mounted" class="headerlink" title="mounted"></a>mounted</h3><pre><code>完成 dom 渲染
 
-组件创建完成
 
-开始由&quot;创建阶段&quot; 进入 &quot;运行阶段&quot;
-</code></pre>
-<p>​    </p>
-<h3 id="beforeUpdate-–-准备更新但是还没有更新"><a href="#beforeUpdate-–-准备更新但是还没有更新" class="headerlink" title="beforeUpdate – 准备更新但是还没有更新"></a>beforeUpdate – 准备更新但是还没有更新</h3><pre><code>data 发生变化之后
 
-准备更新 dom （尚未更新dom）
-</code></pre>
-<h3 id="updated-–-已经更新完了"><a href="#updated-–-已经更新完了" class="headerlink" title="updated – 已经更新完了"></a>updated – 已经更新完了</h3><pre><code>data发生变化，且 dom 更新完毕
 
-（不要在 updated 中修改 data， 可能会导致死循环）
-</code></pre>
-<h3 id="berforeDestroy-Vue2-和-beforeUnMount（Vue3）-–-组件销毁之前"><a href="#berforeDestroy-Vue2-和-beforeUnMount（Vue3）-–-组件销毁之前" class="headerlink" title="berforeDestroy(Vue2) 和 beforeUnMount（Vue3） – 组件销毁之前"></a>berforeDestroy(Vue2) 和 beforeUnMount（Vue3） – 组件销毁之前</h3><pre><code>组件进入销毁阶段（尚未销毁，可正常使用）
 
-可移除、解绑一些全局事件、自定义事件
-</code></pre>
-<h3 id="destroyed-Vue2-和-unmounted（Vue3）"><a href="#destroyed-Vue2-和-unmounted（Vue3）" class="headerlink" title="destroyed(Vue2) 和 unmounted（Vue3）"></a>destroyed(Vue2) 和 unmounted（Vue3）</h3><pre><code>组件被销毁了
+<h2 id="节流"><a href="#节流" class="headerlink" title="节流"></a>节流</h2><p>某个时间段执行一次，不管什么操作操作了多长时间，只根据设置的时间定时执行一次</p>
+<p>限制执行频率，有节奏的执行</p>
+<p>单位时间内执行完一次，后续的不管了</p>
+<p>注重过程，有节奏</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span> 节流</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">throttle</span>(<span class="params">fn, delay = <span class="number">100</span></span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> timer = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">if</span>(timer) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    timer = <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      fn.<span class="title function_">apply</span>(<span class="variable language_">this</span>, <span class="variable language_">arguments</span>);</span><br><span class="line">      timer = <span class="number">0</span></span><br><span class="line">    &#125;, delay)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-所有子组件也都被销毁了
-</code></pre>
-<h3 id="keep-alive-组件的生命周期函数"><a href="#keep-alive-组件的生命周期函数" class="headerlink" title="keep-alive 组件的生命周期函数"></a>keep-alive 组件的生命周期函数</h3><pre><code>onActivated 缓存组件被激活
 
-onDeactivated 缓存组件被隐藏
-</code></pre>
-<h3 id="Vue-什么时候操作-dom-比较合适"><a href="#Vue-什么时候操作-dom-比较合适" class="headerlink" title="Vue 什么时候操作 dom 比较合适"></a>Vue 什么时候操作 dom 比较合适</h3><pre><code>mounted 和 updated 都不能保证子组件全部挂载完成
 
-使用 $nextTick 渲染 dom
-</code></pre>
-<h3 id="ajax应该放在哪个生命周期"><a href="#ajax应该放在哪个生命周期" class="headerlink" title="ajax应该放在哪个生命周期"></a>ajax应该放在哪个生命周期</h3><pre><code>created 或者 mounted
 
-推荐：mounted
-</code></pre>
-<h3 id="vue3-Composition-Api-生命周期有何区别？"><a href="#vue3-Composition-Api-生命周期有何区别？" class="headerlink" title="vue3 Composition Api 生命周期有何区别？"></a>vue3 Composition Api 生命周期有何区别？</h3><pre><code>用 setup 代替了 beforeCreate 和 created
 
-使用 hooks 函数形式，如 mounted 改为 onMounted()
-</code></pre>
-
+<h3 id="实际工作推荐使用https-www-lodashjs-com"><a href="#实际工作推荐使用https-www-lodashjs-com" class="headerlink" title="实际工作推荐使用https://www.lodashjs.com/"></a>实际工作推荐使用<a target="_blank" rel="noopener" href="https://www.lodashjs.com/">https://www.lodashjs.com/</a></h3>
       
       
         <div class="page-reward">
@@ -361,7 +310,7 @@ onDeactivated 缓存组件被隐藏
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://hellohl.com/2022/08/21/Vue%E6%AF%8F%E4%B8%AA%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E9%83%BD%E5%81%9A%E4%BA%86%E4%BB%80%E4%B9%88/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://hellohl.com/2022/01/15/%E8%8A%82%E6%B5%81%E5%92%8C%E9%98%B2%E6%8A%96/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -375,7 +324,7 @@ onDeactivated 缓存组件被隐藏
   
 <nav id="article-nav">
   
-    <a href="/2022/08/21/ajax%E4%B8%8EFetch%E4%B8%8Eaxios%E5%8C%BA%E5%88%AB/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/08/21/Docker/%E8%87%AA%E5%AE%9A%E4%B9%89%E9%95%9C%E5%83%8F/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -385,8 +334,8 @@ onDeactivated 缓存组件被隐藏
     </a>
   
   
-    <a href="/2022/08/21/Vue2%20Vue3%20React%20%E4%B8%89%E8%80%85%20diff%20%E7%AE%97%E6%B3%95%E6%9C%89%E4%BD%95%E5%8C%BA%E5%88%AB%EF%BC%9F/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
+    <a href="/2022/01/15/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%92%8Cnodejs%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E7%9A%84%E5%8C%BA%E5%88%AB/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">浏览器和nodejs事件循环的区别</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -554,15 +503,15 @@ onDeactivated 缓存组件被隐藏
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">统计</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">cloudstuido</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">npm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">统计</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -622,15 +571,15 @@ onDeactivated 缓存组件被隐藏
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">centos7</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">脚本</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">

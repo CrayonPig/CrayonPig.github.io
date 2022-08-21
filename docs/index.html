@@ -160,8 +160,236 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-element/element-ui源码之目录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      <!-- 
+        <p>如果让大家投票选择Vue中最热门的UI框架，我想Element-UI一定是会榜上有名的，接下来就让我们以element-ui v2.15.5版本来学习吧</p>
+<hr>
+<p>首先从github clone项目</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com.cnpmjs.org/ElemeFE/element.git</span><br></pre></td></tr></table></figure>
+
+<p>项目下载完后，大家可以看到如下目录，主要目录已经标注好了</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">element-v2.15.5</span><br><span class="line">├─<span class="string">.github</span></span><br><span class="line">├─build（webpack打包启动相关配置）</span><br><span class="line">├─examples（组件使用范例）</span><br><span class="line">├─packages（组件具体实现，css样式放置在这个目录的theme-chalk下）</span><br><span class="line">├─src</span><br><span class="line">|  ├─utils（公共工具函数）</span><br><span class="line">|  ├─transitions（动画配置文件）</span><br><span class="line">|  ├─mixins（组件用的混入文件）</span><br><span class="line">|  ├─locale（语言的配置文件）</span><br><span class="line">|  ├─directives（自定义指令）</span><br><span class="line">|  ├─index.js（组件暴露出口）</span><br><span class="line">├─test（组件测试用例）</span><br><span class="line">├─types（组件ts定义，ts项目引用时会用到）</span><br><span class="line">├─<span class="string">.DS_Store</span></span><br><span class="line">├─<span class="string">.babelrc</span></span><br><span class="line">├─<span class="string">.eslintignore</span></span><br><span class="line">├─<span class="string">.eslintrc</span></span><br><span class="line">├─<span class="string">.gitattributes</span></span><br><span class="line">├─<span class="string">.gitignore</span></span><br><span class="line">├─<span class="string">.travis.yml</span></span><br><span class="line">├─CHANGELOG.en-US.md</span><br><span class="line">├─CHANGELOG.es.md</span><br><span class="line">├─CHANGELOG.fr-FR.md</span><br><span class="line">├─CHANGELOG.zh-CN.md</span><br><span class="line">├─FAQ.md</span><br><span class="line">├─LICENSE</span><br><span class="line">├─Makefile</span><br><span class="line">├─README.md</span><br><span class="line">├─components.json</span><br><span class="line">├─element_logo.svg</span><br><span class="line">├─package.json</span><br><span class="line">├─yarn-error.log</span><br><span class="line">├─yarn.lock</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+       -->
+      
+        
+            
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+            
+                
+                <p><p>如果让大家投票选择Vue中最热门的UI框架，我想Element-UI一定是会榜上有名的，接下来就让我们以element-ui v2.15.5版本来学习吧</p>
+<hr>
+<p>首先从github clone项目</p>
+<p>
+            
+        
+        
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/08/21/element/element-ui%E6%BA%90%E7%A0%81%E4%B9%8B%E7%9B%AE%E5%BD%95/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-element/element-ui源码之命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      <!-- 
+        <p>上一期给大家分享了element项目的目录结构，这次我们着重分析下package.json 中script每项命令的含义</p>
+<hr>
+<h2 id="bootstrap"><a href="#bootstrap" class="headerlink" title="bootstrap"></a>bootstrap</h2><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;bootstrap&quot;</span><span class="punctuation">:</span> <span class="string">&quot;yarn || npm i&quot;</span><span class="punctuation">,</span></span><br></pre></td></tr></table></figure>
+
+<p>这个没啥好说的，安装依赖</p>
+<h2 id="build-file"><a href="#build-file" class="headerlink" title="build:file"></a>build:file</h2><figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;<span class="keyword">build</span>:file<span class="string">&quot;: &quot;</span>node <span class="keyword">build</span>/bin/iconInit.js &amp; node <span class="keyword">build</span>/bin/<span class="keyword">build</span>-entry.js &amp; node <span class="keyword">build</span>/bin/i18n.js &amp; node <span class="keyword">build</span>/bin/version.js<span class="string">&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>这个命令我们可以拆分多个进行逐一分析</p>
+<h4 id="node-build-bin-iconInit-js"><a href="#node-build-bin-iconInit-js" class="headerlink" title="node build/bin/iconInit.js"></a>node build/bin/iconInit.js</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> postcss = <span class="built_in">require</span>(<span class="string">&#x27;postcss&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> fontFile = fs.<span class="title function_">readFileSync</span>(path.<span class="title function_">resolve</span>(__dirname, <span class="string">&#x27;../../packages/theme-chalk/src/icon.scss&#x27;</span>), <span class="string">&#x27;utf8&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> nodes = postcss.<span class="title function_">parse</span>(fontFile).<span class="property">nodes</span>;</span><br><span class="line"><span class="keyword">var</span> classList = [];</span><br><span class="line"></span><br><span class="line">nodes.<span class="title function_">forEach</span>(<span class="function">(<span class="params">node</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">var</span> selector = node.<span class="property">selector</span> || <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">  <span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="title class_">RegExp</span>(<span class="regexp">/\.el-icon-([^:]+):before/</span>);</span><br><span class="line">  <span class="keyword">var</span> arr = selector.<span class="title function_">match</span>(reg);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (arr &amp;&amp; arr[<span class="number">1</span>]) &#123;</span><br><span class="line">    classList.<span class="title function_">push</span>(arr[<span class="number">1</span>]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">classList.<span class="title function_">reverse</span>(); <span class="comment">// 希望按 css 文件顺序倒序排列</span></span><br><span class="line"></span><br><span class="line">fs.<span class="title function_">writeFile</span>(path.<span class="title function_">resolve</span>(__dirname, <span class="string">&#x27;../../examples/icon.json&#x27;</span>), <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(classList), <span class="function">() =&gt;</span> &#123;&#125;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+       -->
+      
+        
+            
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+            
+                
+                <p><p>上一期给大家分享了element项目的目录结构，这次我们着重分析下package.json 中script每项命令的含义</p>
+<hr>
+<h2 id="bootstrap"><a href="#bootstrap" class="headerlink" title="bootstrap"></a>bootstrap</h2><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;bootstrap&quot;</span><span class="punctuation">:</span> <span class="string">&quot;yarn || npm i&quot;</span><span class="punctuation">,</span></span><br></pre></td></tr></table></figure>
+<p>
+            
+        
+        
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/08/21/element/element-ui%E6%BA%90%E7%A0%81%E4%B9%8B%E5%91%BD%E4%BB%A4/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Docker/自定义镜像" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      <!-- 
+        
+       -->
+      
+        
+            
+            
+                
+                
+            
+        
+        
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/08/21/Docker/%E8%87%AA%E5%AE%9A%E4%B9%89%E9%95%9C%E5%83%8F/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-节流和防抖" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/01/15/%E8%8A%82%E6%B5%81%E5%92%8C%E9%98%B2%E6%8A%96/">节流和防抖</a>
+    </h1>
+  
+
+        
+        <a href="/2022/01/15/%E8%8A%82%E6%B5%81%E5%92%8C%E9%98%B2%E6%8A%96/" class="archive-article-date">
+  	<time datetime="2022-01-15T06:58:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-15</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       <!-- 
@@ -222,7 +450,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2022/08/21/%E8%8A%82%E6%B5%81%E5%92%8C%E9%98%B2%E6%8A%96/">展开全文 >></a>
+          <a class="article-more-a" href="/2022/01/15/%E8%8A%82%E6%B5%81%E5%92%8C%E9%98%B2%E6%8A%96/">展开全文 >></a>
         </p>
       
 
@@ -254,6 +482,21 @@
   
     <article id="post-浏览器和nodejs事件循环的区别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/01/15/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%92%8Cnodejs%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E7%9A%84%E5%8C%BA%E5%88%AB/">浏览器和nodejs事件循环的区别</a>
+    </h1>
+  
+
+        
+        <a href="/2022/01/15/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%92%8Cnodejs%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E7%9A%84%E5%8C%BA%E5%88%AB/" class="archive-article-date">
+  	<time datetime="2022-01-15T05:05:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-15</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       <!-- 
@@ -337,7 +580,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2022/08/21/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%92%8Cnodejs%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E7%9A%84%E5%8C%BA%E5%88%AB/">展开全文 >></a>
+          <a class="article-more-a" href="/2022/01/15/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%92%8Cnodejs%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E7%9A%84%E5%8C%BA%E5%88%AB/">展开全文 >></a>
         </p>
       
 
@@ -367,30 +610,113 @@
 
 
   
-    <article id="post-前端研发规范/项目文件命名" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-工具技巧/移动端调试技巧" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/06/20/%E5%B7%A5%E5%85%B7%E6%8A%80%E5%B7%A7/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/">移动端调试技巧</a>
+    </h1>
+  
+
+        
+        <a href="/2021/06/20/%E5%B7%A5%E5%85%B7%E6%8A%80%E5%B7%A7/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/" class="archive-article-date">
+  	<time datetime="2021-06-20T05:25:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-20</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       <!-- 
-        <h4 id="项目名"><a href="#项目名" class="headerlink" title="项目名"></a>项目名</h4><p>全部采用小写方式， 以<strong>短横线</strong>分隔。例：<code>my-project-name</code>。</p>
-<h4 id="目录名"><a href="#目录名" class="headerlink" title="目录名"></a>目录名</h4><p><strong>参照项目命名规则，有复数结构时，要采用复数命名法</strong>。例：docs、assets、components、directives、mixins、utils、views。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">my-project-name/</span><br><span class="line">|- docs           <span class="comment">// 项目的细化文档目录（可选）</span></span><br><span class="line">|- node_modules   <span class="comment">// 下载的依赖包</span></span><br><span class="line">|- public         <span class="comment">// 静态页面目录</span></span><br><span class="line">    |- index.<span class="property">html</span> <span class="comment">// 项目入口</span></span><br><span class="line">|- src            <span class="comment">// 源码目录</span></span><br><span class="line">    |- api        <span class="comment">// http 请求目录</span></span><br><span class="line">    |- assets     <span class="comment">// 静态资源目录，这里的资源会被wabpack构建</span></span><br><span class="line">        |- icon   <span class="comment">// icon 存放目录</span></span><br><span class="line">        |- img    <span class="comment">// 图片存放目录</span></span><br><span class="line">        |- js     <span class="comment">// 公共 js 文件目录</span></span><br><span class="line">        |- scss   <span class="comment">// 公共样式 scss 存放目录</span></span><br><span class="line">            |- frame.<span class="property">scss</span>   <span class="comment">// 入口文件</span></span><br><span class="line">            |- <span class="variable language_">global</span>.<span class="property">scss</span>  <span class="comment">// 公共样式</span></span><br><span class="line">            |- reset.<span class="property">scss</span>   <span class="comment">// 重置样式</span></span><br><span class="line">    |- components     <span class="comment">// 组件</span></span><br><span class="line">    |- plugins        <span class="comment">// 插件</span></span><br><span class="line">    |- router         <span class="comment">// 路由</span></span><br><span class="line">    |- routes         <span class="comment">// 详细的路由拆分目录（可选）</span></span><br><span class="line">        |- index.<span class="property">js</span></span><br><span class="line">    |- store          <span class="comment">// 全局状态管理</span></span><br><span class="line">    |- utils          <span class="comment">// 工具存放目录</span></span><br><span class="line">        |- request.<span class="property">js</span> <span class="comment">// 公共请求工具</span></span><br><span class="line">    |- views          <span class="comment">// 页面存放目录</span></span><br><span class="line">    |- <span class="title class_">App</span>.<span class="property">vue</span>        <span class="comment">// 根组件</span></span><br><span class="line">    |- main.<span class="property">js</span>        <span class="comment">// 入口文件</span></span><br><span class="line">    |- tests          <span class="comment">// 测试用例</span></span><br><span class="line">    |- .<span class="property">browserslistrc</span><span class="comment">// 浏览器兼容配置文件</span></span><br><span class="line">    |- .<span class="property">editorconfig</span>  <span class="comment">// 编辑器配置文件</span></span><br><span class="line">    |- .<span class="property">eslintignore</span>  <span class="comment">// eslint 忽略规则</span></span><br><span class="line">    |- .<span class="property">eslintrc</span>.<span class="property">js</span>   <span class="comment">// eslint 规则</span></span><br><span class="line">    |- .<span class="property">gitignore</span>     <span class="comment">// git 忽略规则</span></span><br><span class="line">    |- babel.<span class="property">config</span>.<span class="property">js</span> <span class="comment">// babel 规则</span></span><br><span class="line">    |- <span class="title class_">Dockerfile</span> <span class="comment">// Docker 部署文件</span></span><br><span class="line">    |- package-lock.<span class="property">json</span></span><br><span class="line">    |- package.<span class="property">json</span> <span class="comment">// 依赖</span></span><br><span class="line">    |- <span class="variable constant_">README</span>.<span class="property">md</span> <span class="comment">// 项目 README</span></span><br><span class="line">    |- vue.<span class="property">config</span>.<span class="property">js</span> <span class="comment">// webpack 配置</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="图像文件名"><a href="#图像文件名" class="headerlink" title="图像文件名"></a>图像文件名</h4><p>全部采用小写方式， 优先选择单个单词命名，多个单词命名以<strong>下划线</strong>分隔。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">banner_sina.<span class="property">gif</span></span><br><span class="line">menu_aboutus.<span class="property">gif</span></span><br><span class="line">menutitle_news.<span class="property">gif</span></span><br><span class="line">logo_police.<span class="property">gif</span></span><br><span class="line">logo_national.<span class="property">gif</span></span><br><span class="line">pic_people.<span class="property">jpg</span></span><br><span class="line">pic_TV.<span class="property">jpg</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="HTML-文件名"><a href="#HTML-文件名" class="headerlink" title="HTML 文件名"></a>HTML 文件名</h4><p>全部采用小写方式， 优先选择单个单词命名，多个单词命名以<strong>下划线</strong>分隔。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">|- error_report.<span class="property">html</span></span><br><span class="line">|- success_report.<span class="property">html</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="CSS-文件名"><a href="#CSS-文件名" class="headerlink" title="CSS 文件名"></a>CSS 文件名</h4><p>全部采用小写方式， 优先选择单个单词命名，多个单词命名以<strong>短横线</strong>分隔。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">|- normalize.<span class="property">less</span></span><br><span class="line">|- base.<span class="property">less</span></span><br><span class="line">|- date-picker.<span class="property">scss</span></span><br><span class="line">|- input-number.<span class="property">scss</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="js-ts文件名"><a href="#js-ts文件名" class="headerlink" title="js/ts文件名"></a>js/ts文件名</h4><p>全部采用小写方式， 优先选择单个单词命名，多个单词命名以<strong>短横线</strong>分隔。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">|- index.<span class="property">js</span></span><br><span class="line">|- plugin.<span class="property">js</span></span><br><span class="line">|- util.<span class="property">js</span></span><br><span class="line">|- date-util.<span class="property">js</span></span><br><span class="line">|- account-model.<span class="property">js</span></span><br><span class="line">|- collapse-transition.<span class="property">js</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>上述规则可以快速记忆为“静态文件下划线，编译文件短横线”。</p>
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>1.需要特定环境开发的移动端，无法边改边看</p>
+<p>2.需要特定环境开发的移动端，无法debug</p>
+<p>3.需要真机调试</p>
+<p>3.特定机型才能复现的bug</p>
+<h2 id="针对开发："><a href="#针对开发：" class="headerlink" title="针对开发："></a>针对开发：</h2><h3 id="1、hosts"><a href="#1、hosts" class="headerlink" title="1、hosts"></a>1、hosts</h3><blockquote>
+<p>IP地址要放在每段的最前面，映射的Host name（主机名）在IP后面，中间用空格分隔。对于这段的映射说明，用“#”分割后用文字说明。<br>　　例如：72.14.219.190 <a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a> 就是将域名<a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a> 解析到IP地址72.14.219.190。</p>
 </blockquote>
+<h4 id="window"><a href="#window" class="headerlink" title="window"></a>window</h4><p>1、在Windows10系统桌面，右键点击弹出菜单中的“运行”菜单项。（可以直接使用Win+R组合快捷键，快速打开）</p>
+<p>2、键入hosts文件路径：C:\WINDOWS\system32\drivers\etc 完成后，点击下方的“确定”打开，如图。</p>
+<p><img src="https://img.hellohl.com/201511020939281-20210617140518014.jpg" alt="Win10怎么修改hosts文件 Win10系统hosts修改不了解决办法"></p>
+<p>3、 找到hosts文件，打开方式中选择使用记事本（部分会有权限提示）</p>
+<p><img src="https://img.hellohl.com/201511020939293-20210617140527093.jpg" alt="Win10怎么修改hosts文件 Win10系统hosts修改不了解决办法"></p>
+<p><img src="https://img.hellohl.com/201511020939297.jpg" alt="Win10怎么修改hosts文件 Win10系统hosts修改不了解决办法"></p>
+<h4 id="Mac"><a href="#Mac" class="headerlink" title="Mac"></a>Mac</h4><p>1、打开终端，输入cd /etc</p>
+<p>2、 输入ls即可找到hosts文件，mac也同样需要权限，使用sudo vi hosts命令，输入密码即可</p>
+<p><img src="https://img.hellohl.com/image-20210617135431893.png" alt="image-20210617135431893"></p>
+<h4 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h4><p>无需使用其他插件，电脑自带，随时可调试</p>
+<p>针对全局有效</p>
+<h4 id="弊端"><a href="#弊端" class="headerlink" title="弊端"></a>弊端</h4><p>无法使用端口代理</p>
+<h3 id="针对调试"><a href="#针对调试" class="headerlink" title="针对调试"></a>针对调试</h3><h4 id="1、vconsole"><a href="#1、vconsole" class="headerlink" title="1、vconsole"></a>1、vconsole</h4><p>添加：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i vconsole</span><br></pre></td></tr></table></figure>
+
+<p>使用：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span>  <span class="title class_">VConsole</span>  <span class="keyword">from</span>  <span class="string">&#x27;vconsole&#x27;</span>;</span><br><span class="line"><span class="keyword">let</span> vConsole = <span class="keyword">new</span> <span class="title class_">VConsole</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;test&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img.hellohl.com/ce8de5ac7c28f57499d8daec9b2d5f0a.gif" alt="在这里插入图片描述"></p>
+<h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><p>无需依靠其他设备，随时随地调试</p>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><p>1、需提前打印log</p>
+<p>2、插件会被打进项目中</p>
+<p>3、需要额外编写启动代码</p>
+<p>4、无法调试样式</p>
+<h3 id="2、chorme"><a href="#2、chorme" class="headerlink" title="2、chorme"></a>2、chorme</h3><h4 id="安卓"><a href="#安卓" class="headerlink" title="安卓"></a>安卓</h4><p>1、手机打开开发者模式，开启USB调试</p>
+<p>2、调试微信webview需要在微信里打开debugx5.qq.com，切换到信息tab，勾选【打开TBS内核Inspector调试功能】</p>
+<p>3、电脑chrome浏览器打开chrome://inspect/#devices</p>
+<p><img src="https://img.hellohl.com/70.png" alt="img"></p>
+<p>4、 点击inspect即可调试（需翻墙）</p>
+<p>5、针对自有APP内嵌页面，需Android同事协助打开Webview调试</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">webView.setWebContentsDebuggingEnabled(<span class="literal">true</span>);	</span><br></pre></td></tr></table></figure>
+
+<h4 id="iOS"><a href="#iOS" class="headerlink" title="iOS"></a>iOS</h4><p>1、设置手机safari  设置-》safari-》高级-》打开web检查器 （授权调试功能）</p>
+<img src="https://img.hellohl.com/20210617142456" alt="img" style="zoom:50%;" />
+
+<p>2、打开Safari偏好者设置，选中“高级菜单”，在页面最下方看到“在菜单中显示开发菜单”的复选框，在复选框内打钩，这样设置完毕就能在Safari菜单中看到开发菜单</p>
+<p><img src="https://img.hellohl.com/20210617142157" alt="img"></p>
+<p>3、iPhone连接到mac上，打开Safari浏览器，运行手机app里面的web页面，在开发菜单中选择连接的手机，找到调试的网页，就能在Safari里面调试了</p>
+<p><img src="https://img.hellohl.com/20210617142249" alt="img"></p>
+<h4 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h4><p>常用浏览器调试工具都有</p>
+<h4 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h4><p>1、调试微信webview需要在微信里设置</p>
+<p>2、调试自己的app需要移动端开发人员进行设置</p>
+<p>3、ios应用需要safari进行调试</p>
+<p>4、ios应用只能调试用Xcode编译安装的应用</p>
+<h3 id="3、抓包调试"><a href="#3、抓包调试" class="headerlink" title="3、抓包调试"></a>3、抓包调试</h3><p>使用fiddler、charles等工具</p>
+<h3 id="4、微信开发者工具"><a href="#4、微信开发者工具" class="headerlink" title="4、微信开发者工具"></a>4、微信开发者工具</h3><p><img src="https://img.hellohl.com/20210617143020.png" alt="image-20210617143020347"></p>
+<p>优点：</p>
+<p>1、能详细查看微信问题</p>
+<p>2、自带chrome调试工具</p>
+<p>缺点：</p>
+<p>1、需要配置开发权限</p>
+<p>2、只能调试微信授权页面</p>
+<h3 id="5、whistle（-官方文档-）"><a href="#5、whistle（-官方文档-）" class="headerlink" title="5、whistle（ 官方文档 ）"></a>5、whistle（ <a target="_blank" rel="noopener" href="http://wproxy.org/whistle/">官方文档</a> ）</h3><p>1、全局安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install -g whistle</span><br><span class="line">w2 start</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img.hellohl.com/20210617143353.png" alt="image-20210617143353835"></p>
+<p>2、下载浏览器插件</p>
+<p><a target="_blank" rel="noopener" href="https://chrome.google.com/webstore/detail/whistle-%E7%AC%AC%E4%B8%89%E6%96%B9%E6%8F%92%E4%BB%B6/ibhpjiafjijjpofblhamncmhlicfcofm">https://chrome.google.com/webstore/detail/whistle-%E7%AC%AC%E4%B8%89%E6%96%B9%E6%8F%92%E4%BB%B6/ibhpjiafjijjpofblhamncmhlicfcofm</a></p>
+<p><img src="https://img.hellohl.com/20210617143515.png"></p>
+<p>3、我们最常使用的就是NetWork 和 Rules 功能了, 其中NetWork是查看抓包，而Rules是设置代理，下面我以一个移动端活动为例，介绍一下whistle的使用：</p>
+<p>首先创建自己的代理规则</p>
+<p><img src="https://img.hellohl.com/20210618105437.png" alt="image-20210618105436987"></p>
+<p>4、匹配规则</p>
+<p>基本匹配:</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 匹配域名www.qq.com下的所有请求</span></span><br><span class="line">www.qq.com operatorURI</span><br><span class="line"></span><br><span class="line"><span class="comment"># 匹配域名www.qq.com下的所有http请求</span></span><br><span class="line">http:<span class="regexp">//</span>www.qq.com operatorURI</span><br><span class="line"></span><br><span class="line"><span class="comment"># 匹配域名www.qq.com下的所有https请求</span></span><br><span class="line">https:<span class="regexp">//</span>www.qq.com operatorURI</span><br><span class="line"></span><br><span class="line"><span class="comment"># 限定域名的端口号</span></span><br><span class="line">www.qq.com:<span class="number">8888</span> operatorURI <span class="comment"># 8888端口</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#限定具体路径</span></span><br><span class="line">http:<span class="regexp">//</span>www.qq.com/xxx operatorURI</span><br><span class="line"></span><br><span class="line"><span class="comment"># 精确匹配 ， 以$符号开头</span></span><br><span class="line"><span class="variable">$http</span>:<span class="regexp">//</span>www.qq.com/xxx operatorURI</span><br></pre></td></tr></table></figure>
+
+<p> 正则匹配：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/http:\/\/(.*)/</span>  log:<span class="regexp">//</span></span><br></pre></td></tr></table></figure>
+
+<p>通配符匹配</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 通配符匹配，以 ^ 开头(如果需要限制结束位置可以用 $)，* 为通配符</span></span><br><span class="line"></span><br><span class="line">^www.example.com<span class="regexp">/test/</span>***   operatorURI</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 通配域名匹配：</span></span><br><span class="line"><span class="comment"># 匹配二级域名以 .com 结尾的所有url，如: test.com, abc.com，但不包含 *.xxx.com</span></span><br><span class="line">*.com   operatorURI</span><br><span class="line"><span class="regexp">//</span>*.com  operatorURI</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 通配路径匹配：</span></span><br><span class="line"><span class="comment"># 对所有域名对应的路径 protocol://a.b.c/xxx[/yyy]都生效</span></span><br><span class="line">*/  operatorURI</span><br><span class="line">*/xxx  operatorURI</span><br></pre></td></tr></table></figure>
+
+<p>5、移动端抓包</p>
+<p>​        a、保证手机电脑在同一网络下</p>
+<p>​        b、通过浏览器插件查看ip地址和端口号</p>
+<p><img src="https://img.hellohl.com/20210621144018.png" alt="image-20210621144018006"></p>
+<p>​        c、在手机端设置代理</p>
+<p><img src="https://img.hellohl.com/20210621144140.png" alt="image-20210621144140165"></p>
+<p>6、打开浏览器插件，查看请求及相应log</p>
+<p><img src="https://img.hellohl.com/20210621144303.png" alt="image-20210621144303091"></p>
 
        -->
       
@@ -408,9 +734,9 @@
             
             
                 
-                <p><h4 id="项目名"><a href="#项目名" class="headerlink" title="项目名"></a>项目名</h4><p>全部采用小写方式， 以<strong>短横线</strong>分隔。例：<code>my-project-name</code>。</p>
-<h4 id="目录名"><a href="#目录名" class="headerlink" title="目录名"></a>目录名</h4><p><strong>参照项目命名规则，有复数结构时，要采用复数命名法</strong>。例：docs、assets、components、directives、mixins、utils、views。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">my-project-name/</span><br><span class="line">|- docs           <span class="comment">// 项目的细化文档目录（可选）</span></span><br><span class="line">|- node_modules   <span class="comment">// 下载的依赖包</span></span><br><span class="line">|- public         <span class="comment">// 静态页面目录</span></span><br><span class="line">    |- index.<span class="property">html</span> <span class="comment">// 项目入口</span></span><br><span class="line">|- src            <span class="comment">// 源码目录</span></span><br><span class="line">    |- api        <span class="comment">// http 请求目录</span></span><br><span class="line">    |- assets     <span class="comment">// 静态资源目录，这里的资源会被wabpack构建</span></span><br><span class="line">        |- icon   <span class="comment">// icon 存放目录</span></span><br><span class="line">        |- img    <span class="comment">// 图片存放目录</span></span><br><span class="line">        |- js     <span class="comment">// 公共 js 文件目录</span></span><br><span class="line">        |- scss   <span class="comment">// 公共样式 scss 存放目录</span></span><br><span class="line">            |- frame.<span class="property">scss</span>   <span class="comment">// 入口文件</span></span><br><span class="line">            |- <span class="variable language_">global</span>.<span class="property">scss</span>  <span class="comment">// 公共样式</span></span><br><span class="line">            |- reset.<span class="property">scss</span>   <span class="comment">// 重置样式</span></span><br><span class="line">    |- components     <span class="comment">// 组件</span></span><br><span class="line">    |- plugins        <span class="comment">// 插件</span></span><br><span class="line">    |- router         <span class="comment">// 路由</span></span><br><span class="line">    |- routes         <span class="comment">// 详细的路由拆分目录（可选）</span></span><br><span class="line">        |- index.<span class="property">js</span></span><br><span class="line">    |- store          <span class="comment">// 全局状态管理</span></span><br><span class="line">    |- utils          <span class="comment">// 工具存放目录</span></span><br><span class="line">        |- request.<span class="property">js</span> <span class="comment">// 公共请求工具</span></span><br><span class="line">    |- views          <span class="comment">// 页面存放目录</span></span><br><span class="line">    |- <span class="title class_">App</span>.<span class="property">vue</span>        <span class="comment">// 根组件</span></span><br><span class="line">    |- main.<span class="property">js</span>        <span class="comment">// 入口文件</span></span><br><span class="line">    |- tests          <span class="comment">// 测试用例</span></span><br><span class="line">    |- .<span class="property">browserslistrc</span><span class="comment">// 浏览器兼容配置文件</span></span><br><span class="line">    |- .<span class="property">editorconfig</span>  <span class="comment">// 编辑器配置文件</span></span><br><span class="line">    |- .<span class="property">eslintignore</span>  <span class="comment">// eslint 忽略规则</span></span><br><span class="line">    |- .<span class="property">eslintrc</span>.<span class="property">js</span>   <span class="comment">// eslint 规则</span></span><br><span class="line">    |- .<span class="property">gitignore</span>     <span class="comment">// git 忽略规则</span></span><br><span class="line">    |- babel.<span class="property">config</span>.<span class="property">js</span> <span class="comment">// babel 规则</span></span><br><span class="line">    |- <span class="title class_">Dockerfile</span> <span class="comment">// Docker 部署文件</span></span><br><span class="line">    |- package-lock.<span class="property">json</span></span><br><span class="line">    |- package.<span class="property">json</span> <span class="comment">// 依赖</span></span><br><span class="line">    |- <span class="variable constant_">README</span>.<span class="property">md</span> <span class="comment">// 项目 README</span></span><br><span class="line">    |- vue.<span class="property">config</span>.<span class="property">js</span> <span class="comment">// webpack 配置</span></span><br></pre></td></tr></table></figure>
+                <p><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>1.需要特定环境开发的移动端，无法边改边看</p>
+<p>2.需要特定环境开发的移动端，无法debug</p>
+<p>3.需要真机调试</p>
 <p>
             
         
@@ -420,11 +746,30 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">移动端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">调试</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">debug</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2022/08/21/%E5%89%8D%E7%AB%AF%E7%A0%94%E5%8F%91%E8%A7%84%E8%8C%83/%E9%A1%B9%E7%9B%AE%E6%96%87%E4%BB%B6%E5%91%BD%E5%90%8D/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/06/20/%E5%B7%A5%E5%85%B7%E6%8A%80%E5%B7%A7/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/">展开全文 >></a>
         </p>
       
 
@@ -454,49 +799,32 @@
 
 
   
-    <article id="post-前端研发规范/组件命名规范" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-node/获取git信息" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/05/10/node/%E8%8E%B7%E5%8F%96git%E4%BF%A1%E6%81%AF/">获取git信息</a>
+    </h1>
+  
+
+        
+        <a href="/2021/05/10/node/%E8%8E%B7%E5%8F%96git%E4%BF%A1%E6%81%AF/" class="archive-article-date">
+  	<time datetime="2021-05-10T03:14:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-10</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       <!-- 
-        <h3 id="组件拓展名"><a href="#组件拓展名" class="headerlink" title="组件拓展名"></a>组件拓展名</h3><p>如果使用 Vue，则文件扩展名为 <code>.vue</code>；如果使用 JavaScript，则文件扩展名为 <code>.js</code>；如果使用 <code>TypeScript</code>，则文件扩展名为 <code>.tx</code>，同一目录下不得拥有同名的不同拓展名文件。在使用模块导入时，倾向于不添加后缀。如果存在同名但不同后缀的文件，构建工具将无法决定哪一个是需要引入的模块。</p>
-<h3 id="组件文件名"><a href="#组件文件名" class="headerlink" title="组件文件名"></a>组件文件名</h3><p><strong>组件名为多个单词</strong></p>
-<p><strong>组件名应该始终是多个单词的，根组件 <code>App</code> 以及 <code>&lt;transition&gt;</code>、<code>&lt;component&gt;</code> 之类的 Vue 内置组件除外。</strong></p>
-<p>这样做可以避免跟现有的以及未来的 HTML 元素<a target="_blank" rel="noopener" href="https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name">相冲突</a>，因为所有的 HTML 元素名称都是单个单词的。</p>
-<h4 id="单文件组件"><a href="#单文件组件" class="headerlink" title="单文件组件"></a>单文件组件</h4><blockquote>
-<p>我们单纯的遵循每个语言的约定。在 JavaScript 中更自然的是 camelCase。而在 HTML 中则是 kebab-case。</p>
-</blockquote>
-<p>单文件组件的文件名应该始终是kebab-case</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">components/</span><br><span class="line">|- my-component.<span class="property">vue</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">MyComponent</span> <span class="keyword">from</span> <span class="string">&#x27;./components/my-component.vue&#x27;</span></span><br></pre></td></tr></table></figure>
+        <p>使用child_process模块，此模块为node核心模块，不需要安装</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> execSync = <span class="built_in">require</span>(<span class="string">&#x27;child_process&#x27;</span>).<span class="property">execSync</span>; *<span class="comment">//同步子进程*</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> versionStr = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line"><span class="keyword">let</span> name = <span class="title function_">execSync</span>(<span class="string">&#x27;git show -s --format=%cn&#x27;</span>).<span class="title function_">toString</span>().<span class="title function_">trim</span>(); <span class="comment">//姓名</span></span><br><span class="line"><span class="keyword">let</span> email = <span class="title function_">execSync</span>(<span class="string">&#x27;git show -s --format=%ce&#x27;</span>).<span class="title function_">toString</span>().<span class="title function_">trim</span>(); <span class="comment">//邮箱</span></span><br><span class="line"><span class="keyword">let</span> date = <span class="keyword">new</span> <span class="title class_">Date</span>(<span class="title function_">execSync</span>(<span class="string">&#x27;git show -s --format=%cd&#x27;</span>).<span class="title function_">toString</span>()); <span class="comment">//日期</span></span><br><span class="line"><span class="keyword">let</span> message = <span class="title function_">execSync</span>(<span class="string">&#x27;git show -s --format=%s&#x27;</span>).<span class="title function_">toString</span>().<span class="title function_">trim</span>(); <span class="comment">//说明</span></span><br><span class="line">versionStr = <span class="string">`git:<span class="subst">$&#123;commit&#125;</span>\n作者:<span class="subst">$&#123;name&#125;</span>&lt;<span class="subst">$&#123;email&#125;</span>&gt;\n日期:<span class="subst">$&#123;date.getFullYear()+<span class="string">&#x27;-&#x27;</span>+(date.getMonth()+<span class="number">1</span>)+<span class="string">&#x27;-&#x27;</span>+date.getDate()+<span class="string">&#x27; &#x27;</span>+date.getHours()+<span class="string">&#x27;:&#x27;</span>+date.getMinutes()&#125;</span>\n说明:<span class="subst">$&#123;message&#125;</span>\n<span class="subst">$&#123;<span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">80</span>).join(<span class="string">&#x27;*&#x27;</span>)&#125;</span>\n<span class="subst">$&#123;versionStr&#125;</span>`</span>;</span><br></pre></td></tr></table></figure>
 
-<p>使用时cep-ui是横线连接 (kebab-case)<br>业务中是大驼峰写法</p>
-<p><strong>没有内容的组件应该是自闭合的</strong></p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">//</span> cep-ui中</span><br><span class="line">&lt;cep-component /&gt;</span><br><span class="line"><span class="regexp">//</span> 业务中</span><br><span class="line">&lt;MyComponent /&gt;</span><br></pre></td></tr></table></figure>
+<p>获取git指定信息方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">git show -s --format=以下的代码</span><br><span class="line">如： git show -s --format=%cn</span><br><span class="line">%<span class="attr">H</span>: commit hash</span><br><span class="line">%<span class="attr">h</span>: 缩短的commit hash</span><br><span class="line">%<span class="attr">T</span>: tree hash</span><br><span class="line">%<span class="attr">t</span>: 缩短的 tree hash</span><br><span class="line">%<span class="attr">P</span>: parent hashes</span><br><span class="line">%<span class="attr">p</span>: 缩短的 parent hashes</span><br><span class="line">%<span class="attr">an</span>: 作者名字</span><br><span class="line">%<span class="attr">aN</span>: mailmap的作者名字 (.<span class="property">mailmap</span>对应，详情参照git-<span class="title function_">shortlog</span>(<span class="number">1</span>)或者git-<span class="title function_">blame</span>(<span class="number">1</span>))</span><br><span class="line">%<span class="attr">ae</span>: 作者邮箱</span><br><span class="line">%<span class="attr">aE</span>: 作者邮箱 (.<span class="property">mailmap</span>对应，详情参照git-<span class="title function_">shortlog</span>(<span class="number">1</span>)或者git-<span class="title function_">blame</span>(<span class="number">1</span>))</span><br><span class="line">%<span class="attr">ad</span>: 日期 (--date= 制定的格式)</span><br><span class="line">%<span class="attr">aD</span>: 日期, <span class="title class_">RFC2822</span>格式</span><br><span class="line">%<span class="attr">ar</span>: 日期, 相对格式(<span class="number">1</span> day ago)</span><br><span class="line">%<span class="attr">at</span>: 日期, <span class="variable constant_">UNIX</span> timestamp</span><br><span class="line">%<span class="attr">ai</span>: 日期, <span class="variable constant_">ISO</span> <span class="number">8601</span> 格式</span><br><span class="line">%<span class="attr">cn</span>: 提交者名字</span><br><span class="line">%<span class="attr">cN</span>: 提交者名字 (.<span class="property">mailmap</span>对应，详情参照git-<span class="title function_">shortlog</span>(<span class="number">1</span>)或者git-<span class="title function_">blame</span>(<span class="number">1</span>))</span><br><span class="line">%<span class="attr">ce</span>: 提交者 email</span><br><span class="line">%<span class="attr">cE</span>: 提交者 email (.<span class="property">mailmap</span>对应，详情参照git-<span class="title function_">shortlog</span>(<span class="number">1</span>)或者git-<span class="title function_">blame</span>(<span class="number">1</span>))</span><br><span class="line">%<span class="attr">cd</span>: 提交日期 (--date= 制定的格式)</span><br><span class="line">%<span class="attr">cD</span>: 提交日期, <span class="title class_">RFC2822</span>格式</span><br><span class="line">%<span class="attr">cr</span>: 提交日期, 相对格式(<span class="number">1</span> day ago)</span><br><span class="line">%<span class="attr">ct</span>: 提交日期, <span class="variable constant_">UNIX</span> timestamp</span><br><span class="line">%<span class="attr">ci</span>: 提交日期, <span class="variable constant_">ISO</span> <span class="number">8601</span> 格式</span><br><span class="line">%<span class="attr">d</span>: ref名称</span><br><span class="line">%<span class="attr">e</span>: encoding</span><br><span class="line">%<span class="attr">s</span>: commit信息标题</span><br><span class="line">%<span class="attr">f</span>: sanitized subject line, suitable <span class="keyword">for</span> a filename</span><br><span class="line">%<span class="attr">b</span>: commit信息内容</span><br><span class="line">%<span class="attr">N</span>: commit notes</span><br><span class="line">%<span class="attr">gD</span>: reflog selector, e.<span class="property">g</span>., refs/stash@&#123;<span class="number">1</span>&#125;</span><br><span class="line">%<span class="attr">gd</span>: shortened reflog selector, e.<span class="property">g</span>., stash@&#123;<span class="number">1</span>&#125;</span><br><span class="line">%<span class="attr">gs</span>: reflog subject</span><br><span class="line">%<span class="title class_">Cred</span>: 切换到红色</span><br><span class="line">%<span class="title class_">Cgreen</span>: 切换到绿色</span><br><span class="line">%<span class="title class_">Cblue</span>: 切换到蓝色</span><br><span class="line">%<span class="title class_">Creset</span>: 重设颜色</span><br><span class="line">%<span class="title function_">C</span>(...): 制定颜色, <span class="keyword">as</span> described <span class="keyword">in</span> color.<span class="property">branch</span>.* config option</span><br><span class="line">%<span class="attr">m</span>: left, right or boundary mark</span><br><span class="line">%<span class="attr">n</span>: 换行</span><br><span class="line">%%: a raw %</span><br><span class="line">%<span class="attr">x00</span>: print a byte <span class="keyword">from</span> a hex code</span><br><span class="line">%<span class="title function_">w</span>([[,[,]]]): <span class="keyword">switch</span> line wrapping, like the -w option <span class="keyword">of</span> git-<span class="title function_">shortlog</span>(<span class="number">1</span>).</span><br></pre></td></tr></table></figure>
 
-<p><strong>组件名应该倾向于完整单词而不是缩写，并且对于有约定俗称的单词，不得额外命名</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- bad --&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">my-wx</span> /&gt;</span></span></span><br><span class="line">&lt;!-- good --&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">my-weChat</span> /&gt;</span></span></span><br></pre></td></tr></table></figure>
-
-<h4 id="基础组件"><a href="#基础组件" class="headerlink" title="基础组件"></a>基础组件</h4><p><strong>应用特定样式和约定的基础组件 (也就是展示类的、无逻辑的或无状态的组件) 应该全部以一个特定的<code>base</code>前缀开头</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">components/</span><br><span class="line">|- <span class="title class_">BaseButton</span>.<span class="property">vue</span></span><br><span class="line">|- <span class="title class_">BaseTable</span>.<span class="property">vue</span></span><br><span class="line">|- <span class="title class_">BaseIcon</span>.<span class="property">vue</span></span><br><span class="line">|- baseXXX.<span class="property">js</span></span><br></pre></td></tr></table></figure>
-
-<p>这样做的几个好处：</p>
-<ul>
-<li><p>当你在编辑器中以字母顺序排序时，你的应用的基础组件会全部列在一起，这样更容易识别。</p>
-</li>
-<li><p>因为组件名应该始终是多个单词，所以这样做可以避免你在包裹简单组件时随意选择前缀 (比如 <code>MyButton</code>、<code>VueButton</code>)。</p>
-</li>
-<li><p>因为这些组件会被频繁使用，所以你可能想把它们放到全局而不是在各处分别导入它们。使用相同的前缀可以让 webpack 这样工作：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> requireComponent = <span class="built_in">require</span>.<span class="title function_">context</span>(<span class="string">&quot;./src&quot;</span>, <span class="literal">true</span>, <span class="regexp">/Base[A-Z]\w+\.(vue|js)$/</span>)</span><br><span class="line">requireComponent.<span class="title function_">keys</span>().<span class="title function_">forEach</span>(<span class="keyword">function</span> (<span class="params">fileName</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> baseComponentConfig = requireComponent(fileName)</span><br><span class="line">  baseComponentConfig = baseComponentConfig.<span class="property">default</span> || baseComponentConfig</span><br><span class="line">  <span class="keyword">var</span> baseComponentName = baseComponentConfig.<span class="property">name</span> || (</span><br><span class="line">    fileName</span><br><span class="line">      .<span class="title function_">replace</span>(<span class="regexp">/^.+\//</span>, <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">      .<span class="title function_">replace</span>(<span class="regexp">/\.\w+$/</span>, <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">  )</span><br><span class="line">  <span class="title class_">Vue</span>.<span class="title function_">component</span>(baseComponentName, baseComponentConfig)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h4 id="单例组件名"><a href="#单例组件名" class="headerlink" title="单例组件名"></a>单例组件名</h4><p><strong>只应该拥有单个活跃实例的组件应该以 <code>The</code> 前缀命名，以示其唯一性</strong></p>
-<p>这不意味着组件只可用于一个单页面，而是<em>每个页面</em>只使用一次。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">components/</span><br><span class="line">|- <span class="title class_">TheHeading</span>.<span class="property">vue</span></span><br><span class="line">|- <span class="title class_">TheSidebar</span>.<span class="property">vue</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="组件名中单词顺序"><a href="#组件名中单词顺序" class="headerlink" title="组件名中单词顺序"></a>组件名中单词顺序</h4><p><strong>组件名应该以高级别的 (通常是一般化描述的) 单词开头，以描述性的修饰词结尾。</strong></p>
-<p>因为编辑器通常会按字母顺序组织文件，所以现在组件之间的重要关系一目了然。如下组件主要是用于搜索和设置功能。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">components/</span><br><span class="line">|- <span class="title class_">SearchButtonClear</span>.<span class="property">vue</span></span><br><span class="line">|- <span class="title class_">SearchButtonRun</span>.<span class="property">vue</span></span><br><span class="line">|- <span class="title class_">SearchInputQuery</span>.<span class="property">vue</span></span><br><span class="line">|- <span class="title class_">SearchInputExcludeGlob</span>.<span class="property">vue</span></span><br><span class="line">|- <span class="title class_">SettingsCheckboxTerms</span>.<span class="property">vue</span></span><br><span class="line">|- <span class="title class_">SettingsCheckboxLaunchOnStartup</span>.<span class="property">vue</span></span><br></pre></td></tr></table></figure>
-
-<p>还有另一种多级目录的方式，把所有的搜索组件放到“search”目录，把所有的设置组件放到“settings”目录。我们只推荐在非常大型 (如有 100+ 个组件) 的应用下才考虑这么做，因为在多级目录间找来找去，要比在单个 components 目录下滚动查找要花费更多的精力。</p>
 
        -->
       
@@ -514,9 +842,9 @@
             
             
                 
-                <p><h3 id="组件拓展名"><a href="#组件拓展名" class="headerlink" title="组件拓展名"></a>组件拓展名</h3><p>如果使用 Vue，则文件扩展名为 <code>.vue</code>；如果使用 JavaScript，则文件扩展名为 <code>.js</code>；如果使用 <code>TypeScript</code>，则文件扩展名为 <code>.tx</code>，同一目录下不得拥有同名的不同拓展名文件。在使用模块导入时，倾向于不添加后缀。如果存在同名但不同后缀的文件，构建工具将无法决定哪一个是需要引入的模块。</p>
-<h3 id="组件文件名"><a href="#组件文件名" class="headerlink" title="组件文件名"></a>组件文件名</h3><p><strong>组件名为多个单词</strong></p>
-<p><strong>组件名应该始终是多个单词的，根组件 <code>App</code> 以及 <code>&lt;transition&gt;</code>、<code>&lt;component&gt;</code> 之类的 Vue 内置组件除外。</strong></p>
+                <p><p>使用child_process模块，此模块为node核心模块，不需要安装</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> execSync = <span class="built_in">require</span>(<span class="string">&#x27;child_process&#x27;</span>).<span class="property">execSync</span>; *<span class="comment">//同步子进程*</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> versionStr = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line"><span class="keyword">let</span> name = <span class="title function_">execSync</span>(<span class="string">&#x27;git show -s --format=%cn&#x27;</span>).<span class="title function_">toString</span>().<span class="title function_">trim</span>(); <span class="comment">//姓名</span></span><br><span class="line"><span class="keyword">let</span> email = <span class="title function_">execSync</span>(<span class="string">&#x27;git show -s --format=%ce&#x27;</span>).<span class="title function_">toString</span>().<span class="title function_">trim</span>(); <span class="comment">//邮箱</span></span><br><span class="line"><span class="keyword">let</span> date = <span class="keyword">new</span> <span class="title class_">Date</span>(<span class="title function_">execSync</span>(<span class="string">&#x27;git show -s --format=%cd&#x27;</span>).<span class="title function_">toString</span>()); <span class="comment">//日期</span></span><br><span class="line"><span class="keyword">let</span> message = <span class="title function_">execSync</span>(<span class="string">&#x27;git show -s --format=%s&#x27;</span>).<span class="title function_">toString</span>().<span class="title function_">trim</span>(); <span class="comment">//说明</span></span><br><span class="line">versionStr = <span class="string">`git:<span class="subst">$&#123;commit&#125;</span>\n作者:<span class="subst">$&#123;name&#125;</span>&lt;<span class="subst">$&#123;email&#125;</span>&gt;\n日期:<span class="subst">$&#123;date.getFullYear()+<span class="string">&#x27;-&#x27;</span>+(date.getMonth()+<span class="number">1</span>)+<span class="string">&#x27;-&#x27;</span>+date.getDate()+<span class="string">&#x27; &#x27;</span>+date.getHours()+<span class="string">&#x27;:&#x27;</span>+date.getMinutes()&#125;</span>\n说明:<span class="subst">$&#123;message&#125;</span>\n<span class="subst">$&#123;<span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">80</span>).join(<span class="string">&#x27;*&#x27;</span>)&#125;</span>\n<span class="subst">$&#123;versionStr&#125;</span>`</span>;</span><br></pre></td></tr></table></figure>
+
 <p>
             
         
@@ -526,11 +854,26 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">node</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2022/08/21/%E5%89%8D%E7%AB%AF%E7%A0%94%E5%8F%91%E8%A7%84%E8%8C%83/%E7%BB%84%E4%BB%B6%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/05/10/node/%E8%8E%B7%E5%8F%96git%E4%BF%A1%E6%81%AF/">展开全文 >></a>
         </p>
       
 
@@ -560,255 +903,66 @@
 
 
   
-    <article id="post-前端研发规范/命名规范" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-VUE源码学习/Vue源码学习第二期——Vue-的构造函数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
-    <div class="article-entry" itemprop="articleBody">
-      <!-- 
-        <p>市面上常用的命名规范：</p>
-<ul>
-<li><code>camelCase</code>（小驼峰式命名法 —— 首字母小写）</li>
-<li><code>PascalCase</code>（大驼峰式命名法 —— 首字母大写）</li>
-<li><code>kebab-case</code>（短横线连接式）</li>
-<li><code>Snake</code>（下划线连接式）</li>
-</ul>
-<h4 id="name"><a href="#name" class="headerlink" title="name"></a>name</h4><p><strong>组件名应该始终是多个单词，应该始终是 PascalCase 的。</strong> 根组件 App 以及 、 之类的 Vue 内置组件除外。这样做可以避免跟现有的以及未来的 HTML 元素相冲突，因为所有的 HTML 元素名称都是单个单词的。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;ToDoList&#x27;</span>,</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h4><p>命名方法：全部大写下划线分割</p>
-<p>命名规范：使用大写字母和下划线来组合命名，下划线用以分割单词</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="variable constant_">MAX_COUNT</span> = <span class="number">10</span></span><br><span class="line"><span class="keyword">const</span> <span class="variable constant_">URL</span> = <span class="string">&#x27;http://test.host.com&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h4><p>命名方法：全部大写下划线分割</p>
-<p>命名规范：使用大写字母和下划线来组合命名，下划线用以分割单词</p>
-<blockquote>
-<p>枚举应统一管理，并保持全局唯一，不可出现魔法数字</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="variable constant_">MARKET_TYPE</span> = &#123;</span><br><span class="line">  <span class="number">1</span>: <span class="string">&#x27;file&#x27;</span>,</span><br><span class="line">  <span class="number">2</span>: <span class="string">&#x27;video&#x27;</span>,</span><br><span class="line">  <span class="number">3</span>: <span class="string">&#x27;poster&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h4 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h4><p>命名方法：camelCase</p>
-<p>命名规范：类型 + 对象描述或属性的方式</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">var</span> getTitle = <span class="string">&quot;LoginTable&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">let</span> tableTitle = <span class="string">&quot;LoginTable&quot;</span></span><br><span class="line"><span class="keyword">let</span> mySchool = <span class="string">&quot;我的学校&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="Prop-名大小写"><a href="#Prop-名大小写" class="headerlink" title="Prop 名大小写"></a>Prop 名大小写</h4><p><strong>在声明 prop 的时候，其命名应该始终使用 camelCase，而在模板和 <a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/render-function.html#JSX">JSX</a> 中应该始终使用 kebab-case。</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">props</span>: &#123;</span><br><span class="line">  <span class="attr">greetingText</span>: <span class="title class_">String</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;welcome-message greeting-text=<span class="string">&quot;hi&quot;</span>/&gt;</span><br></pre></td></tr></table></figure>
-
-<h4 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h4><p>命名方法：camelCase</p>
-<p>命名规范：统一使用动词或者动词 + 名词形式</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line">go、nextPage、show、open、login</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line">jumpPage、openCarInfoDialog</span><br></pre></td></tr></table></figure>
-
-
-<h4 id="计算方法-computed"><a href="#计算方法-computed" class="headerlink" title="计算方法(computed)"></a>计算方法(computed)</h4><p>根据使用方法，<code>get</code>或<code>set</code>开头命名</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取用户名称</span></span><br><span class="line">getUserName</span><br><span class="line"><span class="comment">// 设置用户名称</span></span><br><span class="line">setUserName</span><br></pre></td></tr></table></figure>
-
-<h4 id="监听方法（watch）"><a href="#监听方法（watch）" class="headerlink" title="监听方法（watch）"></a>监听方法（watch）</h4><p><code>watch</code> + 特定变量</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 监听value变化</span></span><br><span class="line">watchValue</span><br></pre></td></tr></table></figure>
-
-<h4 id="调用方法"><a href="#调用方法" class="headerlink" title="调用方法"></a>调用方法</h4><p>命名方法：camelCase</p>
-<p>命名规范：名称（可选）+ 动词</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 主动触发事件情况下，使用handle + 名称（可选）+ 动词形式</span></span><br><span class="line">handleChangeUserName</span><br><span class="line"></span><br><span class="line"><span class="comment">// 请求数据方法，以 data 结尾</span></span><br><span class="line">handleGetUserListData</span><br></pre></td></tr></table></figure>
-
-
-<h5 id="常用类型"><a href="#常用类型" class="headerlink" title="常用类型"></a>常用类型</h5><table>
-<thead>
-<tr>
-<th>动词</th>
-<th align="center">含义</th>
-<th>示例</th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>can</td>
-<td align="center">判断是否可执行某个动作</td>
-<td>canChange</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>has</td>
-<td align="center">判断是否有某个值</td>
-<td>hasDate</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>is</td>
-<td align="center">判断是否为某个值</td>
-<td>isShow</td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<h4 id="接口变量定义"><a href="#接口变量定义" class="headerlink" title="接口变量定义"></a>接口变量定义</h4><p>命名方法：camelCase<br>命名规范：接口意义（get,add,del,edit）+ 具体描述 + api</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取</span></span><br><span class="line">getUserDataApi</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-       -->
-      
+      <header class="article-header">
         
-            
-            
-                
-                
-            
-                
-                
-            
-                
-                
-            
-            
-                
-                <p><p>市面上常用的命名规范：</p>
-<ul>
-<li><code>camelCase</code>（小驼峰式命名法 —— 首字母小写）</li>
-<p>
-            
-        
-        
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/08/21/%E5%89%8D%E7%AB%AF%E7%A0%94%E5%8F%91%E8%A7%84%E8%8C%83/%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
-    <article id="post-前端研发规范/git规范" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      <!-- 
-        <p>分支命名规范：</p>
-<p>主分支命名：master</p>
-<p>开发分支命名： dev</p>
-<p>现在要开发一个版本，版本主分支命名：dev_version</p>
-<p>当前版本下的需求分支命名：feat_version_xxFunction</p>
-<p>线上bugfix分支命名：bugfix_version_xxFunction</p>
-<p>commit 规范<br>使用type+描述如： “feat: 增加一个新功能”</p>
-<p>type用于说明 commit 的提交性质</p>
-<p>值    描述<br>feat    新增一个功能<br>fix    修复一个Bug<br>docs    文档变更<br>style    代码格式（不影响功能，例如空格、分号等格式修正）<br>refactor    代码重构<br>perf    改善性能<br>test    测试<br>build    变更项目构建或外部依赖（例如scopes: webpack、gulp、npm等）<br>ci    更改持续集成软件的配置文件和package中的scripts命令，例如scopes: Travis, Circle等<br>chore    变更构建流程或辅助工具<br>revert    代码回退<br>版本开发流程</p>
-<p>领取分析需求，判断需要建立多少分支与需求对应。原则上要求每个需求都有单独的分支进行开发，开发完成后提交合并请求并入版本主分支</p>
-<p>拉取当前版本的分支，建立需求A对应的分支，feature_version_xxFunction</p>
-<p>开发调试完成，提交到本地commit。准备提交远程，如果版本分支已有别人提交的代码，需要先拉取远程分支与当前需求分支合并，处理冲突然后上传。</p>
-<p>上传完成后，在gitlab页面向版本主分支提交一个合并请求，合并请求审核通过后，可以在gitLab页面上进行合并。</p>
-<p>测试完成后，上线时以最终的dev_version分支为准，上线完成后，将dev_version分支合并入master分支，同时打上上线时间、上线环境的tag，版本开发流程结束。</p>
-<p>线上bug修复开发流程：</p>
-<p>根据当前环境，拉取对应升级节点tag的代码，以线上代码作为基准建立bugfix分支，bugfix-A。</p>
-<p>开发调试完成后，以bugfix分支作为测试分支，提交测试完成上线后，合并入master，打上tag，同步合并进现有的开发分支中。</p>
-<p>注意事项：</p>
-<p>开发新需求时，以需求为单位建立分支，同项目下多人协作的需求，应该使用同一个需求分支合作开发。</p>
-<p>如果基于的版本分支有更新，应该及时拉取更新处理冲突，需求处理完提交合并请求前，先合并基准分支，保证请求合并时不会有冲突。</p>
-<p>需求开发完成后，必须提交合并请求，审核通过后才能合并入主分支。</p>
-<p>常用的git操作示例</p>
-<p>假设现在当前版本分支为 dev_version ，需求为xxFunction，现在开始开发</p>
-<p>新建分支：<br>git checkout dev_version       // 检出dev_version分支<br>git fetch origin dev_version         // 拉取远程仓库dev_version最新的代码<br>git checkout -b feature_version_xxFunction      // 基于dev_version 新建分支<br>git push origin feature_version_xxFunction      // 将新建的分支推送到远程仓库<br>开发过程：<br>git add .    // 将工作区的修改保存待提交。<br>git commit -m “提交信息” // 将当前保存的修改整体作为一次commit进行提交，添加提交信息。此时本地的修改已经完成，等待推送到远程。<br>更新合并远程代码 ，如果commit在本地没有提交，使用rebase来合并其他代码，<br>git checkout dev_version    // 切换到当前版本分支<br>git pull    // 拉取远程代码<br>git checkout feature_version_xxFunction    // 切换到当前工作分支<br>git rebase dev_version    // 合并dev_version上的代码到当前工作分支<br>rebase过程中可能出现冲突，需要手动修改代码来处理冲突，处理完成后：<br>git add .<br>git rebase —continue<br>如果处理冲突出错需要退出合并：<br>git rebase —abort<br>如果本地的commit已经push到远程，采用merge方式来合并其他分支的代码<br>git merge dev_version<br>// merge中产生冲突，先add 再commit 用一次commit来处理合并冲突<br>合并完成后，本地代码目前是包含了主分支代码及自己的开发代码，推送到远程<br>git push origin feature_version_xxFunction<br>然后在gitLab上提交一个合并请求，表明当前需求你的开发工作已经完成，想要合并入当前版本主分支:</p>
-<p>Source branch 选择你当前开发的分支 Target branch 选择你想要合入的分支 提交审核后，可以直接在gitLab页面上选择合并，一般来说之前处理过冲突的话，这里合并不会再产生冲突了</p>
-<p>开发合并完成后，删除当前分支：<br>git checkout master   // 切换到其他分支，在当前分支时不能删除自身<br>git branch -d testBranch       // 删除本地分支<br>git push –delete origin testBranch     // 删除远程分支</p>
-
-       -->
-      
-        
-            
-            
-                
-                
-            
-                
-                
-            
-                
-                
-            
-            
-                
-                <p><p>分支命名规范：</p>
-<p>主分支命名：master</p>
-<p>开发分支命名： dev</p>
-<p>
-            
-        
-        
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/08/21/%E5%89%8D%E7%AB%AF%E7%A0%94%E5%8F%91%E8%A7%84%E8%8C%83/git%E8%A7%84%E8%8C%83/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/01/15/VUE%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/Vue%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%BA%8C%E6%9C%9F%E2%80%94%E2%80%94Vue-%E7%9A%84%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/">Vue源码学习第二期——Vue-的构造函数</a>
+    </h1>
   
-    <article id="post-前端研发规范/eslint规范" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+
+        
+        <a href="/2021/01/15/VUE%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/Vue%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%BA%8C%E6%9C%9F%E2%80%94%E2%80%94Vue-%E7%9A%84%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/" class="archive-article-date">
+  	<time datetime="2021-01-15T06:58:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-15</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       <!-- 
-        <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   <span class="comment">// 要求使用扩展运算符而非 .apply()</span></span><br><span class="line">   <span class="string">&quot;prefer-spread&quot;</span>: <span class="string">&quot;off&quot;</span>,</span><br><span class="line">   <span class="string">&#x27;@typescript-eslint/no-var-requires&#x27;</span>: <span class="number">0</span>,</span><br><span class="line">   <span class="comment">// 禁止出现未使用过的变量</span></span><br><span class="line">   <span class="string">&quot;no-unused-vars&quot;</span>: <span class="string">&quot;off&quot;</span>,</span><br><span class="line">   <span class="string">&quot;@typescript-eslint/no-unused-vars&quot;</span>: <span class="string">&quot;off&quot;</span>,</span><br><span class="line">   <span class="comment">// 关闭要求使用 const 声明那些声明后不再被修改的变量</span></span><br><span class="line">   <span class="string">&quot;prefer-const&quot;</span>: <span class="string">&#x27;off&#x27;</span>,</span><br><span class="line">   <span class="string">&#x27;@typescript-eslint/no-non-null-assertion&#x27;</span>: <span class="string">&#x27;off&#x27;</span>,</span><br><span class="line">   <span class="string">&quot;@typescript-eslint/no-explicit-any&quot;</span>: [<span class="string">&quot;off&quot;</span>],</span><br><span class="line">   <span class="comment">// 关闭强制使用骆驼拼写法命名约定</span></span><br><span class="line">   <span class="string">&quot;@typescript-eslint/camelcase&quot;</span>: [<span class="string">&quot;off&quot;</span>],</span><br><span class="line">   <span class="comment">// 禁用 tab</span></span><br><span class="line">   <span class="string">&#x27;no-tabs&#x27;</span>: <span class="number">0</span>,</span><br><span class="line">   <span class="comment">// 禁止空格和 tab 的混合缩进</span></span><br><span class="line">   <span class="string">&#x27;no-mixed-spaces-and-tabs&#x27;</span>: <span class="number">0</span>,</span><br><span class="line">   <span class="comment">// 禁用行尾空格</span></span><br><span class="line">   <span class="string">&#x27;no-trailing-spaces&#x27;</span>: <span class="number">0</span>,</span><br><span class="line">   <span class="comment">// 强制使用一致的缩进</span></span><br><span class="line">   <span class="string">&quot;indent&quot;</span>: [</span><br><span class="line">     <span class="string">&quot;error&quot;</span>,</span><br><span class="line">     <span class="number">2</span>,</span><br><span class="line">     &#123; <span class="string">&quot;SwitchCase&quot;</span>: <span class="number">1</span> &#125;</span><br><span class="line">   ],</span><br><span class="line">   <span class="comment">// 强制使用一致的反勾号、双引号或单引号</span></span><br><span class="line">   <span class="string">&quot;quotes&quot;</span>: [ <span class="string">&quot;error&quot;</span>, <span class="string">&quot;single&quot;</span> ],</span><br><span class="line">   <span class="comment">// 要求或禁止使用分号代替 ASI</span></span><br><span class="line">   <span class="string">&quot;semi&quot;</span>: [ <span class="string">&quot;error&quot;</span>, <span class="string">&quot;always&quot;</span> ],</span><br><span class="line">   <span class="comment">// 在逗号后需要一个或多个空格</span></span><br><span class="line">   <span class="string">&quot;comma-spacing&quot;</span>: [</span><br><span class="line">     <span class="string">&quot;error&quot;</span>,</span><br><span class="line">     &#123;</span><br><span class="line">       <span class="string">&quot;after&quot;</span>: <span class="literal">true</span></span><br><span class="line">     &#125;</span><br><span class="line">   ],</span><br><span class="line">   <span class="comment">// 禁止或强制在代码块中开括号前和闭括号后有空格</span></span><br><span class="line">   <span class="string">&quot;block-spacing&quot;</span>: [</span><br><span class="line">     <span class="string">&quot;error&quot;</span>,</span><br><span class="line">     <span class="string">&quot;never&quot;</span></span><br><span class="line">   ],</span><br><span class="line">   <span class="comment">// 强制在代码块中使用一致的大括号风格</span></span><br><span class="line">   <span class="string">&quot;brace-style&quot;</span>: [</span><br><span class="line">     <span class="string">&quot;error&quot;</span>,</span><br><span class="line">     <span class="string">&quot;1tbs&quot;</span></span><br><span class="line">   ],</span><br><span class="line">   <span class="comment">// 强制在关键字前后使用一致的空格</span></span><br><span class="line">   <span class="string">&quot;keyword-spacing&quot;</span>: [</span><br><span class="line">     <span class="string">&quot;error&quot;</span>,</span><br><span class="line">     &#123;</span><br><span class="line">       <span class="string">&quot;before&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">       <span class="string">&quot;after&quot;</span>: <span class="literal">true</span></span><br><span class="line">     &#125;</span><br><span class="line">   ],</span><br><span class="line">   <span class="comment">// 强制在对象字面量的属性中键和值之间使用一致的间距</span></span><br><span class="line">   <span class="string">&quot;key-spacing&quot;</span>: [</span><br><span class="line">     <span class="string">&quot;error&quot;</span>,</span><br><span class="line">     &#123;</span><br><span class="line">       <span class="string">&quot;beforeColon&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">       <span class="string">&quot;afterColon&quot;</span>: <span class="literal">true</span></span><br><span class="line">     &#125;</span><br><span class="line">   ],</span><br><span class="line">   <span class="comment">// 禁用行尾空格</span></span><br><span class="line">   <span class="string">&quot;no-trailing-spaces&quot;</span>: <span class="string">&quot;error&quot;</span>,</span><br><span class="line">   <span class="comment">// 强制在大括号中使用一致的空格</span></span><br><span class="line">   <span class="string">&quot;object-curly-spacing&quot;</span>: [</span><br><span class="line">     <span class="string">&quot;error&quot;</span>,</span><br><span class="line">     <span class="string">&quot;always&quot;</span></span><br><span class="line">   ],</span><br><span class="line">   <span class="comment">// 要求操作符周围有空格</span></span><br><span class="line">   <span class="string">&quot;space-infix-ops&quot;</span>: [<span class="string">&quot;error&quot;</span>, &#123; <span class="string">&quot;int32Hint&quot;</span>: <span class="literal">true</span> &#125;],</span><br><span class="line">   <span class="comment">// 强制在 function的左括号之前使用一致的空格</span></span><br><span class="line">   <span class="string">&quot;space-before-function-paren&quot;</span>: [</span><br><span class="line">     <span class="string">&#x27;error&#x27;</span>,</span><br><span class="line">     <span class="string">&quot;always&quot;</span></span><br><span class="line">   ],</span><br><span class="line">   <span class="comment">// 强制在圆括号内使用一致的空格</span></span><br><span class="line">   <span class="string">&quot;space-in-parens&quot;</span>: [</span><br><span class="line">     <span class="string">&quot;error&quot;</span>,</span><br><span class="line">     <span class="string">&quot;never&quot;</span></span><br><span class="line">   ],</span><br><span class="line">   <span class="comment">// 强制在块之前使用一致的空格</span></span><br><span class="line">   <span class="string">&quot;space-before-blocks&quot;</span>: [</span><br><span class="line">     <span class="string">&quot;error&quot;</span>,</span><br><span class="line">     <span class="string">&quot;always&quot;</span></span><br><span class="line">   ],</span><br><span class="line">   <span class="comment">// 关闭禁用 console</span></span><br><span class="line">   <span class="string">&quot;no-console&quot;</span>: <span class="string">&quot;off&quot;</span>,</span><br><span class="line">   <span class="comment">// 关闭禁止在 return、throw、continue 和 break 语句之后出现不可达代码</span></span><br><span class="line">   <span class="string">&quot;no-unreachable&quot;</span>: <span class="string">&quot;off&quot;</span>,</span><br><span class="line">   <span class="comment">// 禁止在变量定义之前使用它们</span></span><br><span class="line">   <span class="string">&quot;no-use-before-define&quot;</span>: [<span class="string">&quot;error&quot;</span>, &#123; <span class="string">&quot;functions&quot;</span>: <span class="literal">false</span>, <span class="string">&quot;classes&quot;</span>: <span class="literal">false</span> &#125;],</span><br><span class="line">   <span class="comment">// 禁止在正则表达式中使用控制字符</span></span><br><span class="line">   <span class="string">&quot;no-control-regex&quot;</span>: <span class="string">&quot;off&quot;</span>,</span><br><span class="line">   <span class="comment">// 关闭禁用 debugger</span></span><br><span class="line">   <span class="string">&quot;no-debugger&quot;</span>: <span class="string">&quot;off&quot;</span>,</span><br><span class="line">   <span class="comment">// 禁止 case 语句落空</span></span><br><span class="line">   <span class="string">&quot;no-fallthrough&quot;</span>: [<span class="string">&quot;error&quot;</span>, &#123; <span class="string">&quot;commentPattern&quot;</span>: <span class="string">&quot;break[\\s\\w]*omitted&quot;</span> &#125;],</span><br><span class="line">   <span class="comment">// 不需要强制使用全等</span></span><br><span class="line">   <span class="string">&quot;eqeqeq&quot;</span>: <span class="string">&quot;off&quot;</span></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-
-
+        <p>承上文，我们知道，我们可以使用npm run dev命令来运行项目。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;dev&quot;</span><span class="punctuation">:</span> <span class="string">&quot;rollup -w -c scripts/config.js --environment TARGET:web-full-dev&quot;</span><span class="punctuation">,</span></span><br></pre></td></tr></table></figure>
+<p>其中 -w 就是watch，-c 就是指定配置文件为 build/config.js，简单来说dev命令是rollup使用scripts/config.js的配置运行，并设置了一个变量TARGET的值为web-full-dev。<br>那么我们来看scripts/config.js中的代码</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (process<span class="selector-class">.env</span>.TARGET) &#123;</span><br><span class="line">  module<span class="selector-class">.exports</span> = <span class="built_in">genConfig</span>(process<span class="selector-class">.env</span>.TARGET)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  exports<span class="selector-class">.getBuild</span> = genConfig</span><br><span class="line">  exports<span class="selector-class">.getAllBuilds</span> = () =&gt; Object<span class="selector-class">.keys</span>(builds)<span class="selector-class">.map</span>(genConfig)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果有TARGET，那么将TARGET的值作为参数传入genConfig方法，我们继续看genConfig方法</p>
+<figure class="highlight roboconf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">function genConfig (name) &#123;</span><br><span class="line">  <span class="attribute">const opts = builds[name]</span></span><br><span class="line"><span class="attribute">  const config = &#123;</span></span><br><span class="line"><span class="attribute">    input</span>: opts<span class="variable">.entry</span>,</span><br><span class="line">    external: opts<span class="variable">.external</span>,</span><br><span class="line">    plugins: [</span><br><span class="line">      flow(),</span><br><span class="line">      alias(Object<span class="variable">.assign</span>(&#123;&#125;, aliases, opts<span class="variable">.alias</span>))</span><br><span class="line">    ]<span class="variable">.concat</span>(opts<span class="variable">.plugins</span> || []),</span><br><span class="line">    output: &#123;</span><br><span class="line">      file: opts<span class="variable">.dest</span>,</span><br><span class="line">      format: opts<span class="variable">.format</span>,</span><br><span class="line">      banner: opts<span class="variable">.banner</span>,</span><br><span class="line">      name: opts<span class="variable">.moduleName</span> || &#x27;Vue&#x27;</span><br><span class="line">    &#125;,</span><br><span class="line">    onwarn: (msg, warn) =&gt; &#123;</span><br><span class="line">      if (!/Circular/<span class="variable">.test</span>(msg)) &#123;</span><br><span class="line">        warn(msg)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"> // built-in vars</span><br><span class="line">  const vars = &#123;</span><br><span class="line">    __WEEX__: !!opts<span class="variable">.weex</span>,</span><br><span class="line">    __WEEX_VERSION__: weexVersion,</span><br><span class="line">    __VERSION__: version</span><br><span class="line">  &#125;</span><br><span class="line">  // feature flags</span><br><span class="line">  Object<span class="variable">.keys</span>(featureFlags)<span class="variable">.forEach</span>(key =&gt; &#123;</span><br><span class="line">    vars[`process<span class="variable">.env</span>.$&#123;key&#125;`] = featureFlags[key]</span><br><span class="line">  &#125;)</span><br><span class="line">  // build-specific env</span><br><span class="line">  if (opts<span class="variable">.env</span>) &#123;</span><br><span class="line">    vars[&#x27;process<span class="variable">.env</span><span class="variable">.NODE_ENV</span>&#x27;] = JSON<span class="variable">.stringify</span>(opts<span class="variable">.env</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  config<span class="variable">.plugins</span><span class="variable">.push</span>(replace(vars))</span><br><span class="line"></span><br><span class="line">  if (opts<span class="variable">.transpile</span> !== false) &#123;</span><br><span class="line">    config<span class="variable">.plugins</span><span class="variable">.push</span>(buble())</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  Object<span class="variable">.defineProperty</span>(config, &#x27;_name&#x27;, &#123;</span><br><span class="line">    enumerable: false,</span><br><span class="line">    value: name</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  return config</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看到，在genconfig中，使用传来的TARGET值（web-full-dev）从builds中获取参数，然后再定义一个相关的config参数。<br>从builds的定义中，我们可以知道获取到的数据为</p>
+<figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;web-full-dev&#x27;</span>: &#123;</span><br><span class="line">    entry: resolve(<span class="string">&#x27;web/entry-runtime-with-compiler.js&#x27;</span>),</span><br><span class="line">    dest: resolve(<span class="string">&#x27;dist/vue.js&#x27;</span>),</span><br><span class="line">    <span class="keyword">format</span>: <span class="string">&#x27;umd&#x27;</span>,</span><br><span class="line">    <span class="keyword">env</span>: <span class="string">&#x27;development&#x27;</span>,</span><br><span class="line">    <span class="keyword">alias</span>: &#123; he: <span class="string">&#x27;./entity-decoder&#x27;</span> &#125;,</span><br><span class="line">    banner</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>最终通过gencofig运行结果，我们可以知道，入口文件是</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">src<span class="regexp">/platforms/</span>web/web-<span class="keyword">runtime</span>-with-compiler.js</span><br></pre></td></tr></table></figure>
+<p>那么我们继续找这个文件，一进去，我们就发现我们要找到的东西了</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&#x27;./runtime/index&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>继续按照目录查找，这个文件还是一样的</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&#x27;core/index&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>依照此思路，最终我们寻找到Vue构造函数的位置应该是在 src/core/instance/index.js 文件中，其实我们看上节的目录分析，应该也可以知道，包含Vue构造函数设计相关的代码就是放在instance中。<br>那好，接下来，我们看正题</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">import &#123; initMixin &#125; from <span class="string">&#x27;./init&#x27;</span></span><br><span class="line">import &#123; stateMixin &#125; from <span class="string">&#x27;./state&#x27;</span></span><br><span class="line">import &#123; renderMixin &#125; from <span class="string">&#x27;./render&#x27;</span></span><br><span class="line">import &#123; eventsMixin &#125; from <span class="string">&#x27;./events&#x27;</span></span><br><span class="line">import &#123; lifecycleMixin &#125; from <span class="string">&#x27;./lifecycle&#x27;</span></span><br><span class="line">import &#123; warn &#125; from <span class="string">&#x27;../util/index&#x27;</span></span><br><span class="line"></span><br><span class="line">function Vue (options) &#123;</span><br><span class="line">  <span class="keyword">if</span> (process<span class="selector-class">.env</span><span class="selector-class">.NODE_ENV</span> !== <span class="string">&#x27;production&#x27;</span> &amp;&amp;</span><br><span class="line">    !(this instanceof Vue)</span><br><span class="line">  ) &#123;</span><br><span class="line">    <span class="built_in">warn</span>(<span class="string">&#x27;Vue is a constructor and should be called with the `new` keyword&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  this.<span class="built_in">_init</span>(options)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">initMixin</span><span class="params">(Vue)</span></span></span><br><span class="line"><span class="function"><span class="title">stateMixin</span><span class="params">(Vue)</span></span></span><br><span class="line"><span class="function"><span class="title">eventsMixin</span><span class="params">(Vue)</span></span></span><br><span class="line"><span class="function"><span class="title">lifecycleMixin</span><span class="params">(Vue)</span></span></span><br><span class="line"><span class="function"><span class="title">renderMixin</span><span class="params">(Vue)</span></span></span><br><span class="line"></span><br><span class="line">export default Vue</span><br></pre></td></tr></table></figure>
+<p>引入依赖，定义 Vue 构造函数，然后以Vue构造函数为参数，调用了五个方法，最后导出 Vue。这五个方法分别来自五个文件：init.js，state.js， render.js，events.js 以及 lifecycle.js<br>分别进入这五个文件，你会发现这都是在 Vue 的原型 prototype 上挂载方法或属性。</p>
+<p><strong>那么问题来了，为什么Vue使用的是function创建的构造函数而不是Class呢，原因是Vue 按功能把这些扩展分散到多个模块中去实现，⽽不是在⼀个模块⾥实现所有，这种⽅式是⽤ Class 难以实现的。这么做的好处是⾮常⽅便代码的维护和管理</strong></p>
+<p>方法挂载完成后是这样的：</p>
+<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">// initMixin(<span class="type">Vue</span>)    src/core/instance/init.js **************************************************</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>._init = function (options?: <span class="type">Object</span>) &#123;&#125;</span><br><span class="line"></span><br><span class="line">// stateMixin(<span class="type">Vue</span>)    src/core/instance/state.js **************************************************</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>.$data</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>.$set = set</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>.$delete = del</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>.$watch = function()&#123;&#125;</span><br><span class="line"></span><br><span class="line">// renderMixin(<span class="type">Vue</span>)    src/core/instance/render.js **************************************************</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>.$nextTick = function (fn: <span class="type">Function</span>) &#123;&#125;</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>._render = function (): <span class="type">VNode</span> &#123;&#125;</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>._s = _toString</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>._v = createTextVNode</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>._n = toNumber</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>._e = createEmptyVNode</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>._q = looseEqual</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>._i = looseIndexOf</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>._m = function()&#123;&#125;</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>._o = function()&#123;&#125;</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>._f = function resolveFilter (id) &#123;&#125;</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>._l = function()&#123;&#125;</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>._t = function()&#123;&#125;</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>._b = function()&#123;&#125;</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>._k = function()&#123;&#125;</span><br><span class="line"></span><br><span class="line">// eventsMixin(<span class="type">Vue</span>)    src/core/instance/events.js **************************************************</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>.$on = function (event: string, fn: <span class="type">Function</span>): <span class="type">Component</span> &#123;&#125;</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>.$once = function (event: string, fn: <span class="type">Function</span>): <span class="type">Component</span> &#123;&#125;</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>.$off = function (event?: string, fn?: <span class="type">Function</span>): <span class="type">Component</span> &#123;&#125;</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>.$emit = function (event: string): <span class="type">Component</span> &#123;&#125;</span><br><span class="line"></span><br><span class="line">// lifecycleMixin(<span class="type">Vue</span>)    src/core/instance/lifecycle.js **************************************************</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>._mount = function()&#123;&#125;</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>._update = function (vnode: <span class="type">VNode</span>, hydrating?: boolean) &#123;&#125;</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>._updateFromParent = function()&#123;&#125;</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>.$forceUpdate = function () &#123;&#125;</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>.$destroy = function () &#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>然后顺着我们刚来的路，再走回去，首先是‘src/core/index’，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">Vue</span> <span class="keyword">from</span> <span class="string">&#x27;./instance/index&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; initGlobalAPI &#125; <span class="keyword">from</span> <span class="string">&#x27;./global-api/index&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; isServerRendering &#125; <span class="keyword">from</span> <span class="string">&#x27;core/util/env&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">FunctionalRenderContext</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;core/vdom/create-functional-component&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="title function_">initGlobalAPI</span>(<span class="title class_">Vue</span>)</span><br><span class="line"></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(<span class="title class_">Vue</span>.<span class="property"><span class="keyword">prototype</span></span>, <span class="string">&#x27;$isServer&#x27;</span>, &#123;</span><br><span class="line">  <span class="attr">get</span>: isServerRendering</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(<span class="title class_">Vue</span>.<span class="property"><span class="keyword">prototype</span></span>, <span class="string">&#x27;$ssrContext&#x27;</span>, &#123;</span><br><span class="line">  get () &#123;</span><br><span class="line">    <span class="comment">/* istanbul ignore next */</span></span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">$vnode</span> &amp;&amp; <span class="variable language_">this</span>.<span class="property">$vnode</span>.<span class="property">ssrContext</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// expose FunctionalRenderContext for ssr runtime helper installation</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(<span class="title class_">Vue</span>, <span class="string">&#x27;FunctionalRenderContext&#x27;</span>, &#123;</span><br><span class="line">  <span class="attr">value</span>: <span class="title class_">FunctionalRenderContext</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="title class_">Vue</span>.<span class="property">version</span> = <span class="string">&#x27;__VERSION__&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">Vue</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>这个文件较为简单，在Vue挂载了globalAPI，在Vue原型prototype挂载了$isServer和$ssrContext，在 Vue 上挂载了 version 属性，监听FunctionalRenderContext。<br>经过initGlobalAPI挂载后，此时Vue的样子是：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/core/index.js / src/core/global-api/index.js</span></span><br><span class="line">Vue<span class="selector-class">.config</span></span><br><span class="line">Vue<span class="selector-class">.util</span> = util</span><br><span class="line">Vue<span class="selector-class">.set</span> = set</span><br><span class="line">Vue<span class="selector-class">.delete</span> = <span class="selector-tag">del</span></span><br><span class="line">Vue<span class="selector-class">.nextTick</span> = util<span class="selector-class">.nextTick</span></span><br><span class="line">Vue<span class="selector-class">.options</span> = &#123;</span><br><span class="line">    components: &#123;</span><br><span class="line">        KeepAlive</span><br><span class="line">    &#125;,</span><br><span class="line">    directives: &#123;&#125;,</span><br><span class="line">    filters: &#123;&#125;,</span><br><span class="line">    _base: Vue</span><br><span class="line">&#125;</span><br><span class="line">Vue<span class="selector-class">.use</span></span><br><span class="line">Vue<span class="selector-class">.mixin</span></span><br><span class="line">Vue<span class="selector-class">.cid</span> = <span class="number">0</span></span><br><span class="line">Vue<span class="selector-class">.extend</span></span><br><span class="line">Vue<span class="selector-class">.component</span> = <span class="built_in">function</span>()&#123;&#125;</span><br><span class="line">Vue<span class="selector-class">.directive</span> = <span class="built_in">function</span>()&#123;&#125;</span><br><span class="line">Vue<span class="selector-class">.filter</span> = <span class="built_in">function</span>()&#123;&#125;</span><br><span class="line"></span><br><span class="line">Vue<span class="selector-class">.prototype</span>.<span class="variable">$isServer</span></span><br><span class="line">Vue<span class="selector-class">.prototype</span>.<span class="variable">$ssrContext</span></span><br><span class="line">Vue<span class="selector-class">.version</span> = <span class="string">&#x27;__VERSION__&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>Vue.options可能稍微难理解一些，我们后续再进行分析。下一个就是 src/platforms/runtime/index.js 文件了，主要做了三件事儿</p>
+<p>1、覆盖 Vue.config 的属性，将其设置为平台特有的一些方法<br>2、Vue.options.directives 和 Vue.options.components 安装平台特有的指令和组件<br>3、在 Vue.prototype 上定义 <strong>patch</strong> 和 $mount</p>
+<p>这三件事情完成之后，Vue 变成下面这个样子：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 安装平台特定的utils</span></span><br><span class="line">Vue<span class="selector-class">.config</span><span class="selector-class">.isUnknownElement</span> = isUnknownElement</span><br><span class="line">Vue<span class="selector-class">.config</span><span class="selector-class">.isReservedTag</span> = isReservedTag</span><br><span class="line">Vue<span class="selector-class">.config</span><span class="selector-class">.getTagNamespace</span> = getTagNamespace</span><br><span class="line">Vue<span class="selector-class">.config</span><span class="selector-class">.mustUseProp</span> = mustUseProp</span><br><span class="line"><span class="comment">// 安装平台特定的 指令 和 组件</span></span><br><span class="line">Vue<span class="selector-class">.options</span> = &#123;</span><br><span class="line">    components: &#123;</span><br><span class="line">        KeepAlive,</span><br><span class="line">        Transition,</span><br><span class="line">        TransitionGroup</span><br><span class="line">    &#125;,</span><br><span class="line">    directives: &#123;</span><br><span class="line">        model,</span><br><span class="line">        show</span><br><span class="line">    &#125;,</span><br><span class="line">    filters: &#123;&#125;,</span><br><span class="line">    _base: Vue</span><br><span class="line">&#125;</span><br><span class="line">Vue<span class="selector-class">.prototype</span>.__patch__</span><br><span class="line">Vue<span class="selector-class">.prototype</span>.<span class="variable">$mount</span></span><br></pre></td></tr></table></figure>
+<p>这里大家要注意的是 Vue.options 的变化。另外这里的 $mount 方法很简单：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Vue.prototype.$mount = <span class="keyword">function</span> (</span><br><span class="line">  <span class="keyword">el</span>?: <span class="built_in">string</span> | Element,</span><br><span class="line">  hydrating?: boolean</span><br><span class="line">): Component &#123;</span><br><span class="line">  <span class="keyword">el</span> = <span class="keyword">el</span> &amp;&amp; inBrowser ? query(<span class="keyword">el</span>) : undefined</span><br><span class="line">  <span class="keyword">return</span> this._mount(<span class="keyword">el</span>, hydrating)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>首先根据是否是浏览器环境决定要不要 query(el) 获取元素，然后将 el 作为参数传递给 this._mount()。</p>
+<p>最后一个处理 Vue 的文件就是入口文件 web-runtime-with-compiler.js 了，该文件做了两件事：</p>
+<p>1、缓存来自 web-runtime.js 文件的 $mount 函数</p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mount = Vue.prototype.$mount</span><br></pre></td></tr></table></figure>
+<p>然后覆盖覆盖了 Vue.prototype.$mount</p>
+<p>2、在 Vue 上挂载 compile</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">Vue.compile</span> = compileToFunctions</span><br></pre></td></tr></table></figure>
+<p>compileToFunctions 函数的作用，就是将模板 template 编译为render函数。</p>
+<p>至此，我们算是还原了 Vue 构造函数，总结一下：</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、Vue.prototype 下的属性和方法的挂载主要是在 src<span class="regexp">/core/i</span>nstance 目录中的代码处理的</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、Vue 下的静态属性和方法的挂载主要是在 src<span class="regexp">/core/g</span>lobal-api 目录下的代码处理的</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>、<span class="keyword">runtime</span>/index.js 主要是添加web平台特有的配置、组件和指令，web-<span class="keyword">runtime</span>-with-compiler.js 给Vue的 $mount 方法添加 compiler 编译器，支持 template。</span><br></pre></td></tr></table></figure>
 
        -->
       
@@ -826,9 +980,9 @@
             
             
                 
-                <p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   <span class="comment">// 要求使用扩展运算符而非 .apply()</span></span><br><span class="line">   <span class="string">&quot;prefer-spread&quot;</span>: <span class="string">&quot;off&quot;</span>,</span><br><span class="line">   <span class="string">&#x27;@typescript-eslint/no-var-requires&#x27;</span>: <span class="number">0</span>,</span><br><span class="line">   <span class="comment">// 禁止出现未使用过的变量</span></span><br><span class="line">   <span class="string">&quot;no-unused-vars&quot;</span>: <span class="string">&quot;off&quot;</span>,</span><br><span class="line">   <span class="string">&quot;@typescript-eslint/no-unused-vars&quot;</span>: <span class="string">&quot;off&quot;</span>,</span><br><span class="line">   <span class="comment">// 关闭要求使用 const 声明那些声明后不再被修改的变量</span></span><br><span class="line">   <span class="string">&quot;prefer-const&quot;</span>: <span class="string">&#x27;off&#x27;</span>,</span><br><span class="line">   <span class="string">&#x27;@typescript-eslint/no-non-null-assertion&#x27;</span>: <span class="string">&#x27;off&#x27;</span>,</span><br><span class="line">   <span class="string">&quot;@typescript-eslint/no-explicit-any&quot;</span>: [<span class="string">&quot;off&quot;</span>],</span><br><span class="line">   <span class="comment">// 关闭强制使用骆驼拼写法命名约定</span></span><br><span class="line">   <span class="string">&quot;@typescript-eslint/camelcase&quot;</span>: [<span class="string">&quot;off&quot;</span>],</span><br><span class="line">   <span class="comment">// 禁用 tab</span></span><br><span class="line">   <span class="string">&#x27;no-tabs&#x27;</span>: <span class="number">0</span>,</span><br><span class="line">   <span class="comment">// 禁止空格和 tab 的混合缩进</span></span><br><span class="line">   <span class="string">&#x27;no-mixed-spaces-and-tabs&#x27;</span>: <span class="number">0</span>,</span><br><span class="line">   <span class="comment">// 禁用行尾空格</span></span><br><span class="line">   <span class="string">&#x27;no-trailing-spaces&#x27;</span>: <span class="number">0</span>,</span><br><span class="line">   <span class="comment">// 强制使用一致的缩进</span></span><br><span class="line">   <span class="string">&quot;indent&quot;</span>: [</span><br><span class="line">     <span class="string">&quot;error&quot;</span>,</span><br><span class="line">     <span class="number">2</span>,</span><br><span class="line">     &#123; <span class="string">&quot;SwitchCase&quot;</span>: <span class="number">1</span> &#125;</span><br><span class="line">   ],</span><br><span class="line">   <span class="comment">// 强制使用一致的反勾号、双引号或单引号</span></span><br><span class="line">   <span class="string">&quot;quotes&quot;</span>: [ <span class="string">&quot;error&quot;</span>, <span class="string">&quot;single&quot;</span> ],</span><br><span class="line">   <span class="comment">// 要求或禁止使用分号代替 ASI</span></span><br><span class="line">   <span class="string">&quot;semi&quot;</span>: [ <span class="string">&quot;error&quot;</span>, <span class="string">&quot;always&quot;</span> ],</span><br><span class="line">   <span class="comment">// 在逗号后需要一个或多个空格</span></span><br><span class="line">   <span class="string">&quot;comma-spacing&quot;</span>: [</span><br><span class="line">     <span class="string">&quot;error&quot;</span>,</span><br><span class="line">     &#123;</span><br><span class="line">       <span class="string">&quot;after&quot;</span>: <span class="literal">true</span></span><br><span class="line">     &#125;</span><br><span class="line">   ],</span><br><span class="line">   <span class="comment">// 禁止或强制在代码块中开括号前和闭括号后有空格</span></span><br><span class="line">   <span class="string">&quot;block-spacing&quot;</span>: [</span><br><span class="line">     <span class="string">&quot;error&quot;</span>,</span><br><span class="line">     <span class="string">&quot;never&quot;</span></span><br><span class="line">   ],</span><br><span class="line">   <span class="comment">// 强制在代码块中使用一致的大括号风格</span></span><br><span class="line">   <span class="string">&quot;brace-style&quot;</span>: [</span><br><span class="line">     <span class="string">&quot;error&quot;</span>,</span><br><span class="line">     <span class="string">&quot;1tbs&quot;</span></span><br><span class="line">   ],</span><br><span class="line">   <span class="comment">// 强制在关键字前后使用一致的空格</span></span><br><span class="line">   <span class="string">&quot;keyword-spacing&quot;</span>: [</span><br><span class="line">     <span class="string">&quot;error&quot;</span>,</span><br><span class="line">     &#123;</span><br><span class="line">       <span class="string">&quot;before&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">       <span class="string">&quot;after&quot;</span>: <span class="literal">true</span></span><br><span class="line">     &#125;</span><br><span class="line">   ],</span><br><span class="line">   <span class="comment">// 强制在对象字面量的属性中键和值之间使用一致的间距</span></span><br><span class="line">   <span class="string">&quot;key-spacing&quot;</span>: [</span><br><span class="line">     <span class="string">&quot;error&quot;</span>,</span><br><span class="line">     &#123;</span><br><span class="line">       <span class="string">&quot;beforeColon&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">       <span class="string">&quot;afterColon&quot;</span>: <span class="literal">true</span></span><br><span class="line">     &#125;</span><br><span class="line">   ],</span><br><span class="line">   <span class="comment">// 禁用行尾空格</span></span><br><span class="line">   <span class="string">&quot;no-trailing-spaces&quot;</span>: <span class="string">&quot;error&quot;</span>,</span><br><span class="line">   <span class="comment">// 强制在大括号中使用一致的空格</span></span><br><span class="line">   <span class="string">&quot;object-curly-spacing&quot;</span>: [</span><br><span class="line">     <span class="string">&quot;error&quot;</span>,</span><br><span class="line">     <span class="string">&quot;always&quot;</span></span><br><span class="line">   ],</span><br><span class="line">   <span class="comment">// 要求操作符周围有空格</span></span><br><span class="line">   <span class="string">&quot;space-infix-ops&quot;</span>: [<span class="string">&quot;error&quot;</span>, &#123; <span class="string">&quot;int32Hint&quot;</span>: <span class="literal">true</span> &#125;],</span><br><span class="line">   <span class="comment">// 强制在 function的左括号之前使用一致的空格</span></span><br><span class="line">   <span class="string">&quot;space-before-function-paren&quot;</span>: [</span><br><span class="line">     <span class="string">&#x27;error&#x27;</span>,</span><br><span class="line">     <span class="string">&quot;always&quot;</span></span><br><span class="line">   ],</span><br><span class="line">   <span class="comment">// 强制在圆括号内使用一致的空格</span></span><br><span class="line">   <span class="string">&quot;space-in-parens&quot;</span>: [</span><br><span class="line">     <span class="string">&quot;error&quot;</span>,</span><br><span class="line">     <span class="string">&quot;never&quot;</span></span><br><span class="line">   ],</span><br><span class="line">   <span class="comment">// 强制在块之前使用一致的空格</span></span><br><span class="line">   <span class="string">&quot;space-before-blocks&quot;</span>: [</span><br><span class="line">     <span class="string">&quot;error&quot;</span>,</span><br><span class="line">     <span class="string">&quot;always&quot;</span></span><br><span class="line">   ],</span><br><span class="line">   <span class="comment">// 关闭禁用 console</span></span><br><span class="line">   <span class="string">&quot;no-console&quot;</span>: <span class="string">&quot;off&quot;</span>,</span><br><span class="line">   <span class="comment">// 关闭禁止在 return、throw、continue 和 break 语句之后出现不可达代码</span></span><br><span class="line">   <span class="string">&quot;no-unreachable&quot;</span>: <span class="string">&quot;off&quot;</span>,</span><br><span class="line">   <span class="comment">// 禁止在变量定义之前使用它们</span></span><br><span class="line">   <span class="string">&quot;no-use-before-define&quot;</span>: [<span class="string">&quot;error&quot;</span>, &#123; <span class="string">&quot;functions&quot;</span>: <span class="literal">false</span>, <span class="string">&quot;classes&quot;</span>: <span class="literal">false</span> &#125;],</span><br><span class="line">   <span class="comment">// 禁止在正则表达式中使用控制字符</span></span><br><span class="line">   <span class="string">&quot;no-control-regex&quot;</span>: <span class="string">&quot;off&quot;</span>,</span><br><span class="line">   <span class="comment">// 关闭禁用 debugger</span></span><br><span class="line">   <span class="string">&quot;no-debugger&quot;</span>: <span class="string">&quot;off&quot;</span>,</span><br><span class="line">   <span class="comment">// 禁止 case 语句落空</span></span><br><span class="line">   <span class="string">&quot;no-fallthrough&quot;</span>: [<span class="string">&quot;error&quot;</span>, &#123; <span class="string">&quot;commentPattern&quot;</span>: <span class="string">&quot;break[\\s\\w]*omitted&quot;</span> &#125;],</span><br><span class="line">   <span class="comment">// 不需要强制使用全等</span></span><br><span class="line">   <span class="string">&quot;eqeqeq&quot;</span>: <span class="string">&quot;off&quot;</span></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-
-
+                <p><p>承上文，我们知道，我们可以使用npm run dev命令来运行项目。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;dev&quot;</span><span class="punctuation">:</span> <span class="string">&quot;rollup -w -c scripts/config.js --environment TARGET:web-full-dev&quot;</span><span class="punctuation">,</span></span><br></pre></td></tr></table></figure>
+<p>其中 -w 就是watch，-c 就是指定配置文件为 build/config.js，简单来说dev命令是rollup使用scripts/config.js的配置运行，并设置了一个变量TARGET的值为web-full-dev。<br>那么我们来看scripts/config.js中的代码</p>
 <p>
             
         
@@ -838,91 +992,26 @@
     <div class="article-info article-info-index">
       
       
-      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">源码</a>
+        		</li>
+      		
+		</ul>
+	</div>
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/08/21/%E5%89%8D%E7%AB%AF%E7%A0%94%E5%8F%91%E8%A7%84%E8%8C%83/eslint%E8%A7%84%E8%8C%83/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-什么时候不能用箭头函数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      <!-- 
-        <h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><h2 id="不能使用箭头函数的地方"><a href="#不能使用箭头函数的地方" class="headerlink" title="不能使用箭头函数的地方"></a>不能使用箭头函数的地方</h2><h3 id="对象方法"><a href="#对象方法" class="headerlink" title="对象方法"></a>对象方法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h3 id="对象原型"><a href="#对象原型" class="headerlink" title="对象原型"></a>对象原型</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">``</span><span class="string">`</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">### 构造函数</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">### 动态上下文的回调函数</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>javascript</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="Vue生命周期-和-Method"><a href="#Vue生命周期-和-Method" class="headerlink" title="Vue生命周期 和 Method"></a>Vue生命周期 和 Method</h3><p>vue组件本质上是一个JS对象</p>
-<p>React组件（非Hooks）它本质上是一个ES6 class</p>
-
-       -->
-      
-        
-            
-            
-                
-                
-            
-                
-                
-            
-                
-                
-            
-            
-                
-                <p><h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><h2 id="不能使用箭头函数的地方"><a href="#不能使用箭头函数的地方" class="headerlink" title="不能使用箭头函数的地方"></a>不能使用箭头函数的地方</h2><h3 id="对象方法"><a href="#对象方法" class="headerlink" title="对象方法"></a>对象方法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<p>
-            
-        
-        
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
       
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2022/08/21/%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E4%B8%8D%E8%83%BD%E7%94%A8%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/01/15/VUE%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/Vue%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%BA%8C%E6%9C%9F%E2%80%94%E2%80%94Vue-%E7%9A%84%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/">展开全文 >></a>
         </p>
       
 
@@ -954,7 +1043,7 @@
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -1091,15 +1180,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">统计</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">cloudstuido</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">npm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">统计</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1159,15 +1248,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">centos7</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">脚本</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">

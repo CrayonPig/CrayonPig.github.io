@@ -160,58 +160,30 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-HTML5/微信浏览器及X5内核同层视频播放问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-ubuntu/mysql无法登录,更改密码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/30/HTML5/%E5%BE%AE%E4%BF%A1%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%8AX5%E5%86%85%E6%A0%B8%E5%90%8C%E5%B1%82%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E9%97%AE%E9%A2%98/">微信浏览器及X5内核同层视频播放问题</a>
+      <a class="article-title" href="/2019/07/07/ubuntu/mysql%E6%97%A0%E6%B3%95%E7%99%BB%E5%BD%95,%E6%9B%B4%E6%94%B9%E5%AF%86%E7%A0%81/">mysql无法登录,更改密码</a>
     </h1>
   
 
         
-        <a href="/2020/04/30/HTML5/%E5%BE%AE%E4%BF%A1%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%8AX5%E5%86%85%E6%A0%B8%E5%90%8C%E5%B1%82%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-04-30T08:04:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-30</time>
+        <a href="/2019/07/07/ubuntu/mysql%E6%97%A0%E6%B3%95%E7%99%BB%E5%BD%95,%E6%9B%B4%E6%94%B9%E5%AF%86%E7%A0%81/" class="archive-article-date">
+  	<time datetime="2019-07-07T06:57:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-07</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       <!-- 
-        <p>最近要被微信浏览器搞炸了，在app内的页面使用视频播放没问题，放到微信内视频播放就会自动全屏，很难受，多方查证下，发现可以设置video属性“x5-video-player-type”声明启用同层H5播放器</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;video</span><br><span class="line">  loop</span><br><span class="line">  playsinline=<span class="string">&quot;true&quot;</span></span><br><span class="line">  webkit-playsinline=<span class="string">&quot;true&quot;</span></span><br><span class="line">  x-webkit-airplay=<span class="string">&quot;allow&quot;</span></span><br><span class="line">  airplay=<span class="string">&quot;allow&quot;</span></span><br><span class="line">  autoplay</span><br><span class="line">  x5-video-player-type=<span class="string">&quot;h5&quot;</span></span><br><span class="line">  x5-video-player-fullscreen=<span class="string">&quot;false&quot;</span></span><br><span class="line">  x5-video-orientation=<span class="string">&quot;portrait&quot;</span></span><br><span class="line">&gt;&lt;/video&gt;</span><br></pre></td></tr></table></figure>
+        <p><img src="https://upload-images.jianshu.io/upload_images/9056389-3f88eea7096d2e99.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">service mysql stop</span><br><span class="line">mysqld_safe <span class="comment">--user=mysql --skip-grant-tables --skip-networking &amp;</span></span><br><span class="line">mysql -u root mysql</span><br><span class="line">mysql&gt; <span class="keyword">UPDATE</span> <span class="keyword">user</span> <span class="keyword">SET</span> <span class="keyword">Password</span>=<span class="keyword">PASSWORD</span>(<span class="string">&#x27;newpassword&#x27;</span>) <span class="keyword">where</span> <span class="keyword">USER</span>=<span class="string">&#x27;root&#x27;</span>;</span><br><span class="line">mysql&gt; FLUSH <span class="keyword">PRIVILEGES</span>;</span><br><span class="line">mysql&gt; quit</span><br><span class="line">service mysql <span class="keyword">restart</span></span><br><span class="line">mysql -uroot -p</span><br><span class="line">Enter <span class="keyword">password</span>: &lt;输入新设的密码newpassword&gt;</span><br></pre></td></tr></table></figure>
 
-<p>x5-video-player-fullscreen全屏方式<br>视频播放时将会进入到全屏模式</p>
-<p>如果不申明此属性，页面得到视口区域为原始视口大小(视频未播放前)，比如在微信里，会有一个常驻的标题栏，如果不声明此属性，这个标题栏高度不会给页面，播放时会平均分为两块（上下黑块）</p>
-<p>注： 声明此属性，需要页面自己重新适配新的视口大小变化。可以通过监听resize 事件来实现</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;video <span class="attribute">id</span>=<span class="string">&quot;test_video&quot;</span> <span class="attribute">src</span>=<span class="string">&quot;xxx&quot;</span> <span class="attribute">x5-video-player-type</span>=<span class="string">&quot;h5&quot;</span> <span class="attribute">x5-video-player-fullscreen</span>=<span class="string">&quot;true&quot;</span>/&gt;</span><br></pre></td></tr></table></figure>
-
-<p>需要监听窗口大小变化(resize)实现全屏</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">onresize</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line"></span><br><span class="line">  test_video.<span class="property">style</span>.<span class="property">width</span> = <span class="variable language_">window</span>.<span class="property">innerWidth</span> + <span class="string">&quot;px&quot;</span>;</span><br><span class="line"></span><br><span class="line">  test_video.<span class="property">style</span>.<span class="property">height</span> = <span class="variable language_">window</span>.<span class="property">innerHeight</span> + <span class="string">&quot;px&quot;</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>注: : 1. 为了让视频真正铺满全屏,可以适当让video的显示区域大于视口区域,这样在显示时在视口外的部截掉后,不会出四周黑边的情况</p>
-<h4 id="x5-video-orientation-控制横竖屏"><a href="#x5-video-orientation-控制横竖屏" class="headerlink" title="x5-video-orientation 控制横竖屏"></a>x5-video-orientation 控制横竖屏</h4><p>功能：声明播放器支持的方向</p>
-<p>可选值： landscape 横屏, portraint竖屏</p>
-<p>默认值：portraint</p>
-<p>e.g: <a target="_blank" rel="noopener" href="http://res.imtt.qq.com/qqbrowser/js/test_video_orientation_attr.html">http://res.imtt.qq.com/qqbrowser/js/test_video_orientation_attr.html</a></p>
-<p>横屏</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;video <span class="built_in">..</span>. <span class="attribute">x5-video-player-type</span>=”h5” <span class="attribute">x5-video-orientation</span>=<span class="string">&quot;landscape&quot;</span>/&gt;</span><br></pre></td></tr></table></figure>
-
-<p>竖屏</p>
-<figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;video ... <span class="keyword">x</span><span class="number">5</span>-video-player-<span class="keyword">type</span><span class="operator">=</span><span class="string">&quot;h5&quot;</span> <span class="keyword">x</span><span class="number">5</span>-video-orientation<span class="operator">=</span><span class="string">&quot;portrait&quot;</span>/&gt;</span><br></pre></td></tr></table></figure>
-
-<p>跟随手机自动旋转</p>
-<figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;video <span class="keyword">x</span><span class="number">5</span>-video-player-<span class="keyword">type</span><span class="operator">=</span><span class="string">&quot;h5&quot;</span> <span class="keyword">x</span><span class="number">5</span>-video-orientation<span class="operator">=</span><span class="string">&quot;landscape|portrait&quot;</span>/&gt;</span><br></pre></td></tr></table></figure>
-<p>注: 此属性只在声明了x5-video-player-type=”h5”情况下生效</p>
-<h4 id="事件回调"><a href="#事件回调" class="headerlink" title="事件回调"></a>事件回调</h4><h4 id="x5videoenterfullscreen进入全屏通知"><a href="#x5videoenterfullscreen进入全屏通知" class="headerlink" title="x5videoenterfullscreen进入全屏通知"></a>x5videoenterfullscreen进入全屏通知</h4><p>支持版本: TBS中从&gt;=036900开始支持，QB中是&gt;=7.2开始支持</p>
-<p>x5videoenterfullscreen: 表示播放器进入全屏状态</p>
-<p>示例：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">id</span>=<span class="string">“myVideo</span>&quot;<span class="attr">...</span>/&gt;</span></span><br></pre></td></tr></table></figure>
-<p>通过JS监听事件</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">myVideo.addEventListener(<span class="string">&quot;x5videoenterfullscreen&quot;</span>, <span class="keyword">function</span><span class="params">()</span>&#123;</span><br><span class="line"></span><br><span class="line">  alert(<span class="string">&quot;player enterfullscreen&quot;</span>);</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h4 id="x5videoexitfullscreen退出全屏通知"><a href="#x5videoexitfullscreen退出全屏通知" class="headerlink" title="x5videoexitfullscreen退出全屏通知"></a>x5videoexitfullscreen退出全屏通知</h4><p>x5videoexitfullscreen: 表示播放器退出了全屏状态</p>
-<p>使用方法与x5videoenterfullscreen类似</p>
+<p>参考链接：<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/ShilohXiang/article/details/89053745">https://blog.csdn.net/ShilohXiang/article/details/89053745</a></p>
 
        -->
       
@@ -229,8 +201,8 @@
             
             
                 
-                <p><p>最近要被微信浏览器搞炸了，在app内的页面使用视频播放没问题，放到微信内视频播放就会自动全屏，很难受，多方查证下，发现可以设置video属性“x5-video-player-type”声明启用同层H5播放器</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;video</span><br><span class="line">  loop</span><br><span class="line">  playsinline=<span class="string">&quot;true&quot;</span></span><br><span class="line">  webkit-playsinline=<span class="string">&quot;true&quot;</span></span><br><span class="line">  x-webkit-airplay=<span class="string">&quot;allow&quot;</span></span><br><span class="line">  airplay=<span class="string">&quot;allow&quot;</span></span><br><span class="line">  autoplay</span><br><span class="line">  x5-video-player-type=<span class="string">&quot;h5&quot;</span></span><br><span class="line">  x5-video-player-fullscreen=<span class="string">&quot;false&quot;</span></span><br><span class="line">  x5-video-orientation=<span class="string">&quot;portrait&quot;</span></span><br><span class="line">&gt;&lt;/video&gt;</span><br></pre></td></tr></table></figure>
+                <p><p><img src="https://upload-images.jianshu.io/upload_images/9056389-3f88eea7096d2e99.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">service mysql stop</span><br><span class="line">mysqld_safe <span class="comment">--user=mysql --skip-grant-tables --skip-networking &amp;</span></span><br><span class="line">mysql -u root mysql</span><br><span class="line">mysql&gt; <span class="keyword">UPDATE</span> <span class="keyword">user</span> <span class="keyword">SET</span> <span class="keyword">Password</span>=<span class="keyword">PASSWORD</span>(<span class="string">&#x27;newpassword&#x27;</span>) <span class="keyword">where</span> <span class="keyword">USER</span>=<span class="string">&#x27;root&#x27;</span>;</span><br><span class="line">mysql&gt; FLUSH <span class="keyword">PRIVILEGES</span>;</span><br><span class="line">mysql&gt; quit</span><br><span class="line">service mysql <span class="keyword">restart</span></span><br><span class="line">mysql -uroot -p</span><br><span class="line">Enter <span class="keyword">password</span>: &lt;输入新设的密码newpassword&gt;</span><br></pre></td></tr></table></figure>
 
 <p>
             
@@ -246,15 +218,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">H5</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">微信</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">视频</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
         		</li>
       		
 		</ul>
@@ -264,7 +228,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/30/HTML5/%E5%BE%AE%E4%BF%A1%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%8AX5%E5%86%85%E6%A0%B8%E5%90%8C%E5%B1%82%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E9%97%AE%E9%A2%98/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/07/07/ubuntu/mysql%E6%97%A0%E6%B3%95%E7%99%BB%E5%BD%95,%E6%9B%B4%E6%94%B9%E5%AF%86%E7%A0%81/">展开全文 >></a>
         </p>
       
 
@@ -294,47 +258,28 @@
 
 
   
-    <article id="post-家庭NAS攻略/家庭NAS——DDNS篇" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-工具技巧/vscode设置同步" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/17/%E5%AE%B6%E5%BA%ADNAS%E6%94%BB%E7%95%A5/%E5%AE%B6%E5%BA%ADNAS%E2%80%94%E2%80%94DDNS%E7%AF%87/">家庭NAS——DDNS篇</a>
+      <a class="article-title" href="/2019/07/04/%E5%B7%A5%E5%85%B7%E6%8A%80%E5%B7%A7/vscode%E8%AE%BE%E7%BD%AE%E5%90%8C%E6%AD%A5/">vscode设置同步</a>
     </h1>
   
 
         
-        <a href="/2020/04/17/%E5%AE%B6%E5%BA%ADNAS%E6%94%BB%E7%95%A5/%E5%AE%B6%E5%BA%ADNAS%E2%80%94%E2%80%94DDNS%E7%AF%87/" class="archive-article-date">
-  	<time datetime="2020-04-17T08:53:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-17</time>
+        <a href="/2019/07/04/%E5%B7%A5%E5%85%B7%E6%8A%80%E5%B7%A7/vscode%E8%AE%BE%E7%BD%AE%E5%90%8C%E6%AD%A5/" class="archive-article-date">
+  	<time datetime="2019-07-04T10:25:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-04</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       <!-- 
-        <p>家庭NAS最大的一个问题之一就是公网IP不固定，这个问题的解决方法很多，如：<br>1.路由器刷固件；<br>2.群晖：白群晖自带内网穿透，黑群晖就放弃这个方案吧；<br>3.花生壳/花生棒：支持各类操作系统平台(路由器/Windows/Linux/群晖)，缺点是需要花钱；<br>4.阿里云DDNS：强烈推荐；<br>5.腾讯云DDNS：推荐，证书验证不如阿里云方便。<br>6.ngrok等内网传统方案</p>
-<p>我买了黑群晖，家用路由器是小米的，所以对于我来说通过阿里云DDNS和腾讯云DDNS是最好的方案，我的域名是在阿里云上注册的，所以，我直接采用了阿里云DDNS方案。</p>
-<p>思路是：每隔一定时间获取当前的公网ip，把阿里云的域名解析地址更改为获取到的公网ip</p>
-<p>#获取公网IP<br>最直观的获取ip的方法是<br><img src="https://upload-images.jianshu.io/upload_images/9056389-dc086f0d794b25bd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="百度"><br>后续我们获取到ip后可以跟此ip对比，验证是否正确</p>
-<p>node 获取ip方式有好多，我尝试了public-ip、http 请求等方法</p>
-<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// npm install --save public-ip</span></span><br><span class="line">const publicIp = require(<span class="string">&#x27;public-ip&#x27;</span>);</span><br><span class="line"></span><br><span class="line">publicIp.v4().then(<span class="function"><span class="params">ip</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.<span class="built_in">log</span>(ip);</span><br><span class="line">    <span class="comment">//=&gt; &#x27;46.5.21.123&#x27;</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>很有意思的是我利用public-ip这个库请求到的ip地址跟我百度的ip地址并不一样，这个问题我后续探究下</p>
-<p>所以我直接使用http请求，获取到用户公网ip，代码如下</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>)</span><br><span class="line"><span class="comment">// 获取用户公网ip</span></span><br><span class="line"><span class="keyword">const</span> url = <span class="string">&#x27;http://txt.go.sohu.com/ip/soip&#x27;</span></span><br><span class="line">http.<span class="title function_">get</span>(url, <span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> data = <span class="string">&#x27;&#x27;</span></span><br><span class="line">  res.<span class="title function_">on</span>(<span class="string">&#x27;data&#x27;</span>, <span class="function"><span class="params">chunk</span> =&gt;</span> data += chunk)</span><br><span class="line">  res.<span class="title function_">on</span>(<span class="string">&#x27;end&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> m = data.<span class="title function_">match</span>(<span class="regexp">/\d+\.\d+\.\d+\.\d+/g</span>)</span><br><span class="line">    <span class="keyword">if</span> (m.<span class="property">length</span> &gt; <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;myIP&#x27;</span>, m[<span class="number">0</span>])</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;).<span class="title function_">on</span>(<span class="string">&#x27;error&#x27;</span>, <span class="function"><span class="params">e</span> =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`error messsage: <span class="subst">$&#123;e.message&#125;</span>`</span>))</span><br></pre></td></tr></table></figure>
-<p>这样获取到的ip地址跟百度出来的ip地址是一样的</p>
-<h1 id="修改阿里云域名解析"><a href="#修改阿里云域名解析" class="headerlink" title="修改阿里云域名解析"></a>修改阿里云域名解析</h1><p>首先登录阿里云获取accessKeyId和accessKeySecret<br><a target="_blank" rel="noopener" href="https://usercenter.console.aliyun.com/#/manage/ak">获取accessKeyId和accessKeySecret</a><br><a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/29776.html?spm=a2c4g.11186623.6.655.3a8449fcWwuU2C">域名解析文档</a><br>使用阿里云npm库@alicloud/pop-core进行调用</p>
-<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// npm install @alicloud/pop-core --save</span></span><br><span class="line"><span class="keyword">const</span> Core = require(<span class="string">&#x27;@alicloud/pop-core&#x27;</span>);</span><br><span class="line"><span class="built_in">var</span> <span class="keyword">client</span> = <span class="keyword">new</span> Core(&#123;</span><br><span class="line">        accessKeyId: <span class="string">&#x27;xxxxxxxx&#x27;</span>,</span><br><span class="line">        accessKeySecret:  <span class="string">&#x27;xxxxxxxx&#x27;</span>,</span><br><span class="line">        endpoint: <span class="string">&#x27;https://alidns.aliyuncs.com&#x27;</span>,</span><br><span class="line">        apiVersion: <span class="string">&#x27;2015-01-09&#x27;</span></span><br><span class="line">      &#125;);</span><br></pre></td></tr></table></figure>
-<p>通过文档我们可以发现，如果需要修改解析地址，我们需要用到被修改解析记录的RecordId，<br>所以我们先获取到RecordId</p>
-<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> params = &#123;</span><br><span class="line">      <span class="comment">// 参数可根据自己需求去增加</span></span><br><span class="line">      <span class="string">&quot;RegionId&quot;</span>: <span class="string">&quot;cn-hangzhou&quot;</span>,</span><br><span class="line">      <span class="string">&quot;DomainName&quot;</span>: <span class="string">&quot;baidu.com&quot;</span>,</span><br><span class="line">      <span class="string">&quot;KeyWord&quot;</span>: <span class="string">&quot;A&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> requestOption = &#123;</span><br><span class="line">      <span class="attr">method</span>: <span class="string">&#x27;POST&#x27;</span></span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">    client.request(<span class="string">&#x27;DescribeDomainRecords&#x27;</span>, params, requestOption).then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.<span class="built_in">log</span>(JSON.stringify(res));</span><br><span class="line">      <span class="keyword">if</span>(res.DomainRecords.Record) &#123;</span><br><span class="line">        <span class="comment">// 我修改的是根域名，所以筛选了下</span></span><br><span class="line">        let recordList = res.DomainRecords.Record.<span class="built_in">filter</span>(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="keyword">return</span> item.Type === <span class="string">&#x27;A&#x27;</span></span><br><span class="line">        &#125;)</span><br><span class="line">        let recordID = recordList[<span class="number">0</span>].RecordId</span><br><span class="line">        <span class="comment">// 此处获取到的就是RecordId，可根据自己需求修改逻辑</span></span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.<span class="built_in">log</span>(<span class="string">&#x27;DomainRecords record is null&#x27;</span>)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;, (ex) =&gt; &#123;</span><br><span class="line">      <span class="built_in">console</span>.<span class="built_in">log</span>(ex);</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
-<p>根据获取到的RecordId将获取到的公网ip赋值</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> params = &#123;</span><br><span class="line">      <span class="string">&quot;RegionId&quot;</span>: <span class="string">&quot;cn-hangzhou&quot;</span>,</span><br><span class="line">      <span class="string">&quot;RecordId&quot;</span>: recordID,</span><br><span class="line">      <span class="string">&quot;RR&quot;</span>: <span class="string">&quot;@&quot;</span>,</span><br><span class="line">      <span class="string">&quot;Type&quot;</span>: <span class="string">&quot;A&quot;</span>,</span><br><span class="line">      <span class="string">&quot;Value&quot;</span>: myIP</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> requestOption = &#123;</span><br><span class="line">      <span class="attr">method</span>: <span class="string">&#x27;POST&#x27;</span></span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">client</span>.<span class="title function_">request</span>(<span class="string">&#x27;UpdateDomainRecord&#x27;</span>, params, requestOption).<span class="title function_">then</span>(<span class="function">(<span class="params">result</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// console.log(JSON.stringify(result));</span></span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;修改成功，公网IP为&#x27;</span>, myIP)</span><br><span class="line">    &#125;, <span class="function">(<span class="params">ex</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(ex);</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
-
-<p>以上就是修改ip的全过程，后续我们再利用node-schedule做个定时任务就可以了，整体代码如下</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = require(<span class="string">&#x27;http&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> Core = require(<span class="string">&#x27;@alicloud/pop-core&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> schedule = require(<span class="string">&#x27;node-schedule&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">AliDDNS</span> &#123;</span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="keyword">this</span>.myIP = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">this</span>.accessKeyId = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">this</span>.accessKeySecret = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">this</span>.domainName = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">this</span>.KeyWord = <span class="string">&#x27;@&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">init</span> () &#123;</span><br><span class="line">    <span class="keyword">this</span>.getIP()</span><br><span class="line">    <span class="keyword">this</span>.initCore()</span><br><span class="line">    <span class="keyword">this</span>.getDomainNameID()</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  getIP () &#123;</span><br><span class="line">    <span class="comment">// 获取用户公网ip</span></span><br><span class="line">    <span class="keyword">const</span> url = <span class="string">&#x27;http://txt.go.sohu.com/ip/soip&#x27;</span></span><br><span class="line">    http.<span class="keyword">get</span>(url, res =&gt; &#123;</span><br><span class="line">      let <span class="keyword">data</span> = <span class="string">&#x27;&#x27;</span></span><br><span class="line">      res.on(<span class="string">&#x27;data&#x27;</span>, chunk =&gt; <span class="keyword">data</span> += chunk)</span><br><span class="line">      res.on(<span class="string">&#x27;end&#x27;</span>, () =&gt; &#123;</span><br><span class="line">        let m = <span class="keyword">data</span>.match(/\d+\.\d+\.\d+\.\d+/g)</span><br><span class="line">        <span class="keyword">if</span> (m.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">          <span class="keyword">this</span>.myIP = m[<span class="number">0</span>]</span><br><span class="line">          console.log(<span class="string">&#x27;myIP&#x27;</span>, <span class="keyword">this</span>.myIP)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;).on(<span class="string">&#x27;error&#x27;</span>, e =&gt; console.log(`error messsage: $&#123;e.message&#125;`))</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  initCore() &#123;</span><br><span class="line">      <span class="comment">// 初始化 阿里云Core</span></span><br><span class="line">      <span class="keyword">this</span>.client = new Core(&#123;</span><br><span class="line">        accessKeyId: <span class="keyword">this</span>.accessKeyId,</span><br><span class="line">        accessKeySecret: <span class="keyword">this</span>.accessKeySecret,</span><br><span class="line">        endpoint: <span class="string">&#x27;https://alidns.aliyuncs.com&#x27;</span>,</span><br><span class="line">        apiVersion: <span class="string">&#x27;2015-01-09&#x27;</span></span><br><span class="line">      &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  getDomainNameID() &#123;</span><br><span class="line">    <span class="keyword">if</span>(!<span class="keyword">this</span>.client) &#123;</span><br><span class="line">      console.error(<span class="string">&#x27;client no init&#x27;</span>)</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> params = &#123;</span><br><span class="line">      <span class="string">&quot;RegionId&quot;</span>: <span class="string">&quot;cn-hangzhou&quot;</span>,</span><br><span class="line">      <span class="string">&quot;DomainName&quot;</span>: <span class="keyword">this</span>.domainName,</span><br><span class="line">      <span class="string">&quot;KeyWord&quot;</span>: <span class="keyword">this</span>.KeyWord,</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> requestOption = &#123;</span><br><span class="line">      method: <span class="string">&#x27;POST&#x27;</span></span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">this</span>.client.request(<span class="string">&#x27;DescribeDomainRecords&#x27;</span>, params, requestOption).then((res) =&gt; &#123;</span><br><span class="line">      console.log(JSON.stringify(res));</span><br><span class="line">      <span class="keyword">if</span>(res.DomainRecords.Record) &#123;</span><br><span class="line">        let recordList = res.DomainRecords.Record.filter(item =&gt; &#123;</span><br><span class="line">          <span class="keyword">return</span> item.Type === <span class="string">&#x27;A&#x27;</span></span><br><span class="line">        &#125;)</span><br><span class="line">        let recordID = recordList[<span class="number">0</span>].RecordId</span><br><span class="line">        <span class="keyword">this</span>.changeDomainIP(recordID)</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        console.log(<span class="string">&#x27;DomainRecords record is null&#x27;</span>)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;, (ex) =&gt; &#123;</span><br><span class="line">      console.log(ex);</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  changeDomainIP(recordID) &#123;</span><br><span class="line">    <span class="keyword">var</span> params = &#123;</span><br><span class="line">      <span class="string">&quot;RegionId&quot;</span>: <span class="string">&quot;cn-hangzhou&quot;</span>,</span><br><span class="line">      <span class="string">&quot;RecordId&quot;</span>: recordID,</span><br><span class="line">      <span class="string">&quot;RR&quot;</span>: <span class="string">&quot;@&quot;</span>,</span><br><span class="line">      <span class="string">&quot;Type&quot;</span>: <span class="string">&quot;A&quot;</span>,</span><br><span class="line">      <span class="string">&quot;Value&quot;</span>: <span class="keyword">this</span>.myIP</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> requestOption = &#123;</span><br><span class="line">      method: <span class="string">&#x27;POST&#x27;</span></span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">this</span>.client.request(<span class="string">&#x27;UpdateDomainRecord&#x27;</span>, params, requestOption).then((result) =&gt; &#123;</span><br><span class="line">      <span class="comment">// console.log(JSON.stringify(result));</span></span><br><span class="line">      console.log(<span class="string">&#x27;修改成功，公网IP为&#x27;</span>, <span class="keyword">this</span>.myIP)</span><br><span class="line">    &#125;, (ex) =&gt; &#123;</span><br><span class="line">      console.log(ex);</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> aliDDns = new AliDDNS()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 每五分钟更新一次ip</span></span><br><span class="line">schedule.scheduleJob(<span class="string">&#x27;0 5 * * * *&#x27;</span>, ()=&gt;&#123;</span><br><span class="line">  aliDDns.<span class="keyword">init</span>()</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
+        <p>每次换电脑都得重新配置vscode的各种插件，后来查了一些资料，发现vscode本身有个插件就可以搞定这些事情。</p>
+<p>1、Settings Sync是vscode中同步设置和安装插件的小工具，在扩展商店中搜索并安装它<br>2、登陆Github&gt;Your profile&gt; settings&gt;Developer settings&gt;personal access tokens&gt;generate new token，输入名称，勾选Gist，提交<br>3、保存Github Access Token<br>4、打开vscode，Ctrl+Shift+P打开命令框，输入sync，找到update/upload settings，输入Token，上传成功后会返回Gist ID，保存此Gist ID（此id在vscode的setting文件里的字段为sync.gist）<br>5、若需在其他机器上DownLoad插件的话，同样，Ctrl+Shift+P打开命令框，输入sync，找到Download settings，会跳转到Github的Token编辑界面，点Edit，regenerate token，保存新生成的token，在vscode命令框中输入此Token，回车，再输入之前的Gist ID，即可同步插件和设置。</p>
 
        -->
       
@@ -350,13 +295,6 @@
                 
                 
             
-            
-                
-                <p><p>家庭NAS最大的一个问题之一就是公网IP不固定，这个问题的解决方法很多，如：<br>1.路由器刷固件；<br>2.群晖：白群晖自带内网穿透，黑群晖就放弃这个方案吧；<br>3.花生壳/花生棒：支持各类操作系统平台(路由器/Windows/Linux/群晖)，缺点是需要花钱；<br>4.阿里云DDNS：强烈推荐；<br>5.腾讯云DDNS：推荐，证书验证不如阿里云方便。<br>6.ngrok等内网传统方案</p>
-<p>我买了黑群晖，家用路由器是小米的，所以对于我来说通过阿里云DDNS和腾讯云DDNS是最好的方案，我的域名是在阿里云上注册的，所以，我直接采用了阿里云DDNS方案。</p>
-<p>思路是：每隔一定时间获取当前的公网ip，把阿里云的域名解析地址更改为获取到的公网ip</p>
-<p>
-            
         
         
       
@@ -369,11 +307,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NAS</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">DDNS</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">vscode</a>
         		</li>
       		
 		</ul>
@@ -383,7 +321,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/17/%E5%AE%B6%E5%BA%ADNAS%E6%94%BB%E7%95%A5/%E5%AE%B6%E5%BA%ADNAS%E2%80%94%E2%80%94DDNS%E7%AF%87/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/07/04/%E5%B7%A5%E5%85%B7%E6%8A%80%E5%B7%A7/vscode%E8%AE%BE%E7%BD%AE%E5%90%8C%E6%AD%A5/">展开全文 >></a>
         </p>
       
 
@@ -413,32 +351,35 @@
 
 
   
-    <article id="post-HTML5/css 写小圆点" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-工具技巧/添加开机自启脚本" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/16/HTML5/css%20%E5%86%99%E5%B0%8F%E5%9C%86%E7%82%B9/">css 写小圆点</a>
+      <a class="article-title" href="/2019/07/01/%E5%B7%A5%E5%85%B7%E6%8A%80%E5%B7%A7/%E6%B7%BB%E5%8A%A0%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E8%84%9A%E6%9C%AC/">添加开机自启脚本</a>
     </h1>
   
 
         
-        <a href="/2020/01/16/HTML5/css%20%E5%86%99%E5%B0%8F%E5%9C%86%E7%82%B9/" class="archive-article-date">
-  	<time datetime="2020-01-16T02:56:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-16</time>
+        <a href="/2019/07/01/%E5%B7%A5%E5%85%B7%E6%8A%80%E5%B7%A7/%E6%B7%BB%E5%8A%A0%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E8%84%9A%E6%9C%AC/" class="archive-article-date">
+  	<time datetime="2019-07-01T10:25:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       <!-- 
-        <p>有需求要做小圆点，我初始写法如下</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.point</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">0.08rem</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">0.08rem</span>;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#FD3509</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">50%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>浏览器上无问题，真机实测发现小圆点变成了小方点，后改为如下</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.point</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">0.08rem</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">0.08rem</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">0.01rem</span> solid <span class="number">#FD3509</span>;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0rem</span>;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#FD3509</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">z-index</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>增加border属性</p>
+        <p>在centos7中增加脚本有两种常用的方法，以脚本StartTomcat.sh为例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment"># description:开机自启脚本</span></span><br><span class="line"><span class="comment">#chkconfig:345 85 15</span></span><br><span class="line"><span class="comment">#description:PPTP server</span></span><br><span class="line"></span><br><span class="line">systemctl start docker // 启动docker</span><br><span class="line">docker-compose down &amp;&amp; docker-compose up -d  //启动sentry</span><br><span class="line">/usr/local/nginx/sbin/nginx -s reload // 启动nginx</span><br></pre></td></tr></table></figure>
 
+<p>1、将脚本移动到/etc/rc.d/init.d目录下</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv  <span class="regexp">/opt/</span>script<span class="regexp">/StartTomcat.sh /</span>etc<span class="regexp">/rc.d/i</span>nit.d</span><br></pre></td></tr></table></figure>
+<p>2、增加脚本的可执行权限</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x  <span class="regexp">/etc/</span>rc.d<span class="regexp">/init.d/</span>StartTomcat.sh</span><br></pre></td></tr></table></figure>
+<p>3、添加脚本到开机自动启动项目中</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> /etc/rc.d/init.d</span><br><span class="line">chkconfig --<span class="built_in">add</span> StartTomcat.<span class="keyword">sh</span></span><br><span class="line">chkconfig StartTomcat.<span class="keyword">sh</span> <span class="keyword">on</span></span><br></pre></td></tr></table></figure>
        -->
       
         
@@ -455,9 +396,9 @@
             
             
                 
-                <p><p>有需求要做小圆点，我初始写法如下</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.point</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">0.08rem</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">0.08rem</span>;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#FD3509</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">50%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>浏览器上无问题，真机实测发现小圆点变成了小方点，后改为如下</p>
+                <p><p>在centos7中增加脚本有两种常用的方法，以脚本StartTomcat.sh为例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment"># description:开机自启脚本</span></span><br><span class="line"><span class="comment">#chkconfig:345 85 15</span></span><br><span class="line"><span class="comment">#description:PPTP server</span></span><br><span class="line"></span><br><span class="line">systemctl start docker // 启动docker</span><br><span class="line">docker-compose down &amp;&amp; docker-compose up -d  //启动sentry</span><br><span class="line">/usr/local/nginx/sbin/nginx -s reload // 启动nginx</span><br></pre></td></tr></table></figure>
+
 <p>
             
         
@@ -472,11 +413,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">H5</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">centos7</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">脚本</a>
         		</li>
       		
 		</ul>
@@ -486,7 +427,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/01/16/HTML5/css%20%E5%86%99%E5%B0%8F%E5%9C%86%E7%82%B9/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/07/01/%E5%B7%A5%E5%85%B7%E6%8A%80%E5%B7%A7/%E6%B7%BB%E5%8A%A0%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E8%84%9A%E6%9C%AC/">展开全文 >></a>
         </p>
       
 
@@ -516,397 +457,31 @@
 
 
   
-    <article id="post-HTML5/justify-content兼容" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-ubuntu/玩转ubuntu——nodejs篇" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/16/HTML5/justify-content%E5%85%BC%E5%AE%B9/">justify-content:space-evenly 兼容</a>
+      <a class="article-title" href="/2019/02/26/ubuntu/%E7%8E%A9%E8%BD%ACubuntu%E2%80%94%E2%80%94nodejs%E7%AF%87/">玩转ubuntu——nodejs篇</a>
     </h1>
   
 
         
-        <a href="/2020/01/16/HTML5/justify-content%E5%85%BC%E5%AE%B9/" class="archive-article-date">
-  	<time datetime="2020-01-16T02:52:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-16</time>
+        <a href="/2019/02/26/ubuntu/%E7%8E%A9%E8%BD%ACubuntu%E2%80%94%E2%80%94nodejs%E7%AF%87/" class="archive-article-date">
+  	<time datetime="2019-02-26T06:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       <!-- 
-        <p>justify-content 属性定义了浏览器如何分配顺着父容器主轴的弹性元素之间及其周围的空间。</p>
-<p>space-evenly: 均匀排列每个元素,每个元素之间的间隔相等</p>
-<p>space-between: 均匀排列每个元素,首个元素放置于起点,末尾元素放置于终点<br>兼容解决如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">box&#123;</span><br><span class="line">      <span class="attr">display</span>: flex;</span><br><span class="line">      flex-<span class="attr">flow</span>: row nowrap;</span><br><span class="line">      align-<span class="attr">items</span>: center;</span><br><span class="line">      justify-<span class="attr">content</span>: space-between;</span><br><span class="line">       <span class="comment">//justify-content: space-evenly;</span></span><br><span class="line">      &amp;:before,</span><br><span class="line">      &amp;:after &#123;</span><br><span class="line">          <span class="attr">content</span>: <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">          <span class="attr">display</span>: block;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="built_in">get</span> <span class="built_in">remove</span> nodejs --purge</span><br><span class="line"></span><br><span class="line">curl -sL https://<span class="keyword">deb</span>.nodesource.<span class="keyword">com</span>/setup_9.<span class="keyword">x</span> |sudo -E bash -</span><br><span class="line"></span><br><span class="line">sudo apte-<span class="built_in">get</span> <span class="keyword">update</span></span><br><span class="line"></span><br><span class="line">sudo apt-<span class="built_in">get</span> install -<span class="keyword">y</span> nodejs</span><br><span class="line"></span><br><span class="line">node -vnpm -v</span><br></pre></td></tr></table></figure>
        -->
       
         
             
-            
-                
-                
-            
-                
-                
-            
-                
-                
-            
-            
-                
-                <p><p>justify-content 属性定义了浏览器如何分配顺着父容器主轴的弹性元素之间及其周围的空间。</p>
-<p>space-evenly: 均匀排列每个元素,每个元素之间的间隔相等</p>
-<p>space-between: 均匀排列每个元素,首个元素放置于起点,末尾元素放置于终点<br>兼容解决如下：</p>
-<p>
-            
-        
-        
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">H5</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/01/16/HTML5/justify-content%E5%85%BC%E5%AE%B9/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-HTML5/H5项目常见问题及注意事项" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/02/HTML5/H5%E9%A1%B9%E7%9B%AE%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%8F%8A%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/">H5项目常见问题及注意事项</a>
-    </h1>
-  
-
-        
-        <a href="/2020/01/02/HTML5/H5%E9%A1%B9%E7%9B%AE%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%8F%8A%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" class="archive-article-date">
-  	<time datetime="2020-01-02T03:18:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      <!-- 
-        <p>Meta基础知识：<br>H5页面窗口自动调整到设备宽度，并禁止用户缩放页面<br>//一、HTML页面结构</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=<span class="string">&quot;viewport&quot;</span> content=<span class="string">&quot;width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no&quot;</span> /&gt;</span><br><span class="line"><span class="regexp">//</span> width    设置viewport宽度，为一个正整数，或字符串‘device-width’</span><br><span class="line"><span class="regexp">//</span> height   设置viewport高度，一般设置了宽度，会自动解析出高度，可以不用设置</span><br><span class="line"><span class="regexp">//</span> initial-scale    默认缩放比例，为一个数字，可以带小数</span><br><span class="line"><span class="regexp">//</span> minimum-scale    允许用户最小缩放比例，为一个数字，可以带小数</span><br><span class="line"><span class="regexp">//</span> maximum-scale    允许用户最大缩放比例，为一个数字，可以带小数</span><br><span class="line"><span class="regexp">//</span> user-scalable    是否允许手动缩放</span><br></pre></td></tr></table></figure>
-<p>//二、JS动态判断</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">var phoneWidth =  parseInt(window.screen.width);</span><br><span class="line">var phoneScale = phoneWidth/640;</span><br><span class="line">var ua = navigator.userAgent;</span><br><span class="line">if (/Android (\d+\.\d+)/.test(ua))&#123;</span><br><span class="line">    var version = parseFloat(RegExp.$1);</span><br><span class="line">    if(version&gt;2.3)&#123;</span><br><span class="line">        document.write(&#x27;<span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=640, minimum-scale = &#x27;+phoneScale+&#x27;, maximum-scale = &#x27;+phoneScale+&#x27;, target-densitydpi=device-dpi&quot;</span>&gt;</span>&#x27;);</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        document.write(&#x27;<span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=640, target-densitydpi=device-dpi&quot;</span>&gt;</span>&#x27;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125; else &#123;</span><br><span class="line">    document.write(&#x27;<span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=640, user-scalable=no, target-densitydpi=device-dpi&quot;</span>&gt;</span>&#x27;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">空白页基本meta标签</span><br><span class="line"><span class="comment">&lt;!-- 设置缩放 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1, user-scalable=no, minimal-ui&quot;</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 可隐藏地址栏，仅针对IOS的Safari（注：IOS7.0版本以后，safari上已看不到效果） --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;apple-mobile-web-app-capable&quot;</span> <span class="attr">content</span>=<span class="string">&quot;yes&quot;</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 仅针对IOS的Safari顶端状态条的样式（可选default/black/black-translucent ） --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;apple-mobile-web-app-status-bar-style&quot;</span> <span class="attr">content</span>=<span class="string">&quot;black&quot;</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;format-detection&quot;</span><span class="attr">content</span>=<span class="string">&quot;telephone=no, email=no&quot;</span> /&gt;</span></span><br><span class="line">其他meta标签</span><br><span class="line"><span class="comment">&lt;!-- 启用360浏览器的极速模式(webkit) --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;renderer&quot;</span> <span class="attr">content</span>=<span class="string">&quot;webkit&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 避免IE使用兼容模式 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;HandheldFriendly&quot;</span> <span class="attr">content</span>=<span class="string">&quot;true&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 微软的老式浏览器 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;MobileOptimized&quot;</span> <span class="attr">content</span>=<span class="string">&quot;320&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- uc强制竖屏 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;screen-orientation&quot;</span> <span class="attr">content</span>=<span class="string">&quot;portrait&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- QQ强制竖屏 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;x5-orientation&quot;</span> <span class="attr">content</span>=<span class="string">&quot;portrait&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- UC强制全屏 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;full-screen&quot;</span> <span class="attr">content</span>=<span class="string">&quot;yes&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- QQ强制全屏 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;x5-fullscreen&quot;</span> <span class="attr">content</span>=<span class="string">&quot;true&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- UC应用模式 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;browsermode&quot;</span> <span class="attr">content</span>=<span class="string">&quot;application&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- QQ应用模式 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;x5-page-mode&quot;</span> <span class="attr">content</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- windows phone 点击无高光 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;msapplication-tap-highlight&quot;</span> <span class="attr">content</span>=<span class="string">&quot;no&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>常见问题：<br>移动端如何定义字体font-family<br>@ ————————————–中文字体的英文名称<br>@ 宋体      SimSun<br>@ 黑体      SimHei<br>@ 微信雅黑   Microsoft Yahei<br>@ 微软正黑体 Microsoft JhengHei<br>@ 新宋体    NSimSun<br>@ 新细明体  MingLiU<br>@ 细明体    MingLiU<br>@ 标楷体    DFKai-SB<br>@ 仿宋     FangSong<br>@ 楷体     KaiTi<br>@ 仿宋_GB2312  FangSong_GB2312<br>@ 楷体_GB2312  KaiTi_GB2312<br>@<br>@ 说明：中文字体多数使用宋体、雅黑，英文用Helvetica</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123; <span class="attribute">font-family</span>: Microsoft Yahei,SimSun,Helvetica; &#125; </span><br></pre></td></tr></table></figure>
-<p>打电话发短信写邮件怎么实现</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 一、打电话</span></span><br><span class="line">&lt;a href=<span class="string">&quot;tel:0755-10086&quot;</span>&gt;打电话给:<span class="number">0755</span>-<span class="number">10086</span>&lt;/a&gt;</span><br><span class="line"><span class="comment">//  二、发短信，winphone系统无效</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;sms:10086&quot;</span>&gt;</span>发短信给: 10086<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line"><span class="comment">// 三、写邮件</span></span><br><span class="line"><span class="comment">//注：在添加这些功能时，第一个功能以&quot;?&quot;开头，后面的以&quot;&amp;&quot;开头</span></span><br><span class="line"><span class="comment">//1.普通邮件</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;mailto:863139978@qq.com&quot;</span>&gt;</span>点击我发邮件<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line"><span class="comment">//2.收件地址后添加?cc=开头，可添加抄送地址（Android存在兼容问题）</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;mailto:863139978@qq.com?cc=zhangqian0406@yeah.net&quot;</span>&gt;</span>点击我发邮件<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line"><span class="comment">//3.跟着抄送地址后，写上&amp;bcc=,可添加密件抄送地址（Android存在兼容问题）</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;mailto:863139978@qq.com?cc=zhangqian0406@yeah.net&amp;bcc=384900096@qq.com&quot;</span>&gt;</span>点击我发邮件<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line"><span class="comment">//4.包含多个收件人、抄送、密件抄送人，用分号(;)隔开多个邮件人的地址</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;mailto:863139978@qq.com;384900096@qq.com&quot;</span>&gt;</span>点击我发邮件<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line"><span class="comment">//5.包含主题，用?subject=</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;mailto:863139978@qq.com?subject=邮件主题&quot;</span>&gt;</span>点击我发邮件<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line"><span class="comment">//6.包含内容，用?body=;如内容包含文本，使用%0A给文本换行 </span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;mailto:863139978@qq.com?body=邮件主题内容%0A腾讯诚信%0A期待您的到来&quot;</span>&gt;</span>点击我发邮件<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line"><span class="comment">//7.内容包含链接，含http(s)://等的文本自动转化为链接</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;mailto:863139978@qq.com?body=http://www.baidu.com&quot;</span>&gt;</span>点击我发邮件<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line"><span class="comment">//8.内容包含图片（PC不支持）</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;mailto:863139978@qq.com?body=&lt;img src=&#x27;images/1.jpg&#x27; /&gt;&quot;</span>&gt;</span>点击我发邮件<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line"><span class="comment">//9.完整示例</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;mailto:863139978@qq.com;384900096@qq.com?cc=zhangqian0406@yeah.net&amp;bcc=993233461@qq.com&amp;subject=[邮件主题]&amp;body=腾讯诚邀您参与%0A%0Ahttp://www.baidu.com%0A%0A&lt;img src=&#x27;images/1.jpg&#x27; /&gt;&quot;</span>&gt;</span>点击我发邮件<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-<p>移动端touch事件（区分webkit和winphone）</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/* 当用户手指放在移动设备在屏幕上滑动会触发的touch事件 */</span></span><br><span class="line"><span class="regexp">//</span> 以下支持webkit</span><br><span class="line">touchstart——当手指触碰屏幕时候发生。不管当前有多少只手指</span><br><span class="line">touchmove——当手指在屏幕上滑动时连续触发。通常我们再滑屏页面，会调用event的preventDefault()可以阻止默认情况的发生：阻止页面滚动</span><br><span class="line">touchend——当手指离开屏幕时触发</span><br><span class="line">touchcancel——系统停止跟踪触摸时候会触发。例如在触摸过程中突然页面alert()一个提示框，此时会触发该事件，这个事件比较少用</span><br><span class="line"></span><br><span class="line"><span class="regexp">//</span>TouchEvent说明：</span><br><span class="line">touches：屏幕上所有手指的信息</span><br><span class="line">targetTouches：手指在目标区域的手指信息</span><br><span class="line">changedTouches：最近一次触发该事件的手指信息</span><br><span class="line">touchend时，touches与targetTouches信息会被删除，changedTouches保存的最后一次的信息，最好用于计算手指信息</span><br><span class="line"></span><br><span class="line"><span class="regexp">//</span>参数信息(changedTouches[<span class="number">0</span>])</span><br><span class="line">clientX、clientY在显示区的坐标</span><br><span class="line">target：当前元素</span><br><span class="line"></span><br><span class="line"><span class="regexp">//</span>事件响应顺序</span><br><span class="line">ontouchstart  &gt; ontouchmove  &gt; ontouchend &gt; onclick</span><br><span class="line"></span><br><span class="line"><span class="regexp">//</span> 以下支持winphone <span class="number">8</span></span><br><span class="line">MSPointerDown——当手指触碰屏幕时候发生。不管当前有多少只手指</span><br><span class="line">MSPointerMove——当手指在屏幕上滑动时连续触发。通常我们再滑屏页面，会调用css的html&#123;-ms-touch-action: none;&#125;可以阻止默认情况的发生：阻止页面滚动</span><br><span class="line">MSPointerUp——当手指离开屏幕时触发</span><br></pre></td></tr></table></figure>
-<p>移动端click屏幕产生200-300ms的延时响应<br>说明：移动设备上的web网页是有300ms延迟的，玩玩会造成按钮点击延迟甚至是点击失效。</p>
-<p>以下是历史原因，来源一个公司内一个同事的分享：<br>2007年苹果发布首款iphone上IOS系统搭载的safari为了将适用于PC端上大屏幕的网页能比较好的展示在手机端上，使用了双击缩放(double tap to zoom)的方案，比如你在手机上用浏览器打开一个PC上的网页，你可能在看到页面内容虽然可以撑满整个屏幕，但是字体、图片都很小看不清，此时可以快速双击屏幕上的某一部分，你就能看清该部分放大后的内容，再次双击后能回到原始状态。</p>
-<p>双击缩放是指用手指在屏幕上快速点击两次，iOS 自带的 Safari 浏览器会将网页缩放至原始比例。</p>
-<p>原因就出在浏览器需要如何判断快速点击上，当用户在屏幕上单击某一个元素时候，例如跳转链接<a href="#"></a>，此处浏览器会先捕获该次单击，但浏览器不能决定用户是单纯要点击链接还是要双击该部分区域进行缩放操作，所以，捕获第一次单击后，浏览器会先Hold一段时间t，如果在t时间区间里用户未进行下一次点击，则浏览器会做单击跳转链接的处理，如果t时间里用户进行了第二次单击操作，则浏览器会禁止跳转，转而进行对该部分区域页面的缩放操作。那么这个时间区间t有多少呢？在IOS safari下，大概为300毫秒。这就是延迟的由来。造成的后果用户纯粹单击页面，页面需要过一段时间才响应，给用户慢体验感觉，对于web开发者来说是，页面js捕获click事件的回调函数处理，需要300ms后才生效，也就间接导致影响其他业务逻辑的处理。</p>
-<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//解决方案：</span></span><br><span class="line">fastclick可以解决在手机上点击事件的<span class="number">300</span>ms延迟</span><br><span class="line">zepto的touch模块，tap事件也是为了解决在click的延迟问题</span><br></pre></td></tr></table></figure>
-<p>Rentina显示屏原理及设计方案<br>说明：retina屏是一种具备超高像素密度的液晶屏，同样大小的屏幕上显示的像素点由1个变为多个，如在同样带下的屏幕上，苹果设备的retina显示屏中，像素点1个变为4个。<br>在高清显示屏中的位图被放大，图片会变得模糊，因此移动端的视觉稿通常会设计为传统PC的2倍。<br>那么，前端的应对方案是：设计稿切出来的图片长宽保证为偶数，并使用backgroud-size把图片缩小为原来的1/2</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//例如图片宽高为：<span class="number">200px</span>*<span class="number">200px</span>，那么写法如下</span><br><span class="line"><span class="selector-class">.css</span>&#123;<span class="attribute">width</span>:<span class="number">100px</span>;<span class="attribute">height</span>:<span class="number">100px</span>;<span class="attribute">background-size</span>:<span class="number">100px</span> <span class="number">100px</span>;&#125;</span><br><span class="line">//其它元素的取值为原来的<span class="number">1</span>/<span class="number">2</span>，例如视觉稿<span class="number">40px</span>的字体，使用样式的写法为<span class="number">20px</span></span><br><span class="line"><span class="selector-class">.css</span>&#123;<span class="attribute">font-size</span>:<span class="number">20px</span>&#125;</span><br><span class="line"></span><br><span class="line">//image-set设计Rentina背景图</span><br><span class="line">image-set,webkit私有属性，也是CSS4的属性，为解决Rentina屏幕下的图像而生。</span><br><span class="line"><span class="selector-class">.css</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">url</span>(<span class="string">images/bg.jpg</span>) no-repeat center;</span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">-webkit-image-set</span>(</span><br><span class="line">    <span class="built_in">url</span>(<span class="string">images/bg.jpg</span>) <span class="number">1</span>x,     //支持image-set普通屏</span><br><span class="line">    <span class="built_in">url</span>(<span class="string">images/bg-2x.jpg</span>) <span class="number">2</span>x); //支持image-set的Rentinan</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>点击元素产生背景或边框怎么去掉<br>ios用户点击一个链接，会出现一个半透明灰色遮罩, 如果想要禁用，可设置-webkit-tap-highlight-color的alpha值为0去除灰色半透明遮罩；<br>android用户点击一个链接，会出现一个边框或者半透明灰色遮罩, 不同生产商定义出来额效果不一样，可设置-webkit-tap-highlight-color的alpha值为0去除部分机器自带的效果；<br>winphone系统,点击标签产生的灰色半透明背景，能通过设置<meta name="msapplication-tap-highlight" content="no">去掉；<br>特殊说明：有些机型去除不了，如小米2。对于按钮类还有个办法，不使用a或者input标签，直接用div标签</p>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a,button,<span class="keyword">input</span>,textarea &#123; </span><br><span class="line">    -webkit-tap-highlight-color: rgba(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>); </span><br><span class="line">    -webkit-<span class="keyword">user</span>-modify:<span class="keyword">read</span>-<span class="keyword">write</span>-plaintext-<span class="keyword">only</span>; //-webkit-<span class="keyword">user</span>-modify有个副作用，就是输入法不再能够输入多个字符</span><br><span class="line">&#125;   </span><br><span class="line">// 也可以 </span><br><span class="line">* &#123; -webkit-tap-highlight-color: rgba(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>); &#125;</span><br><span class="line">//winphone下</span><br><span class="line">&lt;meta <span class="type">name</span>=&quot;msapplication-tap-highlight&quot; content=&quot;no&quot;&gt;</span><br></pre></td></tr></table></figure>
-<p>美化表单元素</p>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//一、使用appearance改变webkit浏览器的默认外观</span><br><span class="line"><span class="keyword">input</span>,<span class="keyword">select</span> &#123; -webkit-appearance:<span class="keyword">none</span>; appearance: <span class="keyword">none</span>; &#125;</span><br><span class="line"></span><br><span class="line">//二、winphone下，使用伪元素改变表单元素默认外观</span><br><span class="line">//<span class="number">1.</span>禁用<span class="keyword">select</span>默认箭头，::-ms-expand修改表单控件下拉箭头，设置隐藏并使用背景图片来修饰</span><br><span class="line"><span class="keyword">select</span>::-ms-expand &#123; display:<span class="keyword">none</span>; &#125;</span><br><span class="line"></span><br><span class="line">//<span class="number">2.</span>禁用radio和checkbox默认样式，::-ms-<span class="keyword">check</span>修改表单复选框或单选框默认图标，设置隐藏并使用背景图片来修饰</span><br><span class="line"><span class="keyword">input</span>[<span class="keyword">type</span>=radio]::-ms-<span class="keyword">check</span>,</span><br><span class="line"><span class="keyword">input</span>[<span class="keyword">type</span>=checkbox]::-ms-<span class="keyword">check</span> &#123; display:<span class="keyword">none</span>; &#125;</span><br><span class="line"></span><br><span class="line">//<span class="number">3.</span>禁用pc端表单输入框默认清除按钮，::-ms-clear修改清除按钮，设置隐藏并使用背景图片来修饰</span><br><span class="line"><span class="keyword">input</span>[<span class="keyword">type</span>=<span class="type">text</span>]::-ms-clear,</span><br><span class="line"><span class="keyword">input</span>[<span class="keyword">type</span>=tel]::-ms-clear,</span><br><span class="line"><span class="keyword">input</span>[<span class="keyword">type</span>=number]::-ms-clear &#123; display:<span class="keyword">none</span>; &#125;</span><br></pre></td></tr></table></figure>
-<p>移动端字体单位font-size选择px还是rem</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 如需适配多种移动设备，建议使用rem。以下为参考值：</span></span><br><span class="line"><span class="selector-tag">html</span> &#123; <span class="attribute">font-size</span>: <span class="number">62.5%</span>; &#125;   <span class="comment">//10*16 = 62.5%</span></span><br><span class="line"><span class="comment">//设置12px字体   这里注意在rem前要加上对应的px值，解决不支持rem的浏览器的兼容问题，做到优雅降级</span></span><br><span class="line"><span class="selector-tag">body</span> &#123; <span class="attribute">font-size</span>:<span class="number">12px</span>; <span class="attribute">font-size</span>:<span class="number">1.2rem</span>; &#125;     </span><br></pre></td></tr></table></figure>
-<p>超实用的CSS样式</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">//</span>去掉webkit的滚动条——display: none;</span><br><span class="line"><span class="regexp">//</span>其他参数</span><br><span class="line">::-webkit-scrollba <span class="regexp">//</span>滚动条整体部分</span><br><span class="line">::-webkit-scrollbar-thumb   <span class="regexp">//</span>滚动条内的小方块</span><br><span class="line">::-webkit-scrollbar-track   <span class="regexp">//</span>滚动条轨道</span><br><span class="line">::-webkit-scrollbar-button  <span class="regexp">//</span>滚动条轨道两端按钮</span><br><span class="line">::-webkit-scrollbar-track-piece  <span class="regexp">//</span>滚动条中间部分，内置轨道</span><br><span class="line">::-webkit-scrollbar-corner       <span class="regexp">//</span>边角，两个滚动条交汇处</span><br><span class="line">::-webkit-resizer            <span class="regexp">//</span>两个滚动条的交汇处上用于通过拖动调整元素大小的小控件</span><br><span class="line"></span><br><span class="line"><span class="regexp">//</span> 禁止长按链接与图片弹出菜单</span><br><span class="line">a,img &#123; -webkit-touch-callout: none &#125;    </span><br><span class="line"></span><br><span class="line"><span class="regexp">//</span> 禁止ios和android用户选中文字</span><br><span class="line">html,body &#123;-webkit-user-select:none; user-select: none; &#125;</span><br><span class="line"></span><br><span class="line"><span class="regexp">//</span> 改变输入框placeholder的颜色值</span><br><span class="line">::-webkit-input-placeholder &#123; <span class="regexp">/* WebKit browsers */</span></span><br><span class="line">color: <span class="comment">#999; &#125;</span></span><br><span class="line">:-moz-placeholder &#123; <span class="regexp">/* Mozilla Firefox 4 to 18 */</span></span><br><span class="line">color: <span class="comment">#999; &#125;</span></span><br><span class="line">::-moz-placeholder &#123; <span class="regexp">/* Mozilla Firefox 19+ */</span></span><br><span class="line">color: <span class="comment">#999; &#125;</span></span><br><span class="line">:-ms-input-placeholder &#123; <span class="regexp">/* Internet Explorer 10+ */</span></span><br><span class="line">color: <span class="comment">#999; &#125;</span></span><br><span class="line">input:focus::-webkit-input-placeholder&#123; color:<span class="comment">#999; &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="regexp">//</span> android上去掉语音输入按钮</span><br><span class="line">input::-webkit-input-speech-button &#123;display: none&#125;</span><br><span class="line"></span><br><span class="line"><span class="regexp">//</span> 阻止windows Phone的默认触摸事件</span><br><span class="line"><span class="regexp">/*说明：winphone下默认触摸事件事件使用e.preventDefault是无效的，可通过样式来禁用，如：*/</span></span><br><span class="line">html &#123; -ms-touch-action:none; &#125; <span class="regexp">//</span>禁止winphone默认触摸事件</span><br></pre></td></tr></table></figure>
-<p>取消input在ios下，输入的时候英文首字母的默认大写</p>
-<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;input autocapitalize<span class="operator">=</span><span class="string">&quot;off&quot;</span> autocorrect<span class="operator">=</span><span class="string">&quot;off&quot;</span> /&gt;</span><br><span class="line">手机拍照和上传图片</span><br><span class="line">//IOS有拍照、录像、选取本地图片功能，部分Android只有选择本地图片功能。Winphone不支持</span><br><span class="line">&lt;input type<span class="operator">=</span><span class="string">&quot;file&quot;</span> accept<span class="operator">=</span><span class="string">&quot;images/*&quot;</span> /&gt;</span><br><span class="line">&lt;input type<span class="operator">=</span><span class="string">&quot;file&quot;</span> accept<span class="operator">=</span><span class="string">&quot;video/*&quot;</span> /&gt;</span><br></pre></td></tr></table></figure>
-<p>屏幕旋转的事件和样式</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//JS处理</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">orientInit</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> orientChk = <span class="variable language_">document</span>.<span class="property">documentElement</span>.<span class="property">clientWidth</span> &gt; <span class="variable language_">document</span>.<span class="property">documentElement</span>.<span class="property">clientHeight</span>?<span class="string">&#x27;landscape&#x27;</span>:<span class="string">&#x27;portrait&#x27;</span>;</span><br><span class="line">    <span class="keyword">if</span>(orientChk ==<span class="string">&#x27;lapdscape&#x27;</span>)&#123;</span><br><span class="line">        <span class="comment">//这里是横屏下需要执行的事件</span></span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="comment">//这里是竖屏下需要执行的事件</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">orientInit</span>();</span><br><span class="line"><span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;onorientationchange&#x27;</span> <span class="keyword">in</span> <span class="variable language_">window</span>?<span class="string">&#x27;orientationchange&#x27;</span>:<span class="string">&#x27;resize&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(orientInit, <span class="number">100</span>);</span><br><span class="line">&#125;,<span class="literal">false</span>)    </span><br><span class="line"></span><br><span class="line"><span class="comment">//CSS处理</span></span><br><span class="line"><span class="comment">//竖屏时样式</span></span><br><span class="line">@media all and (<span class="attr">orientation</span>:portrait)&#123;   &#125;</span><br><span class="line"><span class="comment">//横屏时样式</span></span><br><span class="line">@media all and (<span class="attr">orientation</span>:landscape)&#123;   &#125;</span><br></pre></td></tr></table></figure>
-<p>audio元素和video元素在ios和andriod中无法自动播放</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//音频，写法一</span></span><br><span class="line">&lt;audio src=<span class="string">&quot;music/bg.mp3&quot;</span> autoplay loop controls&gt;你的浏览器还不支持哦&lt;/audio&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">//音频，写法二</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">audio</span> <span class="attr">controls</span>=<span class="string">&quot;controls&quot;</span>&gt;</span> </span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">&quot;music/bg.ogg&quot;</span> <span class="attr">type</span>=<span class="string">&quot;audio/ogg&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">source</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">&quot;music/bg.mp3&quot;</span> <span class="attr">type</span>=<span class="string">&quot;audio/mpeg&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">source</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    优先播放音乐bg.ogg，不支持在播放bg.mp3</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">audio</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//JS绑定自动播放（操作window时，播放音乐）</span></span><br><span class="line">$(<span class="variable language_">window</span>).<span class="title function_">one</span>(<span class="string">&#x27;touchstart&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    music.<span class="title function_">play</span>();</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//微信下兼容处理</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&quot;WeixinJSBridgeReady&quot;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    music.<span class="title function_">play</span>();</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//小结</span></span><br><span class="line"><span class="comment">//1.audio元素的autoplay属性在IOS及Android上无法使用，在PC端正常</span></span><br><span class="line"><span class="comment">//2.audio元素没有设置controls时，在IOS及Android会占据空间大小，而在PC端Chrome是不会占据任何空间</span></span><br></pre></td></tr></table></figure>
-<p>重力感应事件</p>
-<figure class="highlight gml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 运用HTML5的deviceMotion，调用重力感应事件</span></span><br><span class="line"><span class="keyword">if</span>(window.DeviceMotionEvent)&#123;</span><br><span class="line">    document.addEventListener(<span class="string">&#x27;devicemotion&#x27;</span>, deviceMotionHandler, <span class="literal">false</span>)</span><br><span class="line">&#125;   </span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> <span class="variable language_">speed</span> = <span class="number">30</span>;</span><br><span class="line"><span class="keyword">var</span> <span class="variable language_">x</span> = <span class="variable language_">y</span> = z = lastX = lastY = lastZ = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">function</span> deviceMotionHandler(eventData)&#123;</span><br><span class="line">    <span class="keyword">var</span> acceleration = event.accelerationIncludingGravity;</span><br><span class="line">    <span class="variable language_">x</span> = acceleration.<span class="variable language_">x</span>;</span><br><span class="line">    <span class="variable language_">y</span> = acceleration.<span class="variable language_">y</span>; </span><br><span class="line">    z = acceleration.z;</span><br><span class="line">    <span class="keyword">if</span>(Math.<span class="built_in">abs</span>(<span class="variable language_">x</span>-lastX)&gt;<span class="variable language_">speed</span> || Math.<span class="built_in">abs</span>(<span class="variable language_">y</span>-lastY)&gt;<span class="variable language_">speed</span> || Math.<span class="built_in">abs</span>(z-lastZ)&gt;<span class="variable language_">speed</span> )&#123;</span><br><span class="line">        <span class="comment">//这里是摇动后要执行的方法 </span></span><br><span class="line">        yaoAfter();</span><br><span class="line">    &#125;</span><br><span class="line">    lastX = <span class="variable language_">x</span>;</span><br><span class="line">    lastY = <span class="variable language_">y</span>;</span><br><span class="line">    lastZ = z;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> yaoAfter()&#123;</span><br><span class="line">    <span class="comment">//do something</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>微信浏览器用户调整字体大小后页面矬了，怎么阻止用户调整<br>以下代码可使Android机页面不再受用户字体缩放强制改变大小，但是会有1S左右延时，期间可以考虑loading来处理</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="title function_">typeof</span>(<span class="title class_">WeixinJSBridge</span>) == <span class="string">&quot;undefined&quot;</span>) &#123;</span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&quot;WeixinJSBridgeReady&quot;</span>, <span class="keyword">function</span> (<span class="params">e</span>) &#123;</span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">            <span class="title class_">WeixinJSBridge</span>.<span class="title function_">invoke</span>(<span class="string">&#x27;setFontSizeCallback&#x27;</span>, &#123; <span class="string">&#x27;fontSize&#x27;</span>:<span class="number">0</span>&#125;, <span class="keyword">function</span>(<span class="params">res</span>)&#123;</span><br><span class="line">                <span class="title function_">alert</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(res));</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;, <span class="number">0</span>)</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;  </span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="title class_">WeixinJSBridge</span>.<span class="title function_">invoke</span>(<span class="string">&#x27;setFontSizeCallback&#x27;</span>, &#123; <span class="string">&#x27;fontSize&#x27;</span>:<span class="number">0</span>&#125;, <span class="keyword">function</span>(<span class="params">res</span>)&#123;</span><br><span class="line">            <span class="title function_">alert</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(res));</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;, <span class="number">0</span>)   </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//IOS下可使用 -webkit-text-size-adjust禁止用户调整字体大小</span></span><br><span class="line">body &#123; -webkit-text-size-<span class="attr">adjust</span>:<span class="number">100</span>%!important; &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//最好的解决方案：最好使用rem或百分比布局</span></span><br></pre></td></tr></table></figure>
-<p>定位的坑</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//fixed定位</span></span><br><span class="line"><span class="comment">//1.ios下fixed元素容易定位出错，软键盘弹出时，影响fixed元素定位</span></span><br><span class="line"><span class="comment">//2.android下fixed表现要比iOS更好，软键盘弹出时，不会影响fixed元素定位</span></span><br><span class="line"><span class="comment">//3.ios4下不支持position:fixed</span></span><br><span class="line"><span class="comment">//解决方案：使用[Iscroll](http://cubiq.org/iscroll-5)，如：</span></span><br><span class="line">&lt;div id=<span class="string">&quot;wrapper&quot;</span>&gt;</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">               <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">               .....</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span></span><br><span class="line">&lt;/div&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;iscroll.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="keyword">var</span> myscroll;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="keyword">function</span> <span class="title function_">loaded</span>(<span class="params"></span>)&#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        myscroll=<span class="keyword">new</span> <span class="title function_">iScroll</span>(<span class="string">&quot;wrapper&quot;</span>);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    &#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&quot;DOMContentLoaded&quot;</span>,loaded,<span class="literal">false</span>);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//position定位</span></span><br><span class="line"><span class="comment">//Android下弹出软键盘弹出时，影响absolute元素定位</span></span><br><span class="line"><span class="comment">//解决方案:</span></span><br><span class="line"><span class="keyword">var</span> ua = navigator.<span class="property">userAgent</span>.<span class="title function_">indexOf</span>(<span class="string">&#x27;Android&#x27;</span>);</span><br><span class="line"><span class="keyword">if</span>(ua&gt;-<span class="number">1</span>)&#123;</span><br><span class="line">    $(<span class="string">&#x27;.ipt&#x27;</span>).<span class="title function_">on</span>(<span class="string">&#x27;focus&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">        $(<span class="string">&#x27;.css&#x27;</span>).<span class="title function_">css</span>(&#123;<span class="string">&#x27;visibility&#x27;</span>:<span class="string">&#x27;hidden&#x27;</span>&#125;)</span><br><span class="line">    &#125;).<span class="title function_">on</span>(<span class="string">&#x27;blur&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">        $(<span class="string">&#x27;.css&#x27;</span>).<span class="title function_">css</span>(&#123;<span class="string">&#x27;visibility&#x27;</span>:<span class="string">&#x27;visible&#x27;</span>&#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>播放视频不全屏</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">1.ios7+支持自动播放</span></span><br><span class="line"><span class="comment">2.支持Airplay的设备（如：音箱、Apple TV)播放</span></span><br><span class="line"><span class="comment">x-webkit-airplay=&quot;true&quot; </span></span><br><span class="line"><span class="comment">3.播放视频不全屏</span></span><br><span class="line"><span class="comment">webkit-playsinline=&quot;true&quot; </span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">x-webkit-airplay</span>=<span class="string">&quot;true&quot;</span> <span class="attr">webkit-playsinline</span>=<span class="string">&quot;true&quot;</span> <span class="attr">preload</span>=<span class="string">&quot;auto&quot;</span> <span class="attr">autoplay</span> <span class="attr">src</span>=<span class="string">&quot;http://&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>JS判断设备</p>
-<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">deviceType</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> ua = navigator.userAgent;</span><br><span class="line">    <span class="keyword">var</span> agent = [<span class="string">&quot;Android&quot;</span>, <span class="string">&quot;iPhone&quot;</span>, <span class="string">&quot;SymbianOS&quot;</span>, <span class="string">&quot;Windows Phone&quot;</span>, <span class="string">&quot;iPad&quot;</span>, <span class="string">&quot;iPod&quot;</span>];    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;len,len = agent.<span class="built_in">length</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(ua.<span class="built_in">indexOf</span>(agent[i])&gt;<span class="number">0</span>)&#123;         </span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">deviceType();</span><br><span class="line">window.addEventListener(<span class="string">&#x27;resize&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    deviceType();</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>JS判断微信浏览器</p>
-<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">isWeixin</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> ua = navigator.userAgent.toLowerCase();</span><br><span class="line">    <span class="keyword">if</span>(ua.match(<span class="regexp">/MicroMessenger/i</span>)==<span class="string">&#x27;micromessenger&#x27;</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>android 2.3 bug</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">//</span><span class="number">1</span>.@-webkit-keyframes 需要以<span class="number">0</span>%开始<span class="number">100</span>%结束，<span class="number">0</span>%的百分号不能去掉</span><br><span class="line"><span class="regexp">//</span><span class="number">2</span>.after和before伪类无法使用动画animation</span><br><span class="line"><span class="regexp">//</span><span class="number">3</span>.border-radius不支持%单位，如要兼容，可以给radius设置一下较大的值</span><br><span class="line"><span class="regexp">//</span><span class="number">4</span>.translate百分比的写法和scale在一起会导致失效，例如：</span><br><span class="line">-webkit-transform: translate(-<span class="number">50</span>%,-<span class="number">50</span>%) scale(-<span class="number">0.5</span>, <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<p>android 4.x bug</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">//</span><span class="number">1</span>.三星 Galaxy S4中自带浏览器不支持border-radius缩写</span><br><span class="line"><span class="regexp">//</span><span class="number">2</span>.同时设置border-radius和背景色的时候，背景色会溢出到圆角以外部分</span><br><span class="line"><span class="regexp">//</span><span class="number">3</span>.部分手机(如三星)，a链接支持鼠标:visited事件，也就是说链接访问后文字变为紫色</span><br><span class="line"><span class="regexp">//</span><span class="number">4</span>.android无法同时播放多音频audio</span><br></pre></td></tr></table></figure>
-<p>消除transition闪屏</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.css</span> &#123;</span><br><span class="line">    -webkit-<span class="attribute">transform-style</span>: preserve-<span class="number">3</span>d;</span><br><span class="line">    -webkit-<span class="attribute">backface-visibility</span>: hidden;</span><br><span class="line">    -webkit-<span class="attribute">perspective</span>: <span class="number">1000</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>开启硬件加速<br>目前，像Chrome/Filefox/Safari/IE9+以及最新版本Opera都支持硬件加速，当检测到某个DOM元素应用了某些CSS规则时就会自动开启，从而解决页面闪白，保证动画流畅。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.css</span> &#123;</span><br><span class="line">    -webkit-<span class="attribute">transform</span>: <span class="built_in">translate3d</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">    -moz-<span class="attribute">transform</span>: <span class="built_in">translate3d</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">    -ms-<span class="attribute">transform</span>: <span class="built_in">translate3d</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translate3d</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>渲染优化<br>1.禁止使用iframe（阻塞父文档onload事件）<br>2.禁止使用gif图片实现loading效果（降低CPU消耗，提升渲染性能）<br>使用CSS3代码代替JS动画；<br>开启GPU加速；<br>使用base64位编码图片(不小图而言，大图不建议使用)<br>    对于一些小图标，可以使用base64位编码，以减少网络请求。但不建议大图使用，比较耗费CPU。小图标优势在于：<br>    1.减少HTTP请求；<br>    2.避免文件跨域；<br>    3.修改及时生效；</p>
-
-       -->
-      
-        
-            
-            
-                
-                
-            
-                
-                
-            
-                
-                
-            
-            
-                
-                <p><p>Meta基础知识：<br>H5页面窗口自动调整到设备宽度，并禁止用户缩放页面<br>//一、HTML页面结构</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=<span class="string">&quot;viewport&quot;</span> content=<span class="string">&quot;width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no&quot;</span> /&gt;</span><br><span class="line"><span class="regexp">//</span> width    设置viewport宽度，为一个正整数，或字符串‘device-width’</span><br><span class="line"><span class="regexp">//</span> height   设置viewport高度，一般设置了宽度，会自动解析出高度，可以不用设置</span><br><span class="line"><span class="regexp">//</span> initial-scale    默认缩放比例，为一个数字，可以带小数</span><br><span class="line"><span class="regexp">//</span> minimum-scale    允许用户最小缩放比例，为一个数字，可以带小数</span><br><span class="line"><span class="regexp">//</span> maximum-scale    允许用户最大缩放比例，为一个数字，可以带小数</span><br><span class="line"><span class="regexp">//</span> user-scalable    是否允许手动缩放</span><br></pre></td></tr></table></figure>
-<p>//二、JS动态判断</p>
-<p>
-            
-        
-        
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">H5</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">常见问题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/01/02/HTML5/H5%E9%A1%B9%E7%9B%AE%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%8F%8A%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ubuntu/XShell上传文件到Linux服务器上" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/12/25/ubuntu/XShell%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E5%88%B0Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A/">XShell上传文件到Linux服务器上</a>
-    </h1>
-  
-
-        
-        <a href="/2019/12/25/ubuntu/XShell%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E5%88%B0Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A/" class="archive-article-date">
-  	<time datetime="2019-12-25T06:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      <!-- 
-        <p>在学习Linux过程中，我们常常需要将本地文件上传到Linux主机上，这里简单记录下使用Xsheel工具进行文件传输</p>
-<p>1：首先连接上一台Linux主机</p>
-<p>2：输入rz命令，看是否已经安装了lrzsz，如果没有安装则执行  yum   -y  install  lrzsz命令进行安装。<br><img src="https://upload-images.jianshu.io/upload_images/9056389-53736bf3d69fa1d2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>3：安装成功后，输入rpm命令确认是否正确安装<br><img src="https://upload-images.jianshu.io/upload_images/9056389-6aa13ed4cdccf5d0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>4： 使用 rz -y命令进行文件上传，此时会弹出上传的窗口：<br><img src="https://upload-images.jianshu.io/upload_images/9056389-dcac3e4fd8f27020.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>5：选择要上传的文件，点击确定即可将本地文件上传到Linux上，如图表示成功上传文件<br><img src="https://upload-images.jianshu.io/upload_images/9056389-ea046957e30f432b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>6：使用ls命令可以看到文件已经上传到了当前目录下</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/9056389-a7c87b0b4438c560.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
-
-       -->
-      
-        
-            
-            
-                
-                
-            
-                
-                
-            
-                
-                
-            
-            
-                
-                <p><p>在学习Linux过程中，我们常常需要将本地文件上传到Linux主机上，这里简单记录下使用Xsheel工具进行文件传输</p>
-<p>1：首先连接上一台Linux主机</p>
-<p>2：输入rz命令，看是否已经安装了lrzsz，如果没有安装则执行  yum   -y  install  lrzsz命令进行安装。<br><img src="https://upload-images.jianshu.io/upload_images/9056389-53736bf3d69fa1d2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>
-            
-        
-        
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">XShell</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/12/25/ubuntu/XShell%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E5%88%B0Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ubuntu/玩转ubuntu——nginx与ngrok公用端口" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/17/ubuntu/%E7%8E%A9%E8%BD%ACubuntu%E2%80%94%E2%80%94nginx%E4%B8%8Engrok%E5%85%AC%E7%94%A8%E7%AB%AF%E5%8F%A3/">玩转ubuntu——golong篇</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/17/ubuntu/%E7%8E%A9%E8%BD%ACubuntu%E2%80%94%E2%80%94nginx%E4%B8%8Engrok%E5%85%AC%E7%94%A8%E7%AB%AF%E5%8F%A3/" class="archive-article-date">
-  	<time datetime="2019-07-17T07:18:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      <!-- 
-        <p>虽然内网穿透是搞定了，但很多小伙伴的需求是微信内开发，微信只能使用80,443端口进行调试，给大家带来了很大的苦恼，所以，本教程新鲜出炉啦</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">upstream</span> ngrok &#123;</span><br><span class="line"><span class="attribute">server</span> <span class="number">127.0.0.1:81</span>; <span class="comment"># 此处端口要跟 启动服务端ngrok时指定的端口一致</span></span><br><span class="line"><span class="attribute">keepalive</span> <span class="number">64</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="section">server</span> &#123;</span><br><span class="line"><span class="attribute">listen</span>       <span class="number">80</span>;</span><br><span class="line"><span class="attribute">server_name</span>  domain.com;</span><br><span class="line"><span class="comment">#charset koi8-r;</span></span><br><span class="line"><span class="section">location</span> / &#123;</span><br><span class="line"><span class="attribute">proxy_set_header</span> X-Real-IP <span class="variable">$remote_addr</span>;</span><br><span class="line"><span class="attribute">proxy_set_header</span> X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line"><span class="attribute">proxy_set_header</span> Host  <span class="variable">$http_host</span>:<span class="number">81</span>; <span class="comment">#此处端口要跟 启动服务端ngrok 时指定的端口一致</span></span><br><span class="line"><span class="attribute">proxy_set_header</span> X-Nginx-Proxy <span class="literal">true</span>;</span><br><span class="line"><span class="attribute">proxy_pass</span>  http://ngrok;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-       -->
-      
-        
-            
-            
-                
-                
-            
-                
-                
             
                 
                 
@@ -927,7 +502,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">golong</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">nodejs</a>
         		</li>
       		
 		</ul>
@@ -937,7 +512,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/17/ubuntu/%E7%8E%A9%E8%BD%ACubuntu%E2%80%94%E2%80%94nginx%E4%B8%8Engrok%E5%85%AC%E7%94%A8%E7%AB%AF%E5%8F%A3/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/02/26/ubuntu/%E7%8E%A9%E8%BD%ACubuntu%E2%80%94%E2%80%94nodejs%E7%AF%87/">展开全文 >></a>
         </p>
       
 
@@ -967,27 +542,35 @@
 
 
   
-    <article id="post-ubuntu/nginx-配置ssl" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-HTML5/js 生成随机数（不使用Math.random()）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/17/ubuntu/nginx-%E9%85%8D%E7%BD%AEssl/">nginx-配置ssl</a>
+      <a class="article-title" href="/2018/10/18/HTML5/js%20%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E6%95%B0%EF%BC%88%E4%B8%8D%E4%BD%BF%E7%94%A8Math.random()%EF%BC%89/">js 生成随机数(不使用Math.random())</a>
     </h1>
   
 
         
-        <a href="/2019/07/17/ubuntu/nginx-%E9%85%8D%E7%BD%AEssl/" class="archive-article-date">
-  	<time datetime="2019-07-17T06:57:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-17</time>
+        <a href="/2018/10/18/HTML5/js%20%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E6%95%B0%EF%BC%88%E4%B8%8D%E4%BD%BF%E7%94%A8Math.random()%EF%BC%89/" class="archive-article-date">
+  	<time datetime="2018-10-18T06:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       <!-- 
-        <p>我们常说https、http啥的，那么究竟https怎么配置呢，现在它来了<br><img src="https://upload-images.jianshu.io/upload_images/9056389-3c247456b5c7710d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><img src="https://upload-images.jianshu.io/upload_images/9056389-2e4ec64e5564a09e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>wget <a target="_blank" rel="noopener" href="http://nginx.org/download/nginx-1.12.0.tar.gz">http://nginx.org/download/nginx-1.12.0.tar.gz</a><br>tar -zxvf nginx-1.12.0.tar.gz </p>
+        <p>朋友问了我一道面试题，如下：</p>
+<blockquote>
+<p>实现一个返回随机数的函数，要求如下：<br>1.不可以使用Math.random()<br>2.有一个函数 Rand() 返回1-5的随机数</p>
+</blockquote>
+<p>想了很久除了获取时间的毫秒数外，我没法用一个固定的代码区生成会变动的数据，但根据毫秒数怎么获取一个足够随机的数值我不知道怎么处理了，多方查证下找到如下代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">rand = (<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">var</span> today = <span class="keyword">new</span> <span class="title class_">Date</span>(); </span><br><span class="line">  <span class="keyword">var</span> seed = today.<span class="title function_">getTime</span>();</span><br><span class="line">  <span class="keyword">function</span> <span class="title function_">rnd</span>(<span class="params"></span>)&#123;</span><br><span class="line">    seed = ( seed * <span class="number">9301</span> + <span class="number">49297</span> ) % <span class="number">233280</span>;</span><br><span class="line">    <span class="keyword">return</span> seed / ( <span class="number">233280.0</span> );</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">function</span> <span class="title function_">rand</span>(<span class="params">number</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">Math</span>.<span class="title function_">ceil</span>(<span class="title function_">rnd</span>() * number);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+
+<p>至于为什么是9301、49297、233280这几个数字，有兴趣的朋友可以去<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/22818104">知乎</a></p>
+<p>我的理解是，利用这个几个数字将毫秒数变得足够随机，然后使用进一法将其变为整数，至于为何是进一法，因为题目要求是1-n，而不是0-n</p>
 
        -->
       
@@ -999,6 +582,407 @@
             
                 
                 
+            
+                
+                
+            
+            
+                
+                <p><p>朋友问了我一道面试题，如下：</p>
+<blockquote>
+<p>实现一个返回随机数的函数，要求如下：<br>1.不可以使用Math.random()<br>2.有一个函数 Rand() 返回1-5的随机数</p>
+<p>
+            
+        
+        
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">H5</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">随机数</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/10/18/HTML5/js%20%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E6%95%B0%EF%BC%88%E4%B8%8D%E4%BD%BF%E7%94%A8Math.random()%EF%BC%89/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-直播/web直播之路————rtmp" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/18/%E7%9B%B4%E6%92%AD/web%E7%9B%B4%E6%92%AD%E4%B9%8B%E8%B7%AF%E2%80%94%E2%80%94%E2%80%94%E2%80%94rtmp/">web直播之路——rtmp</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/18/%E7%9B%B4%E6%92%AD/web%E7%9B%B4%E6%92%AD%E4%B9%8B%E8%B7%AF%E2%80%94%E2%80%94%E2%80%94%E2%80%94rtmp/" class="archive-article-date">
+  	<time datetime="2018-04-17T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      <!-- 
+        <p>##前情提要<br>上一篇文章简要分析了下目前web直播常见的几个技术，这次带大家使用rtmp实现直播</p>
+<p>##前期准备</p>
+<blockquote>
+<p>ubuntu16.04服务器<br>nginx</p>
+</blockquote>
+<p>前期准备工作还有疑问的可以看看我以前的文章</p>
+
+       -->
+      
+        
+            
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+            
+                
+                <p><p>##前情提要<br>上一篇文章简要分析了下目前web直播常见的几个技术，这次带大家使用rtmp实现直播</p>
+<p>##前期准备</p>
+<blockquote>
+<p>
+            
+        
+        
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">直播</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/18/%E7%9B%B4%E6%92%AD/web%E7%9B%B4%E6%92%AD%E4%B9%8B%E8%B7%AF%E2%80%94%E2%80%94%E2%80%94%E2%80%94rtmp/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-直播/web直播之路-————-简介" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/17/%E7%9B%B4%E6%92%AD/web%E7%9B%B4%E6%92%AD%E4%B9%8B%E8%B7%AF-%E2%80%94%E2%80%94%E2%80%94%E2%80%94-%E7%AE%80%E4%BB%8B/">web直播之路——简介</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/17/%E7%9B%B4%E6%92%AD/web%E7%9B%B4%E6%92%AD%E4%B9%8B%E8%B7%AF-%E2%80%94%E2%80%94%E2%80%94%E2%80%94-%E7%AE%80%E4%BB%8B/" class="archive-article-date">
+  	<time datetime="2018-04-17T08:53:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      <!-- 
+        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>自从前几年斗鱼、熊猫TV等直播服务火起来后，直播逐渐进入人们的视野，再加上抖音，快手，天猫直播购物的兴起，企业逐渐将直播纳入了自己营销的系统中，去年直播抓娃娃更是处于风口，获得了一大批用户。<br>单纯从技术角度来讲，直播技术主要应用为以下几类：</p>
+<blockquote>
+<ol>
+<li>RTMP协议<br> RTMP是Real Time Messaging Protocol（实时消息传输<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%8D%8F%E8%AE%AE/13020269">协议</a>）的首字母缩写。该协议基于TCP，是一个协议族，包括RTMP基本协议及RTMPT/RTMPS/RTMPE等多种变种。RTMP是一种设计用来进行实时数据通信的网络协议，主要用来在Flash/AIR平台和支持RTMP协议的流媒体/交互服务器之间进行音视频和数据通信。<br>支持该协议的软件包括Adobe Media Server/Ultrant Media Server/red5等<br>eg: 香港卫视：rtmp://live.hkstv.hk.lxdns.com/live/hks</li>
+<li>HttpFlv<br>HttpFlv 就是 HTTP+FIV ，将音视频数据封装成FLV格式，然后通过 HTTP 协议传输给客户端。理解HttpFlv协议，这就是关键。<br>eg: <a target="_blank" rel="noopener" href="http://192.168.4.230/abc.flv">http://192.168.4.230/abc.flv</a></li>
+<li>HLS<br>HTTP Live Streaming（HLS）是苹果公司实现的基于HTTP的流媒体传输协议，可实现流媒体的直播和点播。它的工作原理简单来说就是把一段视频流，分成一个个小的基于HTTP的文件来下载。当媒体流正在播放时，客户端可以根据当前网络环境，方便地在不同的码率流中做切换，以实现更好的观影体验。<br>eg: 香港卫视：<a target="_blank" rel="noopener" href="http://live.hkstv.hk.lxdns.com/live/hks/playlist.m3u8">http://live.hkstv.hk.lxdns.com/live/hks/playlist.m3u8</a></li>
+<li>WS协议<br>HTML5开始提供的一种浏览器与服务器进行全双工通讯的网络技术，属于应用层协议。它基于TCP传输协议，并复用HTTP的握手通道。<br>eg: ws://192.168.4.230/123456</li>
+</ol>
+</blockquote>
+<p>接下来让我们对比下这四者的区别</p>
+<h2 id="RTMP"><a href="#RTMP" class="headerlink" title="RTMP"></a>RTMP</h2><h4 id="优势："><a href="#优势：" class="headerlink" title="优势："></a>优势：</h4><blockquote>
+<p><strong>1. 实时性高</strong><br>RTMP实时性可控制在3s中之内，网络状况良好时，延时可控制在0.8s左右<br><strong>2. 支持加密</strong><br>RTMPE和RTMPS为加密协议。虽然HLS也有加密，但在PC平台上flash对RTMPE/RTMPS支持比HLS要好。<br><strong>3. 编码兼容性高</strong><br>RTMP实际上是现在编码器输出的工业标准协议，基本上所有的编码器（摄像头之类）都支持RTMP输出。原因在于PC市场巨大，PC主要是Windows，Windows的浏览器基本上都支持Flash，Flash又支持RTMP支持得非常好。（由于Flash诸多问题，新版浏览器已经不提倡使用Flash，尤其是chrome，页面默认禁止Flash播放）<br><strong>4. 稳定性高</strong><br>在PC平台上flash播放的最稳定方式是RTMP，如果做CDN或者大中型集群分发，选择稳定性高的协议一定是必要的。HTTP也很稳定，但HTTP是在协议上稳定；稳定性不只是服务端的事情，在集群分发，服务器管理，主备切换，客户端的支持上，RTMP在PC分发这种方式上还是很有优势。<br><strong>5. 系统容错</strong><br>容错有很多种级别，RTMP的集群实现时可以指定N上层，在错误时切换不会影响到下层或者客户端，另外RTMP的流没有标识，切到其他的服务器的流也可以继续播放。HLS的流热备切换没有这么容易。若对于直播的容错要求高，譬如降低出问题的概率，选择RTMP会是很好的选择。<br><strong>6. 可监控</strong><br>在监控系统或者运维系统的角度看，流协议应该比较合适监控。HTTP的流监控感觉没有那么完善。这个不算绝对优势，但比较有利。</p>
+</blockquote>
+<h4 id="劣势"><a href="#劣势" class="headerlink" title="劣势"></a>劣势</h4><blockquote>
+<p><strong>1. 播放兼容性差</strong><br>RTMP最大软肋，因为是Adobe的私有协议，很多设备都无法直接播放，比如iOS，需要外挂第三方解码器，由此会带来发热、耗电等问题。<br>HTML5也是无法直接播放RTMP，因此你看到的很多手机网页上的直播，是由下面HLS来推流的。<br>不过PC端软件一般喜欢采用RTMP播放流媒体<br><strong>2. 协议复杂</strong><br>RTMP协议比起HTTP复杂很多，导致性能低下。<br><strong>3. 有累积延迟</strong><br>流协议做缓存不方便。譬如点播，若做RTMP流协议，边缘缓存RTMP会很麻烦。如果是HTTP，缓存其实也很麻烦，但是HTTP服务器的缓存已经做了很久，所以只需要使用就好。这是为何点播都走HTTP的原因。<br><strong>3. Cache麻烦</strong><br>技术一定要知道弱点，RTMP有个弱点就是累积误差，原因是RTMP基于TCP不会丢包。所以当网络状态差时，服务器会将包缓存起来，导致累积的延迟；待网络状况好了，就一起发给客户端。这个的对策就是，当客户端的缓冲区很大，就断开重连。</p>
+</blockquote>
+<h2 id="HLS"><a href="#HLS" class="headerlink" title="HLS"></a>HLS</h2><h4 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h4><blockquote>
+<ol>
+<li>客户端支持简单, 只需要支持 HTTP 请求即可, HTTP 协议无状态, 只需要按顺序下载媒体片段即可.</li>
+<li>使用 HTTP 协议网络兼容性好, HTTP 数据包也可以方便地通过防火墙或者代理服务器, CDN 支持良好.</li>
+<li>Apple 的全系列产品支持, 由于 HLS 是苹果提出的, 所以在 Apple 的全系列产品包括 iphone, ipad, safari 都不需要安装任何插件就可以原生支持播放 HLS, 现在, Android 也加入了对 HLS 的支持.</li>
+<li>自多码率自适应, Apple 在提出 HLS 时, 就已经考虑了码流自适应的问题.</li>
+</ol>
+</blockquote>
+<h4 id="劣势-1"><a href="#劣势-1" class="headerlink" title="劣势"></a>劣势</h4><blockquote>
+<ol>
+<li>相比 RTMP 这类长连接协议, 延时较高, 难以用到互动直播场景.</li>
+<li>对于点播服务来说, 由于 TS 切片通常较小, 海量碎片在文件分发, 一致性缓存, 存储等方面都有较大挑战.</li>
+</ol>
+</blockquote>
+<h2 id="HttpFlv"><a href="#HttpFlv" class="headerlink" title="HttpFlv"></a>HttpFlv</h2><h4 id="优势-1"><a href="#优势-1" class="headerlink" title="优势"></a>优势</h4><blockquote>
+<p><strong>1. 性能很高：</strong><br>HTTP的性能没得说，协议简单，各种HTTP高性能服务器也完善。如果分发的量特别大，譬如点播视频网站，没有直播的实时性要求，HTTP协议是最好选择。<br><strong>2. 没有碎片：</strong><br>HTTP比HLS没有碎片，HTTP分发大文件会比小文件分发方便很多。特别是存储，小文件的性能超低，是个硬伤。<br><strong>3. 穿墙：</strong><br>互联网不可能不开放HTTP协议，否则就不叫互联网。所以任何端口封掉，也不会导致HTTP流看不了。（不过RTMP也能穿墙，用RTMPT协议）。</p>
+</blockquote>
+<h4 id="劣势-2"><a href="#劣势-2" class="headerlink" title="劣势"></a>劣势</h4><blockquote>
+<p><strong>1. 实时性差</strong><br>基本上没有实时性这个说法。<br><strong>2. 原生支持不好</strong><br>就PC上flash对于HTTP流支持还可以，Android/IOS上似乎只能mp4，总之移动端对于HTTP的支持不是很完善。</p>
+</blockquote>
+<h2 id="WS"><a href="#WS" class="headerlink" title="WS"></a>WS</h2><h4 id="优势-2"><a href="#优势-2" class="headerlink" title="优势"></a>优势</h4><blockquote>
+<p><strong>1. 延迟低：</strong><br>延迟在100ms左右，用户感受无延迟<br><strong>2. 适配多平台</strong><br>主流浏览器都支持此协议，兼容安卓、Ios、windows、mac多平台<br><strong>3. 省时省力</strong><br>一套代码支持多平台<br><strong>4. 高并发</strong><br>WS协议相对于其他协议来讲，并发量会高很多，占用服务端资源少<br><strong>5. 可监控</strong><br>WS协议本质也是TCP协议，三次握手的情况下，开发人员很容易对此进行监控</p>
+</blockquote>
+<h4 id="劣势-3"><a href="#劣势-3" class="headerlink" title="劣势"></a>劣势</h4><blockquote>
+<p><strong>1.  编码兼容率不好</strong><br><strong>2. 需要用户端对传输的数据进行解析，转化为应用级的数据</strong></p>
+</blockquote>
+
+       -->
+      
+        
+            
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+            
+                
+                <p><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>自从前几年斗鱼、熊猫TV等直播服务火起来后，直播逐渐进入人们的视野，再加上抖音，快手，天猫直播购物的兴起，企业逐渐将直播纳入了自己营销的系统中，去年直播抓娃娃更是处于风口，获得了一大批用户。<br>单纯从技术角度来讲，直播技术主要应用为以下几类：</p>
+<blockquote>
+<ol>
+<p>
+            
+        
+        
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">直播</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/17/%E7%9B%B4%E6%92%AD/web%E7%9B%B4%E6%92%AD%E4%B9%8B%E8%B7%AF-%E2%80%94%E2%80%94%E2%80%94%E2%80%94-%E7%AE%80%E4%BB%8B/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ubuntu/玩转ubuntu——php5.6篇" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/09/ubuntu/%E7%8E%A9%E8%BD%ACubuntu%E2%80%94%E2%80%94php5.6%E7%AF%87/">玩转ubuntu——php5.6篇</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/09/ubuntu/%E7%8E%A9%E8%BD%ACubuntu%E2%80%94%E2%80%94php5.6%E7%AF%87/" class="archive-article-date">
+  	<time datetime="2018-04-09T13:34:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      <!-- 
+        <p>前情提要：</p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/4b2cc653d3cb">玩转ubuntu——nginx篇</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/a4063b0be975">玩转ubuntu——mysql篇</a></p>
+<p>Ubuntu 16.04默认安装php7.0环境，php7.0相对于php5.6版本更新较大，如果同学们喜欢用php7.0，那直接看后面nginx怎么配置，如果需要自行安装php5.6需要清除php7的已安装包，否则会报错。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9056389-d7b24c047871bfe0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Ubuntu16.04自带php7.0"></p>
+<p>输入命令移出默认及已安装的PHP包</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -<span class="keyword">l</span> | <span class="keyword">grep</span> php| awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span> |<span class="keyword">tr</span> <span class="string">&quot;\n&quot;</span> <span class="string">&quot; &quot;</span></span><br><span class="line"></span><br><span class="line">sudo apt install aptitude</span><br><span class="line"></span><br><span class="line">sudo aptitude purge `dpkg -<span class="keyword">l</span> | <span class="keyword">grep</span> php| awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span> |<span class="keyword">tr</span> <span class="string">&quot;\n&quot;</span> <span class="string">&quot; &quot;</span>`</span><br><span class="line"></span><br><span class="line">#添加php安装源并更新</span><br><span class="line"></span><br><span class="line">sudo <span class="built_in">add</span>-apt-repository <span class="keyword">pp</span><span class="variable">a:ondrej</span>/php</span><br><span class="line"></span><br><span class="line">sudo apt <span class="keyword">update</span></span><br></pre></td></tr></table></figure>
+<p>我在直接使用sudo add-apt-repository ppa:ondrej/php命令的时候提示报错，command not found情况如下</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9056389-11a516bc4f102164.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="添加源报错"></p>
+<p>这个是缺少程序，安装一下就可以了。输入命令如下：</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="built_in">get</span> install software-<span class="built_in">properties</span>-common python-software-<span class="built_in">properties</span>  </span><br></pre></td></tr></table></figure>
+<p>然后再输入增加源的命令，增加的时候需要你enter确认，更新源完成后，我们开始安装mysql5.6，命令如下：</p>
+<figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install php5.6-fpm php5.6-mysql php5.6-common php5.6-curl php5.6-cli php5.6-mcrypt php5.6-mbstring php5.6-dom</span><br></pre></td></tr></table></figure>
+<p>安装完成后，我们输入php -v 查看是否安装成功</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9056389-64130c967f2a4056.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="php -v"></p>
+<p>打开php.ini配置文件:</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim <span class="regexp">/etc/</span>php<span class="regexp">/5.6/</span>fpm/php.ini</span><br></pre></td></tr></table></figure>
+<p>在esc模式中输入</p>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/cgi.fix_pathinfo <span class="operator">=</span> <span class="number">1</span><span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>查找到cgi.fix_pathinfo = 1;然后把前面分号删除，将其值改为0；也就是</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">cgi.fix_pathinfo</span> = <span class="number">0</span><span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>然后重启php5.6-fpm</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sudo</span> service php5.<span class="number">6</span>-fpm restart</span><br></pre></td></tr></table></figure>
+<p>打开nginx配置地址，如果忘记怎么查看，可以查看我的上一篇文章，或者输入命令</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo  vi  <span class="regexp">/etc/</span>nginx<span class="regexp">/sites-enabled/</span><span class="keyword">default</span></span><br></pre></td></tr></table></figure>
+<p>如果你是使用的php7.0，那你将nginx配置中</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9056389-c4c30bac90dce3de.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="php7.0自带配置"></p>
+<p>此代码块注释打开，并在index中增加index.php即可，完整代码如下</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9056389-1bf937058bd25baf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="配置好的php7.0"></p>
+<p>配置好后记得重启nginx就可以了。接下来是php5.6的内容</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9056389-abde826488af4748.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="配置好的php5.6"></p>
+<p>老规矩，重启nginx</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sudo service nginx restart</span></span><br></pre></td></tr></table></figure>
+<p>然后让我们测试下php是否安装成功</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">cd /<span class="keyword">var</span>/www/html</span><br><span class="line"></span><br><span class="line">sudo vi phpinfo.php</span><br><span class="line"></span><br><span class="line"><span class="comment">#在phpinfo.php中输入</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?</span></span><br><span class="line"></span><br><span class="line">php <span class="title function_ invoke__">phpinfo</span>();</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>保存即可，打开你的这个文件，我的路径是<a href="http://hellohl.com/phpinfo.php%EF%BC%8C%E5%87%BA%E7%8E%B0%E5%A6%82%E4%B8%8B%E7%95%8C%E9%9D%A2%E5%B0%B1%E6%98%AF%E6%88%90%E5%8A%9F%E4%BA%86">http://hellohl.com/phpinfo.php，出现如下界面就是成功了</a></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9056389-f26375e17a74bb53.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="php安装成功"></p>
+
+       -->
+      
+        
+            
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+            
+                
+                <p><p>前情提要：</p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/4b2cc653d3cb">玩转ubuntu——nginx篇</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/a4063b0be975">玩转ubuntu——mysql篇</a></p>
+<p>
             
         
         
@@ -1016,11 +1000,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">nginx</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ssl</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
         		</li>
       		
 		</ul>
@@ -1030,7 +1010,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/17/ubuntu/nginx-%E9%85%8D%E7%BD%AEssl/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/04/09/ubuntu/%E7%8E%A9%E8%BD%ACubuntu%E2%80%94%E2%80%94php5.6%E7%AF%87/">展开全文 >></a>
         </p>
       
 
@@ -1062,7 +1042,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/3/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -1199,15 +1179,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">统计</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">cloudstuido</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">npm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">统计</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1267,15 +1247,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">centos7</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">脚本</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">

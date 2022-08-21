@@ -160,157 +160,59 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-ubuntu/玩转ubuntu——ngrok启动脚本" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-ubuntu/玩转ubuntu——mysql篇" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/17/ubuntu/%E7%8E%A9%E8%BD%ACubuntu%E2%80%94%E2%80%94ngrok%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/">玩转ubuntu——golong篇</a>
+      <a class="article-title" href="/2018/04/09/ubuntu/%E7%8E%A9%E8%BD%ACubuntu%E2%80%94%E2%80%94mysql%E7%AF%87/">玩转ubuntu——mysql篇</a>
     </h1>
   
 
         
-        <a href="/2019/07/17/ubuntu/%E7%8E%A9%E8%BD%ACubuntu%E2%80%94%E2%80%94ngrok%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/" class="archive-article-date">
-  	<time datetime="2019-07-17T06:57:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-17</time>
+        <a href="/2018/04/09/ubuntu/%E7%8E%A9%E8%BD%ACubuntu%E2%80%94%E2%80%94mysql%E7%AF%87/" class="archive-article-date">
+  	<time datetime="2018-04-09T09:37:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-09</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       <!-- 
-        <p>服务端ngrok下新建start.sh文件</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">vi</span> start.<span class="keyword">sh</span></span><br><span class="line"># start.<span class="keyword">sh</span></span><br><span class="line">pid=`<span class="keyword">ps</span> -ef|<span class="keyword">grep</span> <span class="string">&quot;./bin/ngrokd -domain=&#x27;domain.com&#x27; -httpAddr=&#x27;:81&#x27; -httpsAddr=&#x27;:444&#x27;&quot;</span>| <span class="keyword">grep</span> -v <span class="string">&quot;grep&quot;</span>|awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span>`</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ <span class="string">&quot;$pid&quot;</span> != <span class="string">&quot;&quot;</span> ]</span><br><span class="line">then</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;run.py already run, stop it first&quot;</span></span><br><span class="line">kill -<span class="number">9</span> $&#123;pid&#125;</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;starting now...&quot;</span></span><br><span class="line"></span><br><span class="line">nohup ./bin/ngrokd -domain=<span class="string">&quot;domain.com&quot;</span> -httpAddr=<span class="string">&quot;:81&quot;</span> -httpsAddr=<span class="string">&quot;:444&quot;</span> &gt; test.out <span class="number">2</span>&gt;&amp;<span class="number">1</span> &amp;</span><br><span class="line"></span><br><span class="line">pid=`<span class="keyword">ps</span> -ef|<span class="keyword">grep</span> <span class="string">&quot;./bin/ngrokd -domain=&quot;</span>domain.<span class="keyword">com</span><span class="string">&quot; -httpAddr=&quot;</span>:<span class="number">81</span><span class="string">&quot; -httpsAddr=:444&gt; test.out 2&gt;&amp;1 &amp;&quot;</span>| <span class="keyword">grep</span> -v <span class="string">&quot;grep&quot;</span>|awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span>`</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> $&#123;pid&#125; &gt; pid.out</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;ngrokd -domain=&quot;</span>domain.<span class="keyword">com</span><span class="string">&quot; started at pid: &quot;</span>$&#123;pid&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+        <p>前情提要：</p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/4b2cc653d3cb">玩转ubuntu——nginx篇</a></p>
+<p>上次讲了如何配置ubuntu16.04中的nginx，这次接着讲，如何配置mysql，首先输入命令</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sudo</span> apt update    <span class="comment">#更新源</span></span><br><span class="line"></span><br><span class="line">sudo apt install mysql-server    <span class="comment">#安装mysql相关服务</span></span><br></pre></td></tr></table></figure>
 
-       -->
-      
-        
-            
-            
-                
-                
-            
-                
-                
-            
-                
-                
-            
-        
-        
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">ubuntu</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">golong</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/17/ubuntu/%E7%8E%A9%E8%BD%ACubuntu%E2%80%94%E2%80%94ngrok%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ubuntu/玩转ubuntu——内网穿透篇" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/17/ubuntu/%E7%8E%A9%E8%BD%ACubuntu%E2%80%94%E2%80%94%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E7%AF%87/">玩转ubuntu——内网穿透篇</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/17/ubuntu/%E7%8E%A9%E8%BD%ACubuntu%E2%80%94%E2%80%94%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E7%AF%87/" class="archive-article-date">
-  	<time datetime="2019-07-17T06:50:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      <!-- 
-        <p>很多同学都开发中都有想在手机上调试的需求，又或者是需要在微信上调试，当然我们有很多选择，比如fidder，whistle等工具。也有同学自己购置树莓派，Nas等家用设备，想在外访问家里的设备。<br>这次为大家介绍内网穿透</p>
-<p>百度百科中如此介绍：</p>
+<p>老规矩，y继续安装，然后可见下图</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9056389-9e09147829782074.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="设置数据库密码"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9056389-9ea78f5d734a7b45.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="确认密码"></p>
 <blockquote>
-<p>内网穿透，即NAT穿透，网络连接时术语，计算机是局域网内时，外网与内网的计算机节点需要连接通信，有时就会出现不支持内网穿透。就是说映射端口，能让外网的电脑找到处于内网的电脑,提高下载速度。不管是内网穿透还是其他类型的网络穿透，都是网络穿透的统一方法来研究和解决。</p>
+<p>数据库密码一定要记住，不然忘记后修改数据库密码还是挺麻烦的</p>
 </blockquote>
-<p>通俗点说，让外网电脑能找到内网中的电脑，如此一来，我们就可以做很多有趣的事情。<br>这次我们将用<a target="_blank" rel="noopener" href="https://ngrok.com/">ngrok</a>进行内网传统</p>
-<p>东西准备</p>
-<ul>
-<li>vps服务器（我用的是阿里云的云服务器）</li>
-<li>属于自己的域名（我用的是阿里云的域名）</li>
-</ul>
-<p>ngrok是基于golong编译的，所以我们先安装golong<br><a href="%5Bhttps://www.jianshu.com/p/63495013d371%5D(https://www.jianshu.com/p/63495013d371)">玩转ubuntu——golong篇</a><br>其次我们需要git进行clone ngrok 的代码，所以安装git<br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/15560c53a601">玩转ubuntu——git篇</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#clone代码</span></span><br><span class="line"><span class="built_in">cd</span> /home</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/inconshreveable/ngrok.git</span><br><span class="line"><span class="built_in">cd</span> ./ngrok </span><br></pre></td></tr></table></figure>
-<p>我配置自己的域名是mydomain.com，考虑到后续可能有多个设备使用，我建立了一个三级域名*.tunnel.mydomain.com，方便给不同的设备代理</p>
-<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#为base域名ddns.hellohl.com生成证书</span><br><span class="line">openssl genrsa -<span class="keyword">out</span> rootCA.<span class="keyword">key</span> 2048</span><br><span class="line">openssl req -x509 -new -nodes -<span class="keyword">key</span> rootCA.<span class="keyword">key</span> -subj <span class="string">&quot;/CN=tunnel.mydomain.com&quot;</span> -days 5000 -<span class="keyword">out</span> rootCA.pem</span><br><span class="line">openssl genrsa -<span class="keyword">out</span> device.<span class="keyword">key</span> 2048</span><br><span class="line">openssl req -new -<span class="keyword">key</span> device.<span class="keyword">key</span> -subj <span class="string">&quot;/CN=tunnel.mydomain.com&quot;</span> -<span class="keyword">out</span> device.csr</span><br><span class="line">openssl x509 -req -<span class="keyword">in</span> device.csr -CA rootCA.pem -CAkey rootCA.<span class="keyword">key</span> -CAcreateserial -<span class="keyword">out</span> device.crt -days 5000</span><br></pre></td></tr></table></figure>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#将生成的证书放置在对应的位置</span></span><br><span class="line">cp rootCA.pem assets<span class="regexp">/client/</span>tls/ngrokroot.crt</span><br><span class="line">cp device.crt assets<span class="regexp">/server/</span>tls/snakeoil.crt</span><br><span class="line">cp device.key assets<span class="regexp">/server/</span>tls/snakeoil.key</span><br></pre></td></tr></table></figure>
-<p>然后我们需要将生成好的代码编译成我们需要的服务端程序</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 默认是生成Linux 64位系统</span></span><br><span class="line">make release-server </span><br><span class="line"></span><br><span class="line"><span class="comment"># Linux 平台 32 位系统</span></span><br><span class="line"><span class="attribute">GOOS</span>=linux <span class="attribute">GOARCH</span>=386 make release-server </span><br><span class="line"><span class="comment"># Linux 平台 64 位系统</span></span><br><span class="line"><span class="attribute">GOOS</span>=linux <span class="attribute">GOARCH</span>=amd64 make release-server </span><br><span class="line"></span><br><span class="line"><span class="comment"># Windows 平台 32 位系统</span></span><br><span class="line"><span class="attribute">GOOS</span>=windows <span class="attribute">GOARCH</span>=386 make release-server </span><br><span class="line"><span class="comment"># Windows 平台 64 位系统</span></span><br><span class="line"><span class="attribute">GOOS</span>=windows <span class="attribute">GOARCH</span>=amd64 make release-server </span><br><span class="line"></span><br><span class="line"><span class="comment"># MAC 平台 32 位系统</span></span><br><span class="line"><span class="attribute">GOOS</span>=darwin <span class="attribute">GOARCH</span>=386 make release-server </span><br><span class="line"><span class="comment"># MAC 平台 64 位系统</span></span><br><span class="line"><span class="attribute">GOOS</span>=darwin <span class="attribute">GOARCH</span>=amd64 make release-server </span><br><span class="line"></span><br><span class="line"> # ARM 平台</span><br><span class="line"><span class="attribute">GOOS</span>=linux <span class="attribute">GOARCH</span>=arm make release-server</span><br></pre></td></tr></table></figure>
-<p>这里我们需要区分下各自的服务器环境，显示下面的内容则表示编译成功，如果提示失败可能是git或golong版本过低，也可能是网络问题链接不上github，大家可以将所需要的包手动上传至响应目录</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">GOOS=<span class="string">&quot;&quot;</span> GOARCH=<span class="string">&quot;&quot;</span> go get github.com<span class="regexp">/jteeuwen/g</span>o-bindata/go-bindata</span><br><span class="line">bin/go-bindata -nomemcopy -pkg=assets -tags=release \</span><br><span class="line">	-debug=false \</span><br><span class="line">	-o=src<span class="regexp">/ngrok/</span>client<span class="regexp">/assets/</span>assets_release.go \</span><br><span class="line">	assets<span class="regexp">/client/</span>...</span><br><span class="line">bin/go-bindata -nomemcopy -pkg=assets -tags=release \</span><br><span class="line">	-debug=false \</span><br><span class="line">	-o=src<span class="regexp">/ngrok/</span>server<span class="regexp">/assets/</span>assets_release.go \</span><br><span class="line">	assets<span class="regexp">/server/</span>...</span><br><span class="line">go get -tags <span class="string">&#x27;release&#x27;</span> -d -v ngrok/...</span><br><span class="line">github.com<span class="regexp">/inconshreveable/m</span>ousetrap (download)</span><br><span class="line">github.com<span class="regexp">/rcrowley/g</span>o-metrics (download)</span><br><span class="line">Fetching https:<span class="regexp">//g</span>opkg.<span class="keyword">in</span><span class="regexp">/inconshreveable/g</span>o-update.v0?go-get=<span class="number">1</span></span><br><span class="line">Parsing meta tags from https:<span class="regexp">//g</span>opkg.<span class="keyword">in</span><span class="regexp">/inconshreveable/g</span>o-update.v0?go-get=<span class="number">1</span> (status code <span class="number">200</span>)</span><br><span class="line">get <span class="string">&quot;gopkg.in/inconshreveable/go-update.v0&quot;</span>: found meta tag main.metaImport&#123;Prefix:<span class="string">&quot;gopkg.in/inconshreveable/go-update.v0&quot;</span>, VCS:<span class="string">&quot;git&quot;</span>, RepoRoot:<span class="string">&quot;https://gopkg.in/inconshreveable/go-update.v0&quot;</span>&#125; at https:<span class="regexp">//g</span>opkg.<span class="keyword">in</span><span class="regexp">/inconshreveable/g</span>o-update.v0?go-get=<span class="number">1</span></span><br><span class="line">gopkg.<span class="keyword">in</span><span class="regexp">/inconshreveable/g</span>o-update.v0 (download)</span><br><span class="line">github.com<span class="regexp">/kardianos/</span>osext (download)</span><br><span class="line">github.com<span class="regexp">/kr/</span>binarydist (download)</span><br><span class="line">Fetching https:<span class="regexp">//g</span>opkg.<span class="keyword">in</span><span class="regexp">/inconshreveable/g</span>o-update.v0/check?go-get=<span class="number">1</span></span><br><span class="line">Parsing meta tags from https:<span class="regexp">//g</span>opkg.<span class="keyword">in</span><span class="regexp">/inconshreveable/g</span>o-update.v0/check?go-get=<span class="number">1</span> (status code <span class="number">200</span>)</span><br><span class="line">get <span class="string">&quot;gopkg.in/inconshreveable/go-update.v0/check&quot;</span>: found meta tag main.metaImport&#123;Prefix:<span class="string">&quot;gopkg.in/inconshreveable/go-update.v0&quot;</span>, VCS:<span class="string">&quot;git&quot;</span>, RepoRoot:<span class="string">&quot;https://gopkg.in/inconshreveable/go-update.v0&quot;</span>&#125; at https:<span class="regexp">//g</span>opkg.<span class="keyword">in</span><span class="regexp">/inconshreveable/g</span>o-update.v0/check?go-get=<span class="number">1</span></span><br><span class="line">get <span class="string">&quot;gopkg.in/inconshreveable/go-update.v0/check&quot;</span>: verifying non-authoritative meta tag</span><br><span class="line">Fetching https:<span class="regexp">//g</span>opkg.<span class="keyword">in</span><span class="regexp">/inconshreveable/g</span>o-update.v0?go-get=<span class="number">1</span></span><br><span class="line">Parsing meta tags from https:<span class="regexp">//g</span>opkg.<span class="keyword">in</span><span class="regexp">/inconshreveable/g</span>o-update.v0?go-get=<span class="number">1</span> (status code <span class="number">200</span>)</span><br><span class="line">Fetching https:<span class="regexp">//g</span>opkg.<span class="keyword">in</span>/yaml.v1?go-get=<span class="number">1</span></span><br><span class="line">Parsing meta tags from https:<span class="regexp">//g</span>opkg.<span class="keyword">in</span>/yaml.v1?go-get=<span class="number">1</span> (status code <span class="number">200</span>)</span><br><span class="line">get <span class="string">&quot;gopkg.in/yaml.v1&quot;</span>: found meta tag main.metaImport&#123;Prefix:<span class="string">&quot;gopkg.in/yaml.v1&quot;</span>, VCS:<span class="string">&quot;git&quot;</span>, RepoRoot:<span class="string">&quot;https://gopkg.in/yaml.v1&quot;</span>&#125; at https:<span class="regexp">//g</span>opkg.<span class="keyword">in</span>/yaml.v1?go-get=<span class="number">1</span></span><br><span class="line">gopkg.<span class="keyword">in</span>/yaml.v1 (download)</span><br><span class="line">github.com<span class="regexp">/inconshreveable/g</span>o-vhost (download)</span><br><span class="line">github.com<span class="regexp">/alecthomas/</span>log4go (download)</span><br><span class="line">github.com<span class="regexp">/nsf/</span>termbox-go (download)</span><br><span class="line">github.com<span class="regexp">/mattn/g</span>o-runewidth (download)</span><br><span class="line">github.com<span class="regexp">/gorilla/</span>websocket (download)</span><br><span class="line">go install -tags <span class="string">&#x27;release&#x27;</span> ngrok<span class="regexp">/main/</span>ngrokd</span><br></pre></td></tr></table></figure>
-<p>我们可以在./bin/目录中找到文件ngrokd。可以先运行测试一下。</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#执行ngrokd</span></span><br><span class="line">.<span class="regexp">/bin/</span>ngrokd -domain=<span class="string">&quot;ddns.hellohl.com&quot;</span> -httpAddr=<span class="string">&quot;:8080&quot;</span></span><br></pre></td></tr></table></figure>
-<p>出现以下提示就说明启动成功</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[14:28:19 CST 2019/07/17]</span> <span class="selector-attr">[INFO]</span> (ngrok/log.(*PrefixLogger).<span class="attribute">Info</span>:<span class="number">83</span>) <span class="selector-attr">[registry]</span> <span class="selector-attr">[tun]</span> <span class="selector-tag">No</span> <span class="selector-tag">affinity</span> <span class="selector-tag">cache</span> <span class="selector-tag">specified</span></span><br><span class="line"><span class="selector-attr">[14:28:19 CST 2019/07/17]</span> <span class="selector-attr">[INFO]</span> (ngrok/log.<span class="attribute">Info</span>:<span class="number">112</span>) <span class="selector-tag">Listening</span> <span class="selector-tag">for</span> <span class="selector-tag">public</span> <span class="selector-tag">http</span> <span class="selector-tag">connections</span> <span class="selector-tag">on</span> <span class="selector-attr">[::]</span>:<span class="number">8080</span></span><br><span class="line"><span class="selector-attr">[14:28:19 CST 2019/07/17]</span> <span class="selector-attr">[INFO]</span> (ngrok/log.<span class="attribute">Info</span>:<span class="number">112</span>) <span class="selector-tag">Listening</span> <span class="selector-tag">for</span> <span class="selector-tag">public</span> <span class="selector-tag">https</span> <span class="selector-tag">connections</span> <span class="selector-tag">on</span> <span class="selector-attr">[::]</span>:<span class="number">443</span></span><br><span class="line"><span class="selector-attr">[14:28:19 CST 2019/07/17]</span> <span class="selector-attr">[INFO]</span> (ngrok/log.<span class="attribute">Info</span>:<span class="number">112</span>) <span class="selector-tag">Listening</span> <span class="selector-tag">for</span> <span class="selector-tag">control</span> <span class="selector-tag">and</span> <span class="selector-tag">proxy</span> <span class="selector-tag">connections</span> <span class="selector-tag">on</span> <span class="selector-attr">[::]</span>:<span class="number">4443</span></span><br><span class="line"><span class="selector-attr">[14:28:19 CST 2019/07/17]</span> <span class="selector-attr">[INFO]</span> (ngrok/log.(*PrefixLogger).<span class="attribute">Info</span>:<span class="number">83</span>) <span class="selector-attr">[metrics]</span> <span class="selector-tag">Reporting</span> <span class="selector-tag">every</span> <span class="number">30</span> <span class="selector-tag">seconds</span></span><br></pre></td></tr></table></figure>
-<p>之后Ctrl+C退出ngrokd，继续来编译ngrok客户端。编译ngrok客户端也很简单，但同样也需要区分响应的环境。</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 默认是生成Linux 64位系统</span></span><br><span class="line">make release-client</span><br><span class="line"></span><br><span class="line"><span class="comment"># Linux 平台 32 位系统</span></span><br><span class="line"><span class="attribute">GOOS</span>=linux <span class="attribute">GOARCH</span>=386 make release-client</span><br><span class="line"><span class="comment"># Linux 平台 64 位系统</span></span><br><span class="line"><span class="attribute">GOOS</span>=linux <span class="attribute">GOARCH</span>=amd64 make release-client</span><br><span class="line"></span><br><span class="line"><span class="comment"># Windows 平台 32 位系统</span></span><br><span class="line"><span class="attribute">GOOS</span>=windows <span class="attribute">GOARCH</span>=386 make release-client</span><br><span class="line"><span class="comment"># Windows 平台 64 位系统</span></span><br><span class="line"><span class="attribute">GOOS</span>=windows <span class="attribute">GOARCH</span>=amd64 make release-client</span><br><span class="line"></span><br><span class="line"><span class="comment"># MAC 平台 32 位系统</span></span><br><span class="line"><span class="attribute">GOOS</span>=darwin <span class="attribute">GOARCH</span>=386 make release-client</span><br><span class="line"><span class="comment"># MAC 平台 64 位系统</span></span><br><span class="line"><span class="attribute">GOOS</span>=darwin <span class="attribute">GOARCH</span>=amd64 make release-client</span><br><span class="line"></span><br><span class="line"> # ARM 平台</span><br><span class="line"><span class="attribute">GOOS</span>=linux <span class="attribute">GOARCH</span>=arm make release-client</span><br></pre></td></tr></table></figure>
-<p>编译完成后，在bin/windows_amd64目录下会生成ngrok.exe文件，切记，<strong>ngrokd是服务端程序，ngrok是客户端程序</strong>，把客户端程序下载到本地就可以进行后续操作了</p>
-<p>首先执行VPS上的服务器端ngrokd，这里的8080指的是服务器启用8080端口，就是说内网穿透后的域名为xxx.tunnel,mydomain.com:8080。如果在80端口未作他用的情况下，也可将8080端口改为80，这样更方便些。而如果我们VPS的80端口被占用了，但是我们还想用80端口作为服务端口，那么可以使用nginx做一个xxx.tunnel.mydomain.com的反向代理。</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#服务端执行ngrokd</span></span><br><span class="line">.<span class="regexp">/bin/</span>ngrokd -domain=<span class="string">&quot;tunnel.mydomain.com&quot;</span> -httpAddr=<span class="string">&quot;:8080&quot;</span></span><br></pre></td></tr></table></figure>
-<p>在本地ngrok.exe所在目录下建立文件ngrok.cfg，用记事本等文本编辑器写入以下内容并保存。</p>
-<figure class="highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">server_addr:</span> <span class="string">&quot;ngrok.dingdayu.com:4443&quot;</span></span><br><span class="line"><span class="symbol">trust_host_root_certs:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
-<p>各位小伙伴的webpack一般启动都是8080端口，所以这里以8080端口为例。打开命令提示符，切到ngrok.exe所在目录</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#启动ngrok客户端</span></span><br><span class="line"><span class="comment">#注意：如果不加参数-subdomain=test，将会随机自动分配子域名。</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">./ngrok <span class="attribute">-config</span>=<span class="string">&quot;ngrok.cfg&quot;</span> <span class="attribute">-subdomain</span>=<span class="string">&quot;test&quot;</span> 8080</span><br></pre></td></tr></table></figure>
-<p>正常情况下，客户端上会显示以下内容，表示成功连接到服务器端。</p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#客户端ngrok正常执行显示的内容</span></span><br><span class="line"><span class="attribute">ngrok</span>                                                  (Ctrl+C to quit)</span><br><span class="line"> </span><br><span class="line"><span class="attribute">Tunnel</span> Status     online</span><br><span class="line"><span class="attribute">Version</span>           <span class="number">1</span>.<span class="number">7</span>/<span class="number">1</span>.<span class="number">7</span></span><br><span class="line"><span class="attribute">Forwarding</span>        http://ngrok.dingdayu.com:<span class="number">8080</span> -&gt; <span class="number">127.0.0.1:8080</span></span><br><span class="line"><span class="attribute">Forwarding</span>        https://ngrok.dingdayu.com:<span class="number">8080</span> -&gt; <span class="number">127.0.0.1:8080</span></span><br><span class="line"><span class="attribute">Web</span> Interface     <span class="number">127.0.0.1:4040</span></span><br><span class="line"><span class="comment"># Conn            0</span></span><br><span class="line"><span class="attribute">Avg</span> Conn Time     <span class="number">0</span>.<span class="number">00</span>ms</span><br></pre></td></tr></table></figure>
-<p>打开浏览器，分别在地址栏中输入<a href="http://localhost:8080和http://test.tunnel.mydomain.com:8080，如果后者正常显示并且和http://localhost显示的内容相同，则证明我们已经成功了。">http://localhost:8080和http://test.tunnel.mydomain.com:8080，如果后者正常显示并且和http://localhost显示的内容相同，则证明我们已经成功了。</a></p>
-<p>vue-cli以及有些webpack代理都配置好了，页面出现Invalid Host header，这时候我们需要更改下webpack中devServer的配置，大家可根据自己的实际情况进行修改</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">devServer:</span> &#123;</span><br><span class="line">  <span class="attr">disableHostCheck:</span> <span class="literal">true</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>为了方便大家使用数据库，我介绍一款软件，navicat，它长这样</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9056389-856b5515398bf1fe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mysql可视化软件"></p>
+<p>网上现在破解的不好找了，等过段时间服务器搭建好后，我把下载链接放上来。</p>
+<p>打开navicat后，我们可以看到如下界面<br><img src="https://upload-images.jianshu.io/upload_images/9056389-93645aaef06a48aa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="点击连接"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9056389-db6e9eeda62858c6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="连接"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9056389-791cd5cff7f77791.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="ssh连接"></p>
+<p>很多同学连接后会报错，报错如下：<br><img src="https://upload-images.jianshu.io/upload_images/9056389-036ae5229f192585.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mysql连接报错"></p>
+<p>其实这个错误是因为你没有给当前用户访问数据库的权限造成的，解决方案如下：</p>
+<p>进入服务器，输入代码</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi <span class="regexp">/etc/</span>ssh/sshd_config</span><br></pre></td></tr></table></figure>
+<p>在文件最下面添加代码（快捷键为shift+g）</p>
+<figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">KexAlgorithms diffie-hellman-group1-sha1,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha1Ciphers 3des-cbc,blowfish-cbc,aes128-cbc,aes128-ctr,aes256-ctr</span><br></pre></td></tr></table></figure>
+<p>然后再执行如下命令</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -A  </span><br><span class="line"></span><br><span class="line">service ssh restart         <span class="meta">#重启SSH</span></span><br></pre></td></tr></table></figure>
+<p>然后再连接数据库，就会发现连接成功</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9056389-057a20f2bf5d134c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mysql连接成功"></p>
+<p>新安装的mysql下面是有四个实例的<br><img src="https://upload-images.jianshu.io/upload_images/9056389-51407925c82f15ab.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="navicat"></p>
+<p>新建mysql自带实例<br>information_schema：是MySQL系统自带的数据库，它提供了数据库元数据的访问方式。说白了就是mysql的各种操作都是因为把mysql的方法存在这个实例中了</p>
+<p>mysql：这个是mysql的核心数据库，类似于sql server中的master表，主要负责存储数据库的用户、权限设置、关键字等mysql自己需要使用的控制和管理信息。不可以删除，如果对mysql不是很了解，也不要轻易修改这个数据库里面的表信息。</p>
+<p>PERFORMANCE_SCHEMA：5.5开始新增的一个数据库，主要用于收集数据库服务器性能参数。并且库里表的存储引擎均为PERFORMANCE_SCHEMA，而用户是不能创建存储引擎为PERFORMANCE_SCHEMA的表。</p>
+<p>sys是一个MySQL自带的系统库，在安装MySQL 5.7以后的版本，使用mysqld进行初始化时，会自动创建sys库，sys库里面的表、视图、函数、存储过程可以使我们更方便、快捷的了解到MySQL的一些信息。</p>
+<p>作为小白，我们当然不需要考虑这四个实例究竟怎么用，我们只需要知道，这四个实例不能修改不能删除就可以了。</p>
 
        -->
       
@@ -328,302 +230,9 @@
             
             
                 
-                <p><p>很多同学都开发中都有想在手机上调试的需求，又或者是需要在微信上调试，当然我们有很多选择，比如fidder，whistle等工具。也有同学自己购置树莓派，Nas等家用设备，想在外访问家里的设备。<br>这次为大家介绍内网穿透</p>
-<p>百度百科中如此介绍：</p>
-<blockquote>
-<p>
-            
-        
-        
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">ubuntu</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">内网穿透</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/17/ubuntu/%E7%8E%A9%E8%BD%ACubuntu%E2%80%94%E2%80%94%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E7%AF%87/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ubuntu/玩转ubuntu——git篇" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/17/ubuntu/%E7%8E%A9%E8%BD%ACubuntu%E2%80%94%E2%80%94git%E7%AF%87/">玩转ubuntu——git篇</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/17/ubuntu/%E7%8E%A9%E8%BD%ACubuntu%E2%80%94%E2%80%94git%E7%AF%87/" class="archive-article-date">
-  	<time datetime="2019-07-17T06:06:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      <!-- 
-        <p>想必各位同学都知道git是什么东西，废话不多说，上代码</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="built_in">get</span> update</span><br><span class="line">sudo apt-<span class="built_in">get</span> install git</span><br></pre></td></tr></table></figure>
-<p>安装完成后，可以用git –version来验证安装是否完成。另外，可以用git help 命令名称来查询帮助。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/9056389-7dc783d14e35c8a7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="git命令图表"></p>
-
-       -->
-      
-        
-            
-            
-                
-                
-            
-                
-                
-            
-                
-                
-            
-            
-                
-                <p><p>想必各位同学都知道git是什么东西，废话不多说，上代码</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="built_in">get</span> update</span><br><span class="line">sudo apt-<span class="built_in">get</span> install git</span><br></pre></td></tr></table></figure>
-<p>安装完成后，可以用git –version来验证安装是否完成。另外，可以用git help 命令名称来查询帮助。</p>
-<p>
-            
-        
-        
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">ubuntu</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/17/ubuntu/%E7%8E%A9%E8%BD%ACubuntu%E2%80%94%E2%80%94git%E7%AF%87/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ubuntu/玩转ubuntu——golong篇" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/16/ubuntu/%E7%8E%A9%E8%BD%ACubuntu%E2%80%94%E2%80%94golong%E7%AF%87/">玩转ubuntu——golong篇</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/16/ubuntu/%E7%8E%A9%E8%BD%ACubuntu%E2%80%94%E2%80%94golong%E7%AF%87/" class="archive-article-date">
-  	<time datetime="2019-07-16T07:19:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      <!-- 
-        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装go</span></span><br><span class="line">sudo apt-get remove golang-go</span><br><span class="line">sudo <span class="built_in">mkdir</span> /soft</span><br><span class="line"><span class="built_in">cd</span> /soft</span><br><span class="line">sudo wget https://dl.google.com/go/go1.11.2.linux-amd64.tar.gz</span><br><span class="line">sudo tar -C /usr/local -xzf go1.11.2.linux-amd64.tar.gz </span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export GOPATH=/usr/local/go</span></span><br><span class="line"><span class="string">export PATH=$PATH:$GOPATH/bin</span></span><br><span class="line"><span class="string">export NGROK_DOMAIN=&quot;potens.top&quot;&#x27;</span> | sudo <span class="built_in">tee</span> -a /etc/profile</span><br><span class="line"><span class="built_in">source</span> /etc/profile</span><br></pre></td></tr></table></figure>
-
-       -->
-      
-        
-            
-            
-                
-                
-            
-                
-                
-            
-        
-        
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">ubuntu</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/16/ubuntu/%E7%8E%A9%E8%BD%ACubuntu%E2%80%94%E2%80%94golong%E7%AF%87/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ubuntu/mysql无法登录,更改密码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/07/ubuntu/mysql%E6%97%A0%E6%B3%95%E7%99%BB%E5%BD%95,%E6%9B%B4%E6%94%B9%E5%AF%86%E7%A0%81/">mysql无法登录,更改密码</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/07/ubuntu/mysql%E6%97%A0%E6%B3%95%E7%99%BB%E5%BD%95,%E6%9B%B4%E6%94%B9%E5%AF%86%E7%A0%81/" class="archive-article-date">
-  	<time datetime="2019-07-07T06:57:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      <!-- 
-        <p><img src="https://upload-images.jianshu.io/upload_images/9056389-3f88eea7096d2e99.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">service mysql stop</span><br><span class="line">mysqld_safe <span class="comment">--user=mysql --skip-grant-tables --skip-networking &amp;</span></span><br><span class="line">mysql -u root mysql</span><br><span class="line">mysql&gt; <span class="keyword">UPDATE</span> <span class="keyword">user</span> <span class="keyword">SET</span> <span class="keyword">Password</span>=<span class="keyword">PASSWORD</span>(<span class="string">&#x27;newpassword&#x27;</span>) <span class="keyword">where</span> <span class="keyword">USER</span>=<span class="string">&#x27;root&#x27;</span>;</span><br><span class="line">mysql&gt; FLUSH <span class="keyword">PRIVILEGES</span>;</span><br><span class="line">mysql&gt; quit</span><br><span class="line">service mysql <span class="keyword">restart</span></span><br><span class="line">mysql -uroot -p</span><br><span class="line">Enter <span class="keyword">password</span>: &lt;输入新设的密码newpassword&gt;</span><br></pre></td></tr></table></figure>
-
-<p>参考链接：<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/ShilohXiang/article/details/89053745">https://blog.csdn.net/ShilohXiang/article/details/89053745</a></p>
-
-       -->
-      
-        
-            
-            
-                
-                
-            
-                
-                
-            
-                
-                
-            
-            
-                
-                <p><p><img src="https://upload-images.jianshu.io/upload_images/9056389-3f88eea7096d2e99.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">service mysql stop</span><br><span class="line">mysqld_safe <span class="comment">--user=mysql --skip-grant-tables --skip-networking &amp;</span></span><br><span class="line">mysql -u root mysql</span><br><span class="line">mysql&gt; <span class="keyword">UPDATE</span> <span class="keyword">user</span> <span class="keyword">SET</span> <span class="keyword">Password</span>=<span class="keyword">PASSWORD</span>(<span class="string">&#x27;newpassword&#x27;</span>) <span class="keyword">where</span> <span class="keyword">USER</span>=<span class="string">&#x27;root&#x27;</span>;</span><br><span class="line">mysql&gt; FLUSH <span class="keyword">PRIVILEGES</span>;</span><br><span class="line">mysql&gt; quit</span><br><span class="line">service mysql <span class="keyword">restart</span></span><br><span class="line">mysql -uroot -p</span><br><span class="line">Enter <span class="keyword">password</span>: &lt;输入新设的密码newpassword&gt;</span><br></pre></td></tr></table></figure>
-
+                <p><p>前情提要：</p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/4b2cc653d3cb">玩转ubuntu——nginx篇</a></p>
+<p>上次讲了如何配置ubuntu16.04中的nginx，这次接着讲，如何配置mysql，首先输入命令</p>
 <p>
             
         
@@ -640,98 +249,9 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
         		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/07/ubuntu/mysql%E6%97%A0%E6%B3%95%E7%99%BB%E5%BD%95,%E6%9B%B4%E6%94%B9%E5%AF%86%E7%A0%81/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-工具技巧/vscode设置同步" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/04/%E5%B7%A5%E5%85%B7%E6%8A%80%E5%B7%A7/vscode%E8%AE%BE%E7%BD%AE%E5%90%8C%E6%AD%A5/">vscode设置同步</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/04/%E5%B7%A5%E5%85%B7%E6%8A%80%E5%B7%A7/vscode%E8%AE%BE%E7%BD%AE%E5%90%8C%E6%AD%A5/" class="archive-article-date">
-  	<time datetime="2019-07-04T10:25:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      <!-- 
-        <p>每次换电脑都得重新配置vscode的各种插件，后来查了一些资料，发现vscode本身有个插件就可以搞定这些事情。</p>
-<p>1、Settings Sync是vscode中同步设置和安装插件的小工具，在扩展商店中搜索并安装它<br>2、登陆Github&gt;Your profile&gt; settings&gt;Developer settings&gt;personal access tokens&gt;generate new token，输入名称，勾选Gist，提交<br>3、保存Github Access Token<br>4、打开vscode，Ctrl+Shift+P打开命令框，输入sync，找到update/upload settings，输入Token，上传成功后会返回Gist ID，保存此Gist ID（此id在vscode的setting文件里的字段为sync.gist）<br>5、若需在其他机器上DownLoad插件的话，同样，Ctrl+Shift+P打开命令框，输入sync，找到Download settings，会跳转到Github的Token编辑界面，点Edit，regenerate token，保存新生成的token，在vscode命令框中输入此Token，回车，再输入之前的Gist ID，即可同步插件和设置。</p>
-
-       -->
-      
-        
-            
-            
-                
-                
-            
-                
-                
-            
-                
-                
-            
-        
-        
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">vscode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">ubuntu</a>
         		</li>
       		
 		</ul>
@@ -741,7 +261,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/04/%E5%B7%A5%E5%85%B7%E6%8A%80%E5%B7%A7/vscode%E8%AE%BE%E7%BD%AE%E5%90%8C%E6%AD%A5/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/04/09/ubuntu/%E7%8E%A9%E8%BD%ACubuntu%E2%80%94%E2%80%94mysql%E7%AF%87/">展开全文 >></a>
         </p>
       
 
@@ -771,35 +291,48 @@
 
 
   
-    <article id="post-工具技巧/添加开机自启脚本" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-ubuntu/玩转ubuntu——nginx篇" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/01/%E5%B7%A5%E5%85%B7%E6%8A%80%E5%B7%A7/%E6%B7%BB%E5%8A%A0%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E8%84%9A%E6%9C%AC/">添加开机自启脚本</a>
+      <a class="article-title" href="/2018/04/09/ubuntu/%E7%8E%A9%E8%BD%ACubuntu%E2%80%94%E2%80%94nginx%E7%AF%87/">玩转ubuntu——nginx篇</a>
     </h1>
   
 
         
-        <a href="/2019/07/01/%E5%B7%A5%E5%85%B7%E6%8A%80%E5%B7%A7/%E6%B7%BB%E5%8A%A0%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E8%84%9A%E6%9C%AC/" class="archive-article-date">
-  	<time datetime="2019-07-01T10:25:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-01</time>
+        <a href="/2018/04/09/ubuntu/%E7%8E%A9%E8%BD%ACubuntu%E2%80%94%E2%80%94nginx%E7%AF%87/" class="archive-article-date">
+  	<time datetime="2018-04-09T09:06:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-09</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       <!-- 
-        <p>在centos7中增加脚本有两种常用的方法，以脚本StartTomcat.sh为例：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment"># description:开机自启脚本</span></span><br><span class="line"><span class="comment">#chkconfig:345 85 15</span></span><br><span class="line"><span class="comment">#description:PPTP server</span></span><br><span class="line"></span><br><span class="line">systemctl start docker // 启动docker</span><br><span class="line">docker-compose down &amp;&amp; docker-compose up -d  //启动sentry</span><br><span class="line">/usr/local/nginx/sbin/nginx -s reload // 启动nginx</span><br></pre></td></tr></table></figure>
+        <p>一直想搭建自己的网站，但由于自己拖延症晚期，导致一直拖。今天朋友问我怎么配置自己的服务器，干脆趁着自己还有兴趣，从零配置下服务器。</p>
+<p>我服务器用的是ubuntu16.04 64位，因为最近在自学python3，ubuntu16.04自带python3。</p>
+<p>首先分析下，一般配置服务器就是安装nginx，mysql以及相关的后台语言，考虑到大部分朋友上手采用的是php，那我就以php为例。</p>
+<p>我服务器用的是阿里云的，我利用PUTTY软件进行远程连接。<br><img src="https://upload-images.jianshu.io/upload_images/9056389-efc20d718bf2c63a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="putty英文版界面"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9056389-e2ae73c31fb0ae96.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="询问"></p>
+<p>回车后会出现这个界面，大意是询问这个服务器你第一次连接，你要注意他的安全之类的，选择是即可</p>
+<p>中文界面如下：<br><img src="https://upload-images.jianshu.io/upload_images/9056389-eaa3e1fd27d556f7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="询问"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9056389-a4420165b2f61988.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="登录界面"></p>
+<p>选择是后进入登录界面，输入你的用户名和密码，注意这里的秘密是不显示字符的，当初不知道这个事情导致我一直觉得是服务器有问题。输入密码后还是回车。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/9056389-843065fc874bb8e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="登录成功"></p>
+<p>这就是登录成功后的界面了，如果让你重新输入密码，那你就得看看是不是登录密码错误或者用户名错了。有个小技巧就是你在其他地方输入密码后复制过来，服务器里的粘贴不是我们平时用的crtl+v，是单击鼠标右键。</p>
+<p>登录成功后，我们首先开始装nginx,依次输入如下命令</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo  apt  update   <span class="comment">#更新源，sudo为获取最高权限，有时会让你再次输入服务器密码</span></span><br><span class="line"></span><br><span class="line">sudo  apt  <span class="keyword">install</span>  nginx   <span class="comment">#安装ngxin，会提示你输入y/n继续或者取消，当然是输入y</span></span><br><span class="line"></span><br><span class="line">whereis nginx  <span class="comment">#查看nginx安装路径</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/9056389-f005018f6abe5393.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="安装完成"></p>
+<p>我们输入查询命令后，会发现系统出现三个路径，分别是</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/usr/</span>sbin/nginx：主程序</span><br><span class="line"></span><br><span class="line"><span class="regexp">/etc/</span>nginx：存放配置文件</span><br><span class="line"></span><br><span class="line"><span class="regexp">/usr/</span>share/nginx：存放静态文件</span><br><span class="line"></span><br><span class="line"><span class="regexp">/var/</span>log/nginx：存放日志        <span class="comment">#这个路径可在配置文件中查看到</span></span><br></pre></td></tr></table></figure>
+<p>此时我们可以在浏览器中输入ip或者域名，如果出现如下界面，就是安装成功并正在运行了。（安装成功后，会自动运行）</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9056389-cd9b7eb7b15f31ce.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/12400" alt="nginx成功运行"></p>
+<p>然后我们输入命令，查看nginx默认配置</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi  <span class="regexp">/etc/</span>nginx/nginx.conf     <span class="comment">#vi是用自带上古IDE神奇vim打开，一般服务器内都用这个</span></span><br></pre></td></tr></table></figure>
+<p>在小白配置nginx教程这篇文章中，我写了后续如何配置nginx里面的内容，大家可以根据自己的需求查看</p>
 
-<p>1、将脚本移动到/etc/rc.d/init.d目录下</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv  <span class="regexp">/opt/</span>script<span class="regexp">/StartTomcat.sh /</span>etc<span class="regexp">/rc.d/i</span>nit.d</span><br></pre></td></tr></table></figure>
-<p>2、增加脚本的可执行权限</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x  <span class="regexp">/etc/</span>rc.d<span class="regexp">/init.d/</span>StartTomcat.sh</span><br></pre></td></tr></table></figure>
-<p>3、添加脚本到开机自动启动项目中</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> /etc/rc.d/init.d</span><br><span class="line">chkconfig --<span class="built_in">add</span> StartTomcat.<span class="keyword">sh</span></span><br><span class="line">chkconfig StartTomcat.<span class="keyword">sh</span> <span class="keyword">on</span></span><br></pre></td></tr></table></figure>
        -->
       
         
@@ -816,95 +349,10 @@
             
             
                 
-                <p><p>在centos7中增加脚本有两种常用的方法，以脚本StartTomcat.sh为例：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment"># description:开机自启脚本</span></span><br><span class="line"><span class="comment">#chkconfig:345 85 15</span></span><br><span class="line"><span class="comment">#description:PPTP server</span></span><br><span class="line"></span><br><span class="line">systemctl start docker // 启动docker</span><br><span class="line">docker-compose down &amp;&amp; docker-compose up -d  //启动sentry</span><br><span class="line">/usr/local/nginx/sbin/nginx -s reload // 启动nginx</span><br></pre></td></tr></table></figure>
-
+                <p><p>一直想搭建自己的网站，但由于自己拖延症晚期，导致一直拖。今天朋友问我怎么配置自己的服务器，干脆趁着自己还有兴趣，从零配置下服务器。</p>
+<p>我服务器用的是ubuntu16.04 64位，因为最近在自学python3，ubuntu16.04自带python3。</p>
+<p>首先分析下，一般配置服务器就是安装nginx，mysql以及相关的后台语言，考虑到大部分朋友上手采用的是php，那我就以php为例。</p>
 <p>
-            
-        
-        
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">centos7</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">脚本</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/01/%E5%B7%A5%E5%85%B7%E6%8A%80%E5%B7%A7/%E6%B7%BB%E5%8A%A0%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E8%84%9A%E6%9C%AC/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ubuntu/玩转ubuntu——nodejs篇" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/26/ubuntu/%E7%8E%A9%E8%BD%ACubuntu%E2%80%94%E2%80%94nodejs%E7%AF%87/">玩转ubuntu——nodejs篇</a>
-    </h1>
-  
-
-        
-        <a href="/2019/02/26/ubuntu/%E7%8E%A9%E8%BD%ACubuntu%E2%80%94%E2%80%94nodejs%E7%AF%87/" class="archive-article-date">
-  	<time datetime="2019-02-26T06:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      <!-- 
-        <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="built_in">get</span> <span class="built_in">remove</span> nodejs --purge</span><br><span class="line"></span><br><span class="line">curl -sL https://<span class="keyword">deb</span>.nodesource.<span class="keyword">com</span>/setup_9.<span class="keyword">x</span> |sudo -E bash -</span><br><span class="line"></span><br><span class="line">sudo apte-<span class="built_in">get</span> <span class="keyword">update</span></span><br><span class="line"></span><br><span class="line">sudo apt-<span class="built_in">get</span> install -<span class="keyword">y</span> nodejs</span><br><span class="line"></span><br><span class="line">node -vnpm -v</span><br></pre></td></tr></table></figure>
-       -->
-      
-        
-            
-            
-                
-                
             
         
         
@@ -922,7 +370,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">nodejs</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">nginx</a>
         		</li>
       		
 		</ul>
@@ -932,7 +380,258 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/02/26/ubuntu/%E7%8E%A9%E8%BD%ACubuntu%E2%80%94%E2%80%94nodejs%E7%AF%87/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/04/09/ubuntu/%E7%8E%A9%E8%BD%ACubuntu%E2%80%94%E2%80%94nginx%E7%AF%87/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ubuntu/小白配置nginx教程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/09/ubuntu/%E5%B0%8F%E7%99%BD%E9%85%8D%E7%BD%AEnginx%E6%95%99%E7%A8%8B/">小白配置nginx教程</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/09/ubuntu/%E5%B0%8F%E7%99%BD%E9%85%8D%E7%BD%AEnginx%E6%95%99%E7%A8%8B/" class="archive-article-date">
+  	<time datetime="2018-04-09T09:03:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      <!-- 
+        <p>很多朋友都疑惑nginx到底应该怎么配置，我以ubuntu16.04最新安装nginx后来说明。</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">user</span> www-data; <span class="comment">#运行用户，一般不做修改</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">worker_processes</span> auto;</span><br><span class="line"></span><br><span class="line"><span class="comment">#nginx进程，一般设置为cpu数量或者cpu数量的两倍</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">pid</span> /run/nginx.pid;</span><br><span class="line"></span><br><span class="line"><span class="comment">#pid（进程标识符）存放路径</span></span><br><span class="line"></span><br><span class="line"><span class="section">events</span> &#123;</span><br><span class="line"></span><br><span class="line">  <span class="attribute">worker_connections</span> <span class="number">768</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">#每个工作进程的最大连接数量，根据硬件调整，小白保持默认</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># multi_accept on;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">#multi_accept在Nginx接到一个新连接通知后调用accept()来接受尽量多的连接，一般不用</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="section">http</span> &#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">#设定http服务器，利用它的反向代理功能提供负载均衡支持</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">##</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Basic Settings</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">##基本设置</span></span><br><span class="line"></span><br><span class="line">  <span class="attribute">sendfile</span> <span class="literal">on</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">#开启高效传输模式</span></span><br><span class="line"></span><br><span class="line">  <span class="attribute">tcp_nopush</span> <span class="literal">on</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">#激活tcp_nodelay，内核会等待将更多的字节组成一个数据包，从而提高I/O性能</span></span><br><span class="line"></span><br><span class="line">  <span class="attribute">tcp_nodelay</span> <span class="literal">on</span>;</span><br><span class="line"></span><br><span class="line">  <span class="attribute">keepalive_timeout</span> <span class="number">65</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">#连接超时时间，单位是秒</span></span><br><span class="line"></span><br><span class="line">  <span class="attribute">types_hash_max_size</span> <span class="number">2048</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment"># server_tokens off;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># 隐藏响应header和错误通知中的版本号</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># server_names_hash_bucket_size 64;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># server_name_in_redirect off;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># 设定请求缓存</span></span><br><span class="line"></span><br><span class="line">  <span class="attribute">include</span> /etc/nginx/mime.types;</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 文件扩展名与类型映射表</span></span><br><span class="line"></span><br><span class="line">  <span class="attribute">default_type</span> application/oc tet-stream;</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 默认文件类型</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">##</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># SSL Settings</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">## ssl设置</span></span><br><span class="line"></span><br><span class="line">  <span class="attribute">ssl_protocols</span> TLSv1 TLSv1.<span class="number">1</span> TLSv1.<span class="number">2</span>;<span class="comment"># Dropping SSLv3, ref: POODLE</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># 允许SSL协议</span></span><br><span class="line"></span><br><span class="line">  <span class="attribute">ssl_prefer_server_ciphers</span> <span class="literal">on</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 启动加密算法</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">##</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Logging Settings</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">##</span></span><br><span class="line"></span><br><span class="line">  <span class="attribute">access_log</span> /var/log/nginx/access.log;</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 日志格式及日志存放路径</span></span><br><span class="line"></span><br><span class="line">  <span class="attribute">error_log</span> /var/log/nginx/<span class="literal">error</span>.log;</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 错误日志存放路径</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">##</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Gzip Settings</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">## gzip on;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># 开启gzip压缩功能</span></span><br><span class="line"></span><br><span class="line">  <span class="attribute">gzip_disable</span> <span class="string">&quot;msie6&quot;</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment"># gzip_vary on;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># gzip_proxied any;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># gzip_comp_level 6;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># gzip_buffers 16 8k;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># gzip_http_version 1.1;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">##</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Virtual Host Configs</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">##</span></span><br><span class="line"></span><br><span class="line">  <span class="attribute">include</span> /etc/nginx/conf.d/<span class="regexp">*.conf</span>;</span><br><span class="line"></span><br><span class="line">  <span class="attribute">include</span> /etc/nginx/sites-enabled/*;</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 引用文件中的配置</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#mail &#123; # 邮件代理服务器配置</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># # See sample authentication script at:</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># # http://wiki.nginx.org/ImapAuthenticateWithApachePhpScript # # # auth_http localhost/auth.php;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># # pop3_capabilities &quot;TOP&quot; &quot;USER&quot;;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># # imap_capabilities &quot;IMAP4rev1&quot; &quot;UIDPLUS&quot;;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># # server &#123;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># listen localhost:110;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># protocol pop3;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># proxy on;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># server&#123;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># listen localhost:143;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># protocol imap;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># proxy on;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#&#125;</span></span><br></pre></td></tr></table></figure>
+<p>当然我们作为小白是不需要知道这些代码的全部使用方法的，我们只需要知道我们需要改哪里就行，我们配置服务器一般就是配置路径什么的，所以我们只需要看http代码块内的东西，粗略的看下，我们可以发现，很多代码都被注释掉了，我们只能进include中引用的配置看。服务器中输入命令</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd  <span class="regexp">/etc/</span>nginx<span class="regexp">/conf.d/</span> <span class="comment">#进入这个路径</span></span><br><span class="line"></span><br><span class="line">ls   <span class="comment">#罗列该路径下的文件</span></span><br></pre></td></tr></table></figure>
+<p>命令输入后，我发现，该路径下并没有文件，说明不是这个引用路径中的配置生效的，那么我们再看下一个引用路径，输入命令</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd   <span class="regexp">/etc/</span>nginx<span class="regexp">/sites-enabled/</span></span><br><span class="line"></span><br><span class="line">ls  </span><br></pre></td></tr></table></figure>
+
+<p><img src="https://upload-images.jianshu.io/upload_images/9056389-bcfb135f3ebbfa79.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="ls命令后"></p>
+<p>我们可以发现，这个路径下是有文件的，那么我们用vim打开它看看他里面写了什么</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi  <span class="keyword">default</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://upload-images.jianshu.io/upload_images/9056389-452419c2b424d6f5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="default文件"></p>
+<p>我们可以看到大部分代码都是注释的，我们不看注释的内容，只看生效的代码，发现他是一个server代码块，内容如下：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;    </span><br><span class="line"></span><br><span class="line">    <span class="attribute">listen</span> <span class="number">80</span> default_server;       </span><br><span class="line"></span><br><span class="line">    <span class="attribute">listen</span> [::]:<span class="number">80</span> default_server;   </span><br><span class="line"></span><br><span class="line">    <span class="comment">#监听80端口，第一个是ipv4，第二个是ipv6    </span></span><br><span class="line"></span><br><span class="line">    <span class="attribute">root</span> /var/www/html;   </span><br><span class="line"></span><br><span class="line">    <span class="comment">#网站路径   </span></span><br><span class="line"></span><br><span class="line">     <span class="attribute">index</span> index.html index.htm index.nginx-debian.html;    </span><br><span class="line"></span><br><span class="line">    <span class="comment">#主页    server_name _;   </span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 配置基于名称的虚拟主机，一般用于一台服务器分配多个域名   </span></span><br><span class="line"></span><br><span class="line">     <span class="section">location</span> / &#123;       </span><br><span class="line"></span><br><span class="line">         <span class="attribute">try_files</span> <span class="variable">$uri</span> <span class="variable">$uri</span>/ =<span class="number">404</span>;       </span><br><span class="line"></span><br><span class="line">        <span class="comment">#如果找不到文件，返回404，也可以自己指定文件   </span></span><br><span class="line"></span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>那我们修改相关路径和配置就可以配置自己的服务器了。vim修改命令是需要先敲键盘i，进入编辑模式，然后修改好后，使用esc键退出编辑模式，用：号输入wq保存，或者q!不保存强制退出，然后重启nginx，输入命令</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sudo service nginx restart</span></span><br></pre></td></tr></table></figure>
+<p>重启成功后，就可以看到你的配置生效了，重启失败说明你刚修改的格式神马的有问题，细心检查就好</p>
+
+       -->
+      
+        
+            
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+            
+                
+                <p><p>很多朋友都疑惑nginx到底应该怎么配置，我以ubuntu16.04最新安装nginx后来说明。</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">user</span> www-data; <span class="comment">#运行用户，一般不做修改</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">worker_processes</span> auto;</span><br><span class="line"></span><br><span class="line"><span class="comment">#nginx进程，一般设置为cpu数量或者cpu数量的两倍</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">pid</span> /run/nginx.pid;</span><br><span class="line"></span><br><span class="line"><span class="comment">#pid（进程标识符）存放路径</span></span><br><span class="line"></span><br><span class="line"><span class="section">events</span> &#123;</span><br><span class="line"></span><br><span class="line">  <span class="attribute">worker_connections</span> <span class="number">768</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">#每个工作进程的最大连接数量，根据硬件调整，小白保持默认</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># multi_accept on;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">#multi_accept在Nginx接到一个新连接通知后调用accept()来接受尽量多的连接，一般不用</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="section">http</span> &#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">#设定http服务器，利用它的反向代理功能提供负载均衡支持</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">##</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Basic Settings</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">##基本设置</span></span><br><span class="line"></span><br><span class="line">  <span class="attribute">sendfile</span> <span class="literal">on</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">#开启高效传输模式</span></span><br><span class="line"></span><br><span class="line">  <span class="attribute">tcp_nopush</span> <span class="literal">on</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">#激活tcp_nodelay，内核会等待将更多的字节组成一个数据包，从而提高I/O性能</span></span><br><span class="line"></span><br><span class="line">  <span class="attribute">tcp_nodelay</span> <span class="literal">on</span>;</span><br><span class="line"></span><br><span class="line">  <span class="attribute">keepalive_timeout</span> <span class="number">65</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">#连接超时时间，单位是秒</span></span><br><span class="line"></span><br><span class="line">  <span class="attribute">types_hash_max_size</span> <span class="number">2048</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment"># server_tokens off;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># 隐藏响应header和错误通知中的版本号</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># server_names_hash_bucket_size 64;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># server_name_in_redirect off;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># 设定请求缓存</span></span><br><span class="line"></span><br><span class="line">  <span class="attribute">include</span> /etc/nginx/mime.types;</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 文件扩展名与类型映射表</span></span><br><span class="line"></span><br><span class="line">  <span class="attribute">default_type</span> application/oc tet-stream;</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 默认文件类型</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">##</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># SSL Settings</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">## ssl设置</span></span><br><span class="line"></span><br><span class="line">  <span class="attribute">ssl_protocols</span> TLSv1 TLSv1.<span class="number">1</span> TLSv1.<span class="number">2</span>;<span class="comment"># Dropping SSLv3, ref: POODLE</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># 允许SSL协议</span></span><br><span class="line"></span><br><span class="line">  <span class="attribute">ssl_prefer_server_ciphers</span> <span class="literal">on</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 启动加密算法</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">##</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Logging Settings</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">##</span></span><br><span class="line"></span><br><span class="line">  <span class="attribute">access_log</span> /var/log/nginx/access.log;</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 日志格式及日志存放路径</span></span><br><span class="line"></span><br><span class="line">  <span class="attribute">error_log</span> /var/log/nginx/<span class="literal">error</span>.log;</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 错误日志存放路径</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">##</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Gzip Settings</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">## gzip on;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># 开启gzip压缩功能</span></span><br><span class="line"></span><br><span class="line">  <span class="attribute">gzip_disable</span> <span class="string">&quot;msie6&quot;</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment"># gzip_vary on;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># gzip_proxied any;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># gzip_comp_level 6;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># gzip_buffers 16 8k;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># gzip_http_version 1.1;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">##</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Virtual Host Configs</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">##</span></span><br><span class="line"></span><br><span class="line">  <span class="attribute">include</span> /etc/nginx/conf.d/<span class="regexp">*.conf</span>;</span><br><span class="line"></span><br><span class="line">  <span class="attribute">include</span> /etc/nginx/sites-enabled/*;</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 引用文件中的配置</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#mail &#123; # 邮件代理服务器配置</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># # See sample authentication script at:</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># # http://wiki.nginx.org/ImapAuthenticateWithApachePhpScript # # # auth_http localhost/auth.php;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># # pop3_capabilities &quot;TOP&quot; &quot;USER&quot;;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># # imap_capabilities &quot;IMAP4rev1&quot; &quot;UIDPLUS&quot;;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># # server &#123;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># listen localhost:110;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># protocol pop3;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># proxy on;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># server&#123;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># listen localhost:143;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># protocol imap;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># proxy on;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#&#125;</span></span><br></pre></td></tr></table></figure>
+<p>当然我们作为小白是不需要知道这些代码的全部使用方法的，我们只需要知道我们需要改哪里就行，我们配置服务器一般就是配置路径什么的，所以我们只需要看http代码块内的东西，粗略的看下，我们可以发现，很多代码都被注释掉了，我们只能进include中引用的配置看。服务器中输入命令</p>
+<p>
+            
+        
+        
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">ubuntu</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">nginx</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/09/ubuntu/%E5%B0%8F%E7%99%BD%E9%85%8D%E7%BD%AEnginx%E6%95%99%E7%A8%8B/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-HTML5/CSS水平垂直居中" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/08/HTML5/CSS%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/">CSS水平垂直居中</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/08/HTML5/CSS%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/" class="archive-article-date">
+  	<time datetime="2018-04-08T03:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      <!-- 
+        <p>水平居中之行内元素解决方案<br>      只需要把行内元素包裹在一个属性display为block的父层元素中，并且把父层元素添加如下属性即可：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.<span class="property">parent</span> &#123;</span><br><span class="line">  text-<span class="attr">align</span>:center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>水平居中：块状元素解决方案</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.<span class="property">item</span> &#123;</span><br><span class="line">  <span class="comment">/* 这里可以设置顶端外边距 */</span> </span><br><span class="line">  <span class="attr">margin</span>: 10px auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>水平居中：多个块状元素解决方案<br>       将元素的display属性设置为inline-block，并且把父元素的text-align属性设置为center即可:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.<span class="property">parent</span> &#123; </span><br><span class="line">  text-<span class="attr">align</span>:center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>水平居中：多个块状元素解决方案 (使用flexbox布局实现)<br>       使用flexbox布局，只需要把待处理的块状元素的父元素添加属性display:flex及justify-content:center即可:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.<span class="property">parent</span> &#123;    </span><br><span class="line">  <span class="attr">display</span>:flex;    </span><br><span class="line">  justify-<span class="attr">content</span>:center; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>垂直居中：单行的行内元素解决方案</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.<span class="property">parent</span> &#123;    </span><br><span class="line">  <span class="attr">background</span>: #<span class="number">222</span>;    </span><br><span class="line">  <span class="attr">height</span>: 200px;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>/* 以下代码中，将a元素的height和line-height设置的和父元素一样高度即可实现垂直居中 */</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a &#123;    </span><br><span class="line">  <span class="attr">height</span>: 200px;    </span><br><span class="line">  line-<span class="attr">height</span>:200px;    </span><br><span class="line">  <span class="attr">color</span>: #<span class="variable constant_">FFF</span>;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>垂直居中：多行的行内元素解决方案<br>       组合使用display:table-cell和vertical-align:middle属性来定义需要居中的元素的父容器元素生成效果，如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.<span class="property">parent</span> &#123;    </span><br><span class="line">  <span class="attr">background</span>: #<span class="number">222</span>;    </span><br><span class="line">  <span class="attr">width</span>: 300px;    </span><br><span class="line">  <span class="attr">height</span>: 300px;   </span><br><span class="line">  <span class="comment">/* 以下属性垂直居中 */</span>   </span><br><span class="line">  <span class="attr">display</span>: table-cell;   </span><br><span class="line">  vertical-<span class="attr">align</span>:middle; </span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>垂直居中：已知高度的块状元素解决方案</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.<span class="property">item</span>&#123;    </span><br><span class="line">  <span class="attr">top</span>: <span class="number">50</span>%;    </span><br><span class="line">  margin-<span class="attr">top</span>: -50px; </span><br><span class="line">  <span class="comment">/* margin-top值为自身高度的一半 */</span>   </span><br><span class="line">  <span class="attr">position</span>: absolute;    </span><br><span class="line">  <span class="attr">padding</span>:<span class="number">0</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>垂直居中：未知高度的块状元素解决方案</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.<span class="property">item</span>&#123;    </span><br><span class="line">  <span class="attr">top</span>: <span class="number">50</span>%;    </span><br><span class="line">  <span class="attr">position</span>: absolute;    </span><br><span class="line">  <span class="attr">transform</span>: <span class="title function_">translateY</span>(-<span class="number">50</span>%); </span><br><span class="line">  <span class="comment">/* 使用css3的transform来实现 */</span>   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>水平垂直居中：已知高度和宽度的元素解决方案1<br>       这是一种不常见的居中方法，可自适应，比方案2更智能，如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.<span class="property">item</span>&#123;    </span><br><span class="line">  <span class="attr">position</span>: absolute;    </span><br><span class="line">  <span class="attr">margin</span>:auto;    </span><br><span class="line">  <span class="attr">left</span>:<span class="number">0</span>;    </span><br><span class="line">  <span class="attr">top</span>:<span class="number">0</span>;    </span><br><span class="line">  <span class="attr">right</span>:<span class="number">0</span>;    </span><br><span class="line">  <span class="attr">bottom</span>:<span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>水平垂直居中：已知高度和宽度的元素解决方案2</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.<span class="property">item</span>&#123;    </span><br><span class="line">  <span class="attr">position</span>: absolute;    </span><br><span class="line">  <span class="attr">margin</span>:auto;    </span><br><span class="line">  <span class="attr">left</span>:<span class="number">0</span>;    </span><br><span class="line">  <span class="attr">top</span>:<span class="number">0</span>;    </span><br><span class="line">  <span class="attr">right</span>:<span class="number">0</span>;    </span><br><span class="line">  <span class="attr">bottom</span>:<span class="number">0</span>;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>水平垂直居中：未知高度和宽度元素解决方案</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.<span class="property">item</span>&#123;    </span><br><span class="line">  <span class="attr">position</span>: absolute;    </span><br><span class="line">  <span class="attr">top</span>: <span class="number">50</span>%;    </span><br><span class="line">  <span class="attr">left</span>: <span class="number">50</span>%;    </span><br><span class="line">  <span class="attr">transform</span>: <span class="title function_">translate</span>(-<span class="number">50</span>%, -<span class="number">50</span>%);  </span><br><span class="line">  <span class="comment">/* 使用css3的transform来实现 */</span>    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>水平垂直居中：使用flex布局实现</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.<span class="property">parent</span>&#123;    </span><br><span class="line">  <span class="attr">display</span>: flex;    </span><br><span class="line">  justify-<span class="attr">content</span>:center;    </span><br><span class="line">  align-<span class="attr">items</span>: center;   </span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 注意这里需要设置高度来查看垂直居中效果 */</span>   </span><br><span class="line">  <span class="attr">background</span>: #<span class="variable constant_">AAA</span>;    </span><br><span class="line">  <span class="attr">height</span>: 300px;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+       -->
+      
+        
+            
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+            
+                
+                <p><p>水平居中之行内元素解决方案<br>      只需要把行内元素包裹在一个属性display为block的父层元素中，并且把父层元素添加如下属性即可：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.<span class="property">parent</span> &#123;</span><br><span class="line">  text-<span class="attr">align</span>:center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>水平居中：块状元素解决方案</p>
+<p>
+            
+        
+        
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">H5</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/08/HTML5/CSS%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/">展开全文 >></a>
         </p>
       
 
@@ -964,7 +663,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/4/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/4/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
     </nav>
   
 
@@ -1101,15 +800,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">统计</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">cloudstuido</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">npm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">统计</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1169,15 +868,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">centos7</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">脚本</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
