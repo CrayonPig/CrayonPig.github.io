@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://hellohl.com">
-  <title>Baymax大白</title>
+  <title>element-ui源码之命令 | Baymax大白</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="如果让大家投票选择Vue中最热门的UI框架，我想Element-UI一定是会榜上有名的，接下来就让我们以element-ui v2.15.5版本来学习吧  首先从github clone项目 1git clone https:&#x2F;&#x2F;github.com.cnpmjs.org&#x2F;ElemeFE&#x2F;element.git  项目下载完后，大家可以看到如下目录，主要目录已经标注好了 1234567891011">
+  <meta name="description" content="上一期给大家分享了element项目的目录结构，这次我们着重分析下package.json 中script每项命令的含义  bootstrap1&quot;bootstrap&quot;: &quot;yarn || npm i&quot;,  这个没啥好说的，安装依赖 build:file1&quot;build:file&quot;: &quot;node build&#x2F;bin&#x2F;iconInit">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Baymax大白">
-<meta property="og:url" content="http://hellohl.com/2022/08/21/element/element-ui%E6%BA%90%E7%A0%81%E4%B9%8B%E7%9B%AE%E5%BD%95/index.html">
+<meta property="og:title" content="element-ui源码之命令">
+<meta property="og:url" content="http://hellohl.com/2022/02/15/element/element-ui%E6%BA%90%E7%A0%81%E4%B9%8B%E5%91%BD%E4%BB%A4/index.html">
 <meta property="og:site_name" content="Baymax大白">
-<meta property="og:description" content="如果让大家投票选择Vue中最热门的UI框架，我想Element-UI一定是会榜上有名的，接下来就让我们以element-ui v2.15.5版本来学习吧  首先从github clone项目 1git clone https:&#x2F;&#x2F;github.com.cnpmjs.org&#x2F;ElemeFE&#x2F;element.git  项目下载完后，大家可以看到如下目录，主要目录已经标注好了 1234567891011">
+<meta property="og:description" content="上一期给大家分享了element项目的目录结构，这次我们着重分析下package.json 中script每项命令的含义  bootstrap1&quot;bootstrap&quot;: &quot;yarn || npm i&quot;,  这个没啥好说的，安装依赖 build:file1&quot;build:file&quot;: &quot;node build&#x2F;bin&#x2F;iconInit">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-08-21T08:34:55.914Z">
-<meta property="article:modified_time" content="2022-05-26T03:21:18.747Z">
+<meta property="article:published_time" content="2022-02-15T01:18:00.000Z">
+<meta property="article:modified_time" content="2022-08-23T13:40:49.929Z">
 <meta property="article:author" content="大白">
-<meta property="article:tag" content="前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验">
+<meta property="article:tag" content="vue">
+<meta property="article:tag" content="element">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Baymax大白" type="application/atom+xml">
@@ -160,38 +161,49 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-element/element-ui源码之目录" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-element/element-ui源码之命令" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      element-ui源码之命令
+    </h1>
+  
+
+        
+        <a href="/2022/02/15/element/element-ui%E6%BA%90%E7%A0%81%E4%B9%8B%E5%91%BD%E4%BB%A4/" class="archive-article-date">
+  	<time datetime="2022-02-15T01:18:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-15</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       <!-- 
-        <p>如果让大家投票选择Vue中最热门的UI框架，我想Element-UI一定是会榜上有名的，接下来就让我们以element-ui v2.15.5版本来学习吧</p>
+        <p>上一期给大家分享了element项目的目录结构，这次我们着重分析下package.json 中script每项命令的含义</p>
 <hr>
-<p>首先从github clone项目</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com.cnpmjs.org/ElemeFE/element.git</span><br></pre></td></tr></table></figure>
+<h2 id="bootstrap"><a href="#bootstrap" class="headerlink" title="bootstrap"></a>bootstrap</h2><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;bootstrap&quot;</span><span class="punctuation">:</span> <span class="string">&quot;yarn || npm i&quot;</span><span class="punctuation">,</span></span><br></pre></td></tr></table></figure>
 
-<p>项目下载完后，大家可以看到如下目录，主要目录已经标注好了</p>
-<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">element-v2.15.5</span><br><span class="line">├─<span class="string">.github</span></span><br><span class="line">├─build（webpack打包启动相关配置）</span><br><span class="line">├─examples（组件使用范例）</span><br><span class="line">├─packages（组件具体实现，css样式放置在这个目录的theme-chalk下）</span><br><span class="line">├─src</span><br><span class="line">|  ├─utils（公共工具函数）</span><br><span class="line">|  ├─transitions（动画配置文件）</span><br><span class="line">|  ├─mixins（组件用的混入文件）</span><br><span class="line">|  ├─locale（语言的配置文件）</span><br><span class="line">|  ├─directives（自定义指令）</span><br><span class="line">|  ├─index.js（组件暴露出口）</span><br><span class="line">├─test（组件测试用例）</span><br><span class="line">├─types（组件ts定义，ts项目引用时会用到）</span><br><span class="line">├─<span class="string">.DS_Store</span></span><br><span class="line">├─<span class="string">.babelrc</span></span><br><span class="line">├─<span class="string">.eslintignore</span></span><br><span class="line">├─<span class="string">.eslintrc</span></span><br><span class="line">├─<span class="string">.gitattributes</span></span><br><span class="line">├─<span class="string">.gitignore</span></span><br><span class="line">├─<span class="string">.travis.yml</span></span><br><span class="line">├─CHANGELOG.en-US.md</span><br><span class="line">├─CHANGELOG.es.md</span><br><span class="line">├─CHANGELOG.fr-FR.md</span><br><span class="line">├─CHANGELOG.zh-CN.md</span><br><span class="line">├─FAQ.md</span><br><span class="line">├─LICENSE</span><br><span class="line">├─Makefile</span><br><span class="line">├─README.md</span><br><span class="line">├─components.json</span><br><span class="line">├─element_logo.svg</span><br><span class="line">├─package.json</span><br><span class="line">├─yarn-error.log</span><br><span class="line">├─yarn.lock</span><br></pre></td></tr></table></figure>
+<p>这个没啥好说的，安装依赖</p>
+<h2 id="build-file"><a href="#build-file" class="headerlink" title="build:file"></a>build:file</h2><figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;<span class="keyword">build</span>:file<span class="string">&quot;: &quot;</span>node <span class="keyword">build</span>/bin/iconInit.js &amp; node <span class="keyword">build</span>/bin/<span class="keyword">build</span>-entry.js &amp; node <span class="keyword">build</span>/bin/i18n.js &amp; node <span class="keyword">build</span>/bin/version.js<span class="string">&quot;</span></span><br></pre></td></tr></table></figure>
 
-
-
-
+<p>这个命令我们可以拆分多个进行逐一分析</p>
+<h4 id="node-build-bin-iconInit-js"><a href="#node-build-bin-iconInit-js" class="headerlink" title="node build/bin/iconInit.js"></a>node build/bin/iconInit.js</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> postcss = <span class="built_in">require</span>(<span class="string">&#x27;postcss&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> fontFile = fs.<span class="title function_">readFileSync</span>(path.<span class="title function_">resolve</span>(__dirname, <span class="string">&#x27;../../packages/theme-chalk/src/icon.scss&#x27;</span>), <span class="string">&#x27;utf8&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> nodes = postcss.<span class="title function_">parse</span>(fontFile).<span class="property">nodes</span>;</span><br><span class="line"><span class="keyword">var</span> classList = [];</span><br><span class="line"></span><br><span class="line">nodes.<span class="title function_">forEach</span>(<span class="function">(<span class="params">node</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">var</span> selector = node.<span class="property">selector</span> || <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">  <span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="title class_">RegExp</span>(<span class="regexp">/\.el-icon-([^:]+):before/</span>);</span><br><span class="line">  <span class="keyword">var</span> arr = selector.<span class="title function_">match</span>(reg);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (arr &amp;&amp; arr[<span class="number">1</span>]) &#123;</span><br><span class="line">    classList.<span class="title function_">push</span>(arr[<span class="number">1</span>]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">classList.<span class="title function_">reverse</span>(); <span class="comment">// 希望按 css 文件顺序倒序排列</span></span><br><span class="line"></span><br><span class="line">fs.<span class="title function_">writeFile</span>(path.<span class="title function_">resolve</span>(__dirname, <span class="string">&#x27;../../examples/icon.json&#x27;</span>), <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(classList), <span class="function">() =&gt;</span> &#123;&#125;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
        -->
       
         
-        <p>如果让大家投票选择Vue中最热门的UI框架，我想Element-UI一定是会榜上有名的，接下来就让我们以element-ui v2.15.5版本来学习吧</p>
+        <p>上一期给大家分享了element项目的目录结构，这次我们着重分析下package.json 中script每项命令的含义</p>
 <hr>
-<p>首先从github clone项目</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com.cnpmjs.org/ElemeFE/element.git</span><br></pre></td></tr></table></figure>
+<h2 id="bootstrap"><a href="#bootstrap" class="headerlink" title="bootstrap"></a>bootstrap</h2><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;bootstrap&quot;</span><span class="punctuation">:</span> <span class="string">&quot;yarn || npm i&quot;</span><span class="punctuation">,</span></span><br></pre></td></tr></table></figure>
 
-<p>项目下载完后，大家可以看到如下目录，主要目录已经标注好了</p>
-<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">element-v2.15.5</span><br><span class="line">├─<span class="string">.github</span></span><br><span class="line">├─build（webpack打包启动相关配置）</span><br><span class="line">├─examples（组件使用范例）</span><br><span class="line">├─packages（组件具体实现，css样式放置在这个目录的theme-chalk下）</span><br><span class="line">├─src</span><br><span class="line">|  ├─utils（公共工具函数）</span><br><span class="line">|  ├─transitions（动画配置文件）</span><br><span class="line">|  ├─mixins（组件用的混入文件）</span><br><span class="line">|  ├─locale（语言的配置文件）</span><br><span class="line">|  ├─directives（自定义指令）</span><br><span class="line">|  ├─index.js（组件暴露出口）</span><br><span class="line">├─test（组件测试用例）</span><br><span class="line">├─types（组件ts定义，ts项目引用时会用到）</span><br><span class="line">├─<span class="string">.DS_Store</span></span><br><span class="line">├─<span class="string">.babelrc</span></span><br><span class="line">├─<span class="string">.eslintignore</span></span><br><span class="line">├─<span class="string">.eslintrc</span></span><br><span class="line">├─<span class="string">.gitattributes</span></span><br><span class="line">├─<span class="string">.gitignore</span></span><br><span class="line">├─<span class="string">.travis.yml</span></span><br><span class="line">├─CHANGELOG.en-US.md</span><br><span class="line">├─CHANGELOG.es.md</span><br><span class="line">├─CHANGELOG.fr-FR.md</span><br><span class="line">├─CHANGELOG.zh-CN.md</span><br><span class="line">├─FAQ.md</span><br><span class="line">├─LICENSE</span><br><span class="line">├─Makefile</span><br><span class="line">├─README.md</span><br><span class="line">├─components.json</span><br><span class="line">├─element_logo.svg</span><br><span class="line">├─package.json</span><br><span class="line">├─yarn-error.log</span><br><span class="line">├─yarn.lock</span><br></pre></td></tr></table></figure>
+<p>这个没啥好说的，安装依赖</p>
+<h2 id="build-file"><a href="#build-file" class="headerlink" title="build:file"></a>build:file</h2><figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;<span class="keyword">build</span>:file<span class="string">&quot;: &quot;</span>node <span class="keyword">build</span>/bin/iconInit.js &amp; node <span class="keyword">build</span>/bin/<span class="keyword">build</span>-entry.js &amp; node <span class="keyword">build</span>/bin/i18n.js &amp; node <span class="keyword">build</span>/bin/version.js<span class="string">&quot;</span></span><br></pre></td></tr></table></figure>
 
-
-
-
+<p>这个命令我们可以拆分多个进行逐一分析</p>
+<h4 id="node-build-bin-iconInit-js"><a href="#node-build-bin-iconInit-js" class="headerlink" title="node build/bin/iconInit.js"></a>node build/bin/iconInit.js</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> postcss = <span class="built_in">require</span>(<span class="string">&#x27;postcss&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> fontFile = fs.<span class="title function_">readFileSync</span>(path.<span class="title function_">resolve</span>(__dirname, <span class="string">&#x27;../../packages/theme-chalk/src/icon.scss&#x27;</span>), <span class="string">&#x27;utf8&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> nodes = postcss.<span class="title function_">parse</span>(fontFile).<span class="property">nodes</span>;</span><br><span class="line"><span class="keyword">var</span> classList = [];</span><br><span class="line"></span><br><span class="line">nodes.<span class="title function_">forEach</span>(<span class="function">(<span class="params">node</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">var</span> selector = node.<span class="property">selector</span> || <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">  <span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="title class_">RegExp</span>(<span class="regexp">/\.el-icon-([^:]+):before/</span>);</span><br><span class="line">  <span class="keyword">var</span> arr = selector.<span class="title function_">match</span>(reg);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (arr &amp;&amp; arr[<span class="number">1</span>]) &#123;</span><br><span class="line">    classList.<span class="title function_">push</span>(arr[<span class="number">1</span>]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">classList.<span class="title function_">reverse</span>(); <span class="comment">// 希望按 css 文件顺序倒序排列</span></span><br><span class="line"></span><br><span class="line">fs.<span class="title function_">writeFile</span>(path.<span class="title function_">resolve</span>(__dirname, <span class="string">&#x27;../../examples/icon.json&#x27;</span>), <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(classList), <span class="function">() =&gt;</span> &#123;&#125;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
       
@@ -221,6 +233,21 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">element</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -271,7 +298,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://hellohl.com/2022/08/21/element/element-ui%E6%BA%90%E7%A0%81%E4%B9%8B%E7%9B%AE%E5%BD%95/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://hellohl.com/2022/02/15/element/element-ui%E6%BA%90%E7%A0%81%E4%B9%8B%E5%91%BD%E4%BB%A4/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -285,9 +312,18 @@
   
 <nav id="article-nav">
   
+    <a href="/2022/02/15/element/element-ui%E6%BA%90%E7%A0%81%E4%B9%8B%E7%9B%AE%E5%BD%95/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          element-ui源码之目录
+        
+      </div>
+    </a>
   
-    <a href="/2022/08/21/element/element-ui%E6%BA%90%E7%A0%81%E4%B9%8B%E5%91%BD%E4%BB%A4/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
+  
+    <a href="/2022/01/15/%E8%8A%82%E6%B5%81%E5%92%8C%E9%98%B2%E6%8A%96/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">节流和防抖</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -455,6 +491,18 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">element</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">cloudstuido</a>
               </li>
              
@@ -467,11 +515,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
+                <a href="javascript:void(0)" class="js-tag color4">NAS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color5">DDNS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -507,19 +555,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">php</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">内网穿透</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NAS</a>
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">DDNS</a>
+                <a href="javascript:void(0)" class="js-tag color4">TCP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -552,6 +596,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">直播</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">php</a>
               </li>
             
             <div class="clearfix"></div>

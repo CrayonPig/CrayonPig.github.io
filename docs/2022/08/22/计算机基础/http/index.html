@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://hellohl.com">
-  <title>Baymax大白</title>
+  <title>http及其相关 | Baymax大白</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="擅长各项前端技能，深入研究移动端开发与前端性能。此为博客一枚。">
+  <meta name="description" content="HTTP1.0当连接建立起来以后,浏览器发送一个请求,之后一个回应消息被送回来.然后TCP连接被释放.这在早期,Web页面通常只包含HTML文本,在这种情况下,这样的做法已经足够了.但是,网页一般还含有大量的图标,图象以及其他很养眼的内容,所以建立一个TCP连接仅仅传输一个图标,则显得代价太昂贵了. HTTP1.1它支持持续连接.通过这种连接,就有可能在建立一个TCP连接后,发送请求并得到回应,然">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Baymax大白">
-<meta property="og:url" content="http://hellohl.com/2022/08/21/Docker/%E8%87%AA%E5%AE%9A%E4%B9%89%E9%95%9C%E5%83%8F/index.html">
+<meta property="og:title" content="http及其相关">
+<meta property="og:url" content="http://hellohl.com/2022/08/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/http/index.html">
 <meta property="og:site_name" content="Baymax大白">
-<meta property="og:description" content="擅长各项前端技能，深入研究移动端开发与前端性能。此为博客一枚。">
+<meta property="og:description" content="HTTP1.0当连接建立起来以后,浏览器发送一个请求,之后一个回应消息被送回来.然后TCP连接被释放.这在早期,Web页面通常只包含HTML文本,在这种情况下,这样的做法已经足够了.但是,网页一般还含有大量的图标,图象以及其他很养眼的内容,所以建立一个TCP连接仅仅传输一个图标,则显得代价太昂贵了. HTTP1.1它支持持续连接.通过这种连接,就有可能在建立一个TCP连接后,发送请求并得到回应,然">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-08-21T08:34:55.894Z">
-<meta property="article:modified_time" content="2022-05-26T03:21:18.746Z">
+<meta property="article:published_time" content="2022-08-22T15:25:00.000Z">
+<meta property="article:modified_time" content="2022-08-23T13:48:41.003Z">
 <meta property="article:author" content="大白">
-<meta property="article:tag" content="前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验">
+<meta property="article:tag" content="http">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Baymax大白" type="application/atom+xml">
@@ -160,16 +160,47 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Docker/自定义镜像" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-计算机基础/http" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      http及其相关
+    </h1>
+  
+
+        
+        <a href="/2022/08/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/http/" class="archive-article-date">
+  	<time datetime="2022-08-22T15:25:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-22</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       <!-- 
-        
+        <h3 id="HTTP1-0"><a href="#HTTP1-0" class="headerlink" title="HTTP1.0"></a>HTTP1.0</h3><p>当连接建立起来以后,浏览器发送一个请求,之后一个回应消息被送回来.然后TCP连接被释放.这在早期,Web页面通常只包含HTML文本,在这种情况下,这样的做法已经足够了.但是,网页一般还含有大量的图标,图象以及其他很养眼的内容,所以建立一个TCP连接仅仅传输一个图标,则显得代价太昂贵了.</p>
+<h3 id="HTTP1-1"><a href="#HTTP1-1" class="headerlink" title="HTTP1.1"></a>HTTP1.1</h3><p>它支持持续连接.通过这种连接,就有可能在建立一个TCP连接后,发送请求并得到回应,然后发送更多的请求并得到更多的回应.通过把建立和释放TCP连接的开销分摊到多个请求上,则对于每个请求而言,由于TCP而造成的相对开销被大大地降低了.而且,还可以发送流水线请求,也就是说在发送请求1之后的回应到来之前就可以发送请求2.也可以认为，一次连接发送多个请求，由客户机确认是否关闭连接，而服务器会认为这些请求分别来自不同的客户端。</p>
+<h3 id="HTTP2-0"><a href="#HTTP2-0" class="headerlink" title="HTTP2.0"></a>HTTP2.0</h3><p>在开放互联网上HTTP 2.0将只用于https、而 http:将继续使用HTTP/1 目的是在开放互联网上增加使用加密技术，以提供强有力的保护去遏制主动攻击。<br>异步连接多路复用、头部压缩、请求/响应管线化、保持与HTTP 1.1语义的向后兼容性、多路复用请求、对请求划分优先级、压缩HTTP头、服务器推送流（即Server Push技术）</p>
+<blockquote>
+<p>HTTP2协议虽然大幅提升了HTTP/1.1的性能，然而，基于TCP实现的HTTP2遗留下3个问题：</p>
+</blockquote>
+<p>1、有序字节流引出的队头阻塞（Head-of-line blocking），使得HTTP2的多路复用能力大打折扣；<br>2、TCP与TLS叠加了握手时延，建链时长还有1倍的下降空间；<br>3、基于TCP四元组确定一个连接，这种诞生于有线网络的设计，并不适合移动状态下的无线网络，这意味着IP地址的频繁变动会导致TCP连接、TLS会话反复握手，成本高昂。</p>
+<h4 id="HTTP3协议解决了这些问题："><a href="#HTTP3协议解决了这些问题：" class="headerlink" title="HTTP3协议解决了这些问题："></a>HTTP3协议解决了这些问题：</h4><p>HTTP3基于UDP协议重新定义了连接，在QUIC层实现了无序、并发字节流的传输，解决了队头阻塞问题（包括基于QPACK解决了动态表的队头阻塞）；<br>HTTP3重新定义了TLS协议加密QUIC头部的方式，既提高了网络攻击成本，又降低了建立连接的速度（仅需1个RTT就可以同时完成建链与密钥协商）；<br>HTTP3 将Packet、QUIC Frame、HTTP3 Frame分离，实现了连接迁移功能，降低了5G环境下高速移动设备的连接维护成本。</p>
+
        -->
       
         
-        
+        <h3 id="HTTP1-0"><a href="#HTTP1-0" class="headerlink" title="HTTP1.0"></a>HTTP1.0</h3><p>当连接建立起来以后,浏览器发送一个请求,之后一个回应消息被送回来.然后TCP连接被释放.这在早期,Web页面通常只包含HTML文本,在这种情况下,这样的做法已经足够了.但是,网页一般还含有大量的图标,图象以及其他很养眼的内容,所以建立一个TCP连接仅仅传输一个图标,则显得代价太昂贵了.</p>
+<h3 id="HTTP1-1"><a href="#HTTP1-1" class="headerlink" title="HTTP1.1"></a>HTTP1.1</h3><p>它支持持续连接.通过这种连接,就有可能在建立一个TCP连接后,发送请求并得到回应,然后发送更多的请求并得到更多的回应.通过把建立和释放TCP连接的开销分摊到多个请求上,则对于每个请求而言,由于TCP而造成的相对开销被大大地降低了.而且,还可以发送流水线请求,也就是说在发送请求1之后的回应到来之前就可以发送请求2.也可以认为，一次连接发送多个请求，由客户机确认是否关闭连接，而服务器会认为这些请求分别来自不同的客户端。</p>
+<h3 id="HTTP2-0"><a href="#HTTP2-0" class="headerlink" title="HTTP2.0"></a>HTTP2.0</h3><p>在开放互联网上HTTP 2.0将只用于https、而 http:将继续使用HTTP/1 目的是在开放互联网上增加使用加密技术，以提供强有力的保护去遏制主动攻击。<br>异步连接多路复用、头部压缩、请求/响应管线化、保持与HTTP 1.1语义的向后兼容性、多路复用请求、对请求划分优先级、压缩HTTP头、服务器推送流（即Server Push技术）</p>
+<blockquote>
+<p>HTTP2协议虽然大幅提升了HTTP/1.1的性能，然而，基于TCP实现的HTTP2遗留下3个问题：</p>
+</blockquote>
+<p>1、有序字节流引出的队头阻塞（Head-of-line blocking），使得HTTP2的多路复用能力大打折扣；<br>2、TCP与TLS叠加了握手时延，建链时长还有1倍的下降空间；<br>3、基于TCP四元组确定一个连接，这种诞生于有线网络的设计，并不适合移动状态下的无线网络，这意味着IP地址的频繁变动会导致TCP连接、TLS会话反复握手，成本高昂。</p>
+<h4 id="HTTP3协议解决了这些问题："><a href="#HTTP3协议解决了这些问题：" class="headerlink" title="HTTP3协议解决了这些问题："></a>HTTP3协议解决了这些问题：</h4><p>HTTP3基于UDP协议重新定义了连接，在QUIC层实现了无序、并发字节流的传输，解决了队头阻塞问题（包括基于QPACK解决了动态表的队头阻塞）；<br>HTTP3重新定义了TLS协议加密QUIC头部的方式，既提高了网络攻击成本，又降低了建立连接的速度（仅需1个RTT就可以同时完成建链与密钥协商）；<br>HTTP3 将Packet、QUIC Frame、HTTP3 Frame分离，实现了连接迁移功能，降低了5G环境下高速移动设备的连接维护成本。</p>
+
       
       
         <div class="page-reward">
@@ -197,6 +228,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">http</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -247,7 +289,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://hellohl.com/2022/08/21/Docker/%E8%87%AA%E5%AE%9A%E4%B9%89%E9%95%9C%E5%83%8F/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://hellohl.com/2022/08/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/http/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -261,18 +303,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2022/08/21/element/element-ui%E6%BA%90%E7%A0%81%E4%B9%8B%E5%91%BD%E4%BB%A4/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/08/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/TCP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          (no title)
+          TCP三次握手四次挥手
         
       </div>
     </a>
   
   
-    <a href="/2022/01/15/%E8%8A%82%E6%B5%81%E5%92%8C%E9%98%B2%E6%8A%96/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">节流和防抖</div>
+    <a href="/2022/02/15/element/element-ui%E6%BA%90%E7%A0%81%E4%B9%8B%E7%9B%AE%E5%BD%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">element-ui源码之目录</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -440,6 +482,18 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">element</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">cloudstuido</a>
               </li>
              
@@ -452,11 +506,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
+                <a href="javascript:void(0)" class="js-tag color4">NAS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color5">DDNS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -492,19 +546,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">php</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">内网穿透</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NAS</a>
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">DDNS</a>
+                <a href="javascript:void(0)" class="js-tag color4">TCP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -537,6 +587,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">直播</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">php</a>
               </li>
             
             <div class="clearfix"></div>

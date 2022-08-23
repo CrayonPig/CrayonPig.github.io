@@ -160,6 +160,144 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-VUE源码学习/Vue源码学习第二期——Vue-的构造函数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/01/15/VUE%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/Vue%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%BA%8C%E6%9C%9F%E2%80%94%E2%80%94Vue-%E7%9A%84%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/">Vue源码学习第二期——Vue-的构造函数</a>
+    </h1>
+  
+
+        
+        <a href="/2021/01/15/VUE%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/Vue%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%BA%8C%E6%9C%9F%E2%80%94%E2%80%94Vue-%E7%9A%84%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/" class="archive-article-date">
+  	<time datetime="2021-01-15T06:58:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      <!-- 
+        <p>承上文，我们知道，我们可以使用npm run dev命令来运行项目。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;dev&quot;</span><span class="punctuation">:</span> <span class="string">&quot;rollup -w -c scripts/config.js --environment TARGET:web-full-dev&quot;</span><span class="punctuation">,</span></span><br></pre></td></tr></table></figure>
+<p>其中 -w 就是watch，-c 就是指定配置文件为 build/config.js，简单来说dev命令是rollup使用scripts/config.js的配置运行，并设置了一个变量TARGET的值为web-full-dev。<br>那么我们来看scripts/config.js中的代码</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (process<span class="selector-class">.env</span>.TARGET) &#123;</span><br><span class="line">  module<span class="selector-class">.exports</span> = <span class="built_in">genConfig</span>(process<span class="selector-class">.env</span>.TARGET)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  exports<span class="selector-class">.getBuild</span> = genConfig</span><br><span class="line">  exports<span class="selector-class">.getAllBuilds</span> = () =&gt; Object<span class="selector-class">.keys</span>(builds)<span class="selector-class">.map</span>(genConfig)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果有TARGET，那么将TARGET的值作为参数传入genConfig方法，我们继续看genConfig方法</p>
+<figure class="highlight roboconf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">function genConfig (name) &#123;</span><br><span class="line">  <span class="attribute">const opts = builds[name]</span></span><br><span class="line"><span class="attribute">  const config = &#123;</span></span><br><span class="line"><span class="attribute">    input</span>: opts<span class="variable">.entry</span>,</span><br><span class="line">    external: opts<span class="variable">.external</span>,</span><br><span class="line">    plugins: [</span><br><span class="line">      flow(),</span><br><span class="line">      alias(Object<span class="variable">.assign</span>(&#123;&#125;, aliases, opts<span class="variable">.alias</span>))</span><br><span class="line">    ]<span class="variable">.concat</span>(opts<span class="variable">.plugins</span> || []),</span><br><span class="line">    output: &#123;</span><br><span class="line">      file: opts<span class="variable">.dest</span>,</span><br><span class="line">      format: opts<span class="variable">.format</span>,</span><br><span class="line">      banner: opts<span class="variable">.banner</span>,</span><br><span class="line">      name: opts<span class="variable">.moduleName</span> || &#x27;Vue&#x27;</span><br><span class="line">    &#125;,</span><br><span class="line">    onwarn: (msg, warn) =&gt; &#123;</span><br><span class="line">      if (!/Circular/<span class="variable">.test</span>(msg)) &#123;</span><br><span class="line">        warn(msg)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"> // built-in vars</span><br><span class="line">  const vars = &#123;</span><br><span class="line">    __WEEX__: !!opts<span class="variable">.weex</span>,</span><br><span class="line">    __WEEX_VERSION__: weexVersion,</span><br><span class="line">    __VERSION__: version</span><br><span class="line">  &#125;</span><br><span class="line">  // feature flags</span><br><span class="line">  Object<span class="variable">.keys</span>(featureFlags)<span class="variable">.forEach</span>(key =&gt; &#123;</span><br><span class="line">    vars[`process<span class="variable">.env</span>.$&#123;key&#125;`] = featureFlags[key]</span><br><span class="line">  &#125;)</span><br><span class="line">  // build-specific env</span><br><span class="line">  if (opts<span class="variable">.env</span>) &#123;</span><br><span class="line">    vars[&#x27;process<span class="variable">.env</span><span class="variable">.NODE_ENV</span>&#x27;] = JSON<span class="variable">.stringify</span>(opts<span class="variable">.env</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  config<span class="variable">.plugins</span><span class="variable">.push</span>(replace(vars))</span><br><span class="line"></span><br><span class="line">  if (opts<span class="variable">.transpile</span> !== false) &#123;</span><br><span class="line">    config<span class="variable">.plugins</span><span class="variable">.push</span>(buble())</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  Object<span class="variable">.defineProperty</span>(config, &#x27;_name&#x27;, &#123;</span><br><span class="line">    enumerable: false,</span><br><span class="line">    value: name</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  return config</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看到，在genconfig中，使用传来的TARGET值（web-full-dev）从builds中获取参数，然后再定义一个相关的config参数。<br>从builds的定义中，我们可以知道获取到的数据为</p>
+<figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;web-full-dev&#x27;</span>: &#123;</span><br><span class="line">    entry: resolve(<span class="string">&#x27;web/entry-runtime-with-compiler.js&#x27;</span>),</span><br><span class="line">    dest: resolve(<span class="string">&#x27;dist/vue.js&#x27;</span>),</span><br><span class="line">    <span class="keyword">format</span>: <span class="string">&#x27;umd&#x27;</span>,</span><br><span class="line">    <span class="keyword">env</span>: <span class="string">&#x27;development&#x27;</span>,</span><br><span class="line">    <span class="keyword">alias</span>: &#123; he: <span class="string">&#x27;./entity-decoder&#x27;</span> &#125;,</span><br><span class="line">    banner</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>最终通过gencofig运行结果，我们可以知道，入口文件是</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">src<span class="regexp">/platforms/</span>web/web-<span class="keyword">runtime</span>-with-compiler.js</span><br></pre></td></tr></table></figure>
+<p>那么我们继续找这个文件，一进去，我们就发现我们要找到的东西了</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&#x27;./runtime/index&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>继续按照目录查找，这个文件还是一样的</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&#x27;core/index&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>依照此思路，最终我们寻找到Vue构造函数的位置应该是在 src/core/instance/index.js 文件中，其实我们看上节的目录分析，应该也可以知道，包含Vue构造函数设计相关的代码就是放在instance中。<br>那好，接下来，我们看正题</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">import &#123; initMixin &#125; from <span class="string">&#x27;./init&#x27;</span></span><br><span class="line">import &#123; stateMixin &#125; from <span class="string">&#x27;./state&#x27;</span></span><br><span class="line">import &#123; renderMixin &#125; from <span class="string">&#x27;./render&#x27;</span></span><br><span class="line">import &#123; eventsMixin &#125; from <span class="string">&#x27;./events&#x27;</span></span><br><span class="line">import &#123; lifecycleMixin &#125; from <span class="string">&#x27;./lifecycle&#x27;</span></span><br><span class="line">import &#123; warn &#125; from <span class="string">&#x27;../util/index&#x27;</span></span><br><span class="line"></span><br><span class="line">function Vue (options) &#123;</span><br><span class="line">  <span class="keyword">if</span> (process<span class="selector-class">.env</span><span class="selector-class">.NODE_ENV</span> !== <span class="string">&#x27;production&#x27;</span> &amp;&amp;</span><br><span class="line">    !(this instanceof Vue)</span><br><span class="line">  ) &#123;</span><br><span class="line">    <span class="built_in">warn</span>(<span class="string">&#x27;Vue is a constructor and should be called with the `new` keyword&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  this.<span class="built_in">_init</span>(options)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">initMixin</span><span class="params">(Vue)</span></span></span><br><span class="line"><span class="function"><span class="title">stateMixin</span><span class="params">(Vue)</span></span></span><br><span class="line"><span class="function"><span class="title">eventsMixin</span><span class="params">(Vue)</span></span></span><br><span class="line"><span class="function"><span class="title">lifecycleMixin</span><span class="params">(Vue)</span></span></span><br><span class="line"><span class="function"><span class="title">renderMixin</span><span class="params">(Vue)</span></span></span><br><span class="line"></span><br><span class="line">export default Vue</span><br></pre></td></tr></table></figure>
+<p>引入依赖，定义 Vue 构造函数，然后以Vue构造函数为参数，调用了五个方法，最后导出 Vue。这五个方法分别来自五个文件：init.js，state.js， render.js，events.js 以及 lifecycle.js<br>分别进入这五个文件，你会发现这都是在 Vue 的原型 prototype 上挂载方法或属性。</p>
+<p><strong>那么问题来了，为什么Vue使用的是function创建的构造函数而不是Class呢，原因是Vue 按功能把这些扩展分散到多个模块中去实现，⽽不是在⼀个模块⾥实现所有，这种⽅式是⽤ Class 难以实现的。这么做的好处是⾮常⽅便代码的维护和管理</strong></p>
+<p>方法挂载完成后是这样的：</p>
+<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">// initMixin(<span class="type">Vue</span>)    src/core/instance/init.js **************************************************</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>._init = function (options?: <span class="type">Object</span>) &#123;&#125;</span><br><span class="line"></span><br><span class="line">// stateMixin(<span class="type">Vue</span>)    src/core/instance/state.js **************************************************</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>.$data</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>.$set = set</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>.$delete = del</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>.$watch = function()&#123;&#125;</span><br><span class="line"></span><br><span class="line">// renderMixin(<span class="type">Vue</span>)    src/core/instance/render.js **************************************************</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>.$nextTick = function (fn: <span class="type">Function</span>) &#123;&#125;</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>._render = function (): <span class="type">VNode</span> &#123;&#125;</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>._s = _toString</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>._v = createTextVNode</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>._n = toNumber</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>._e = createEmptyVNode</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>._q = looseEqual</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>._i = looseIndexOf</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>._m = function()&#123;&#125;</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>._o = function()&#123;&#125;</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>._f = function resolveFilter (id) &#123;&#125;</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>._l = function()&#123;&#125;</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>._t = function()&#123;&#125;</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>._b = function()&#123;&#125;</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>._k = function()&#123;&#125;</span><br><span class="line"></span><br><span class="line">// eventsMixin(<span class="type">Vue</span>)    src/core/instance/events.js **************************************************</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>.$on = function (event: string, fn: <span class="type">Function</span>): <span class="type">Component</span> &#123;&#125;</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>.$once = function (event: string, fn: <span class="type">Function</span>): <span class="type">Component</span> &#123;&#125;</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>.$off = function (event?: string, fn?: <span class="type">Function</span>): <span class="type">Component</span> &#123;&#125;</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>.$emit = function (event: string): <span class="type">Component</span> &#123;&#125;</span><br><span class="line"></span><br><span class="line">// lifecycleMixin(<span class="type">Vue</span>)    src/core/instance/lifecycle.js **************************************************</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>._mount = function()&#123;&#125;</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>._update = function (vnode: <span class="type">VNode</span>, hydrating?: boolean) &#123;&#125;</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>._updateFromParent = function()&#123;&#125;</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>.$forceUpdate = function () &#123;&#125;</span><br><span class="line"><span class="type">Vue</span>.proto<span class="keyword">type</span>.$destroy = function () &#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>然后顺着我们刚来的路，再走回去，首先是‘src/core/index’，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">Vue</span> <span class="keyword">from</span> <span class="string">&#x27;./instance/index&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; initGlobalAPI &#125; <span class="keyword">from</span> <span class="string">&#x27;./global-api/index&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; isServerRendering &#125; <span class="keyword">from</span> <span class="string">&#x27;core/util/env&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">FunctionalRenderContext</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;core/vdom/create-functional-component&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="title function_">initGlobalAPI</span>(<span class="title class_">Vue</span>)</span><br><span class="line"></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(<span class="title class_">Vue</span>.<span class="property"><span class="keyword">prototype</span></span>, <span class="string">&#x27;$isServer&#x27;</span>, &#123;</span><br><span class="line">  <span class="attr">get</span>: isServerRendering</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(<span class="title class_">Vue</span>.<span class="property"><span class="keyword">prototype</span></span>, <span class="string">&#x27;$ssrContext&#x27;</span>, &#123;</span><br><span class="line">  get () &#123;</span><br><span class="line">    <span class="comment">/* istanbul ignore next */</span></span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">$vnode</span> &amp;&amp; <span class="variable language_">this</span>.<span class="property">$vnode</span>.<span class="property">ssrContext</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// expose FunctionalRenderContext for ssr runtime helper installation</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(<span class="title class_">Vue</span>, <span class="string">&#x27;FunctionalRenderContext&#x27;</span>, &#123;</span><br><span class="line">  <span class="attr">value</span>: <span class="title class_">FunctionalRenderContext</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="title class_">Vue</span>.<span class="property">version</span> = <span class="string">&#x27;__VERSION__&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">Vue</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>这个文件较为简单，在Vue挂载了globalAPI，在Vue原型prototype挂载了$isServer和$ssrContext，在 Vue 上挂载了 version 属性，监听FunctionalRenderContext。<br>经过initGlobalAPI挂载后，此时Vue的样子是：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/core/index.js / src/core/global-api/index.js</span></span><br><span class="line">Vue<span class="selector-class">.config</span></span><br><span class="line">Vue<span class="selector-class">.util</span> = util</span><br><span class="line">Vue<span class="selector-class">.set</span> = set</span><br><span class="line">Vue<span class="selector-class">.delete</span> = <span class="selector-tag">del</span></span><br><span class="line">Vue<span class="selector-class">.nextTick</span> = util<span class="selector-class">.nextTick</span></span><br><span class="line">Vue<span class="selector-class">.options</span> = &#123;</span><br><span class="line">    components: &#123;</span><br><span class="line">        KeepAlive</span><br><span class="line">    &#125;,</span><br><span class="line">    directives: &#123;&#125;,</span><br><span class="line">    filters: &#123;&#125;,</span><br><span class="line">    _base: Vue</span><br><span class="line">&#125;</span><br><span class="line">Vue<span class="selector-class">.use</span></span><br><span class="line">Vue<span class="selector-class">.mixin</span></span><br><span class="line">Vue<span class="selector-class">.cid</span> = <span class="number">0</span></span><br><span class="line">Vue<span class="selector-class">.extend</span></span><br><span class="line">Vue<span class="selector-class">.component</span> = <span class="built_in">function</span>()&#123;&#125;</span><br><span class="line">Vue<span class="selector-class">.directive</span> = <span class="built_in">function</span>()&#123;&#125;</span><br><span class="line">Vue<span class="selector-class">.filter</span> = <span class="built_in">function</span>()&#123;&#125;</span><br><span class="line"></span><br><span class="line">Vue<span class="selector-class">.prototype</span>.<span class="variable">$isServer</span></span><br><span class="line">Vue<span class="selector-class">.prototype</span>.<span class="variable">$ssrContext</span></span><br><span class="line">Vue<span class="selector-class">.version</span> = <span class="string">&#x27;__VERSION__&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>Vue.options可能稍微难理解一些，我们后续再进行分析。下一个就是 src/platforms/runtime/index.js 文件了，主要做了三件事儿</p>
+<p>1、覆盖 Vue.config 的属性，将其设置为平台特有的一些方法<br>2、Vue.options.directives 和 Vue.options.components 安装平台特有的指令和组件<br>3、在 Vue.prototype 上定义 <strong>patch</strong> 和 $mount</p>
+<p>这三件事情完成之后，Vue 变成下面这个样子：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 安装平台特定的utils</span></span><br><span class="line">Vue<span class="selector-class">.config</span><span class="selector-class">.isUnknownElement</span> = isUnknownElement</span><br><span class="line">Vue<span class="selector-class">.config</span><span class="selector-class">.isReservedTag</span> = isReservedTag</span><br><span class="line">Vue<span class="selector-class">.config</span><span class="selector-class">.getTagNamespace</span> = getTagNamespace</span><br><span class="line">Vue<span class="selector-class">.config</span><span class="selector-class">.mustUseProp</span> = mustUseProp</span><br><span class="line"><span class="comment">// 安装平台特定的 指令 和 组件</span></span><br><span class="line">Vue<span class="selector-class">.options</span> = &#123;</span><br><span class="line">    components: &#123;</span><br><span class="line">        KeepAlive,</span><br><span class="line">        Transition,</span><br><span class="line">        TransitionGroup</span><br><span class="line">    &#125;,</span><br><span class="line">    directives: &#123;</span><br><span class="line">        model,</span><br><span class="line">        show</span><br><span class="line">    &#125;,</span><br><span class="line">    filters: &#123;&#125;,</span><br><span class="line">    _base: Vue</span><br><span class="line">&#125;</span><br><span class="line">Vue<span class="selector-class">.prototype</span>.__patch__</span><br><span class="line">Vue<span class="selector-class">.prototype</span>.<span class="variable">$mount</span></span><br></pre></td></tr></table></figure>
+<p>这里大家要注意的是 Vue.options 的变化。另外这里的 $mount 方法很简单：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Vue.prototype.$mount = <span class="keyword">function</span> (</span><br><span class="line">  <span class="keyword">el</span>?: <span class="built_in">string</span> | Element,</span><br><span class="line">  hydrating?: boolean</span><br><span class="line">): Component &#123;</span><br><span class="line">  <span class="keyword">el</span> = <span class="keyword">el</span> &amp;&amp; inBrowser ? query(<span class="keyword">el</span>) : undefined</span><br><span class="line">  <span class="keyword">return</span> this._mount(<span class="keyword">el</span>, hydrating)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>首先根据是否是浏览器环境决定要不要 query(el) 获取元素，然后将 el 作为参数传递给 this._mount()。</p>
+<p>最后一个处理 Vue 的文件就是入口文件 web-runtime-with-compiler.js 了，该文件做了两件事：</p>
+<p>1、缓存来自 web-runtime.js 文件的 $mount 函数</p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mount = Vue.prototype.$mount</span><br></pre></td></tr></table></figure>
+<p>然后覆盖覆盖了 Vue.prototype.$mount</p>
+<p>2、在 Vue 上挂载 compile</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">Vue.compile</span> = compileToFunctions</span><br></pre></td></tr></table></figure>
+<p>compileToFunctions 函数的作用，就是将模板 template 编译为render函数。</p>
+<p>至此，我们算是还原了 Vue 构造函数，总结一下：</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、Vue.prototype 下的属性和方法的挂载主要是在 src<span class="regexp">/core/i</span>nstance 目录中的代码处理的</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、Vue 下的静态属性和方法的挂载主要是在 src<span class="regexp">/core/g</span>lobal-api 目录下的代码处理的</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>、<span class="keyword">runtime</span>/index.js 主要是添加web平台特有的配置、组件和指令，web-<span class="keyword">runtime</span>-with-compiler.js 给Vue的 $mount 方法添加 compiler 编译器，支持 template。</span><br></pre></td></tr></table></figure>
+
+       -->
+      
+        
+            
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+            
+                
+                <p><p>承上文，我们知道，我们可以使用npm run dev命令来运行项目。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;dev&quot;</span><span class="punctuation">:</span> <span class="string">&quot;rollup -w -c scripts/config.js --environment TARGET:web-full-dev&quot;</span><span class="punctuation">,</span></span><br></pre></td></tr></table></figure>
+<p>其中 -w 就是watch，-c 就是指定配置文件为 build/config.js，简单来说dev命令是rollup使用scripts/config.js的配置运行，并设置了一个变量TARGET的值为web-full-dev。<br>那么我们来看scripts/config.js中的代码</p>
+<p>
+            
+        
+        
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">源码</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/01/15/VUE%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/Vue%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%BA%8C%E6%9C%9F%E2%80%94%E2%80%94Vue-%E7%9A%84%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-VUE源码学习/Vue源码运行报错" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -960,107 +1098,6 @@
 
 
   
-    <article id="post-HTML5/justify-content兼容" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/16/HTML5/justify-content%E5%85%BC%E5%AE%B9/">justify-content:space-evenly 兼容</a>
-    </h1>
-  
-
-        
-        <a href="/2020/01/16/HTML5/justify-content%E5%85%BC%E5%AE%B9/" class="archive-article-date">
-  	<time datetime="2020-01-16T02:52:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      <!-- 
-        <p>justify-content 属性定义了浏览器如何分配顺着父容器主轴的弹性元素之间及其周围的空间。</p>
-<p>space-evenly: 均匀排列每个元素,每个元素之间的间隔相等</p>
-<p>space-between: 均匀排列每个元素,首个元素放置于起点,末尾元素放置于终点<br>兼容解决如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">box&#123;</span><br><span class="line">      <span class="attr">display</span>: flex;</span><br><span class="line">      flex-<span class="attr">flow</span>: row nowrap;</span><br><span class="line">      align-<span class="attr">items</span>: center;</span><br><span class="line">      justify-<span class="attr">content</span>: space-between;</span><br><span class="line">       <span class="comment">//justify-content: space-evenly;</span></span><br><span class="line">      &amp;:before,</span><br><span class="line">      &amp;:after &#123;</span><br><span class="line">          <span class="attr">content</span>: <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">          <span class="attr">display</span>: block;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-       -->
-      
-        
-            
-            
-                
-                
-            
-                
-                
-            
-                
-                
-            
-            
-                
-                <p><p>justify-content 属性定义了浏览器如何分配顺着父容器主轴的弹性元素之间及其周围的空间。</p>
-<p>space-evenly: 均匀排列每个元素,每个元素之间的间隔相等</p>
-<p>space-between: 均匀排列每个元素,首个元素放置于起点,末尾元素放置于终点<br>兼容解决如下：</p>
-<p>
-            
-        
-        
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">H5</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/01/16/HTML5/justify-content%E5%85%BC%E5%AE%B9/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
@@ -1200,6 +1237,18 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">element</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">cloudstuido</a>
               </li>
              
@@ -1212,11 +1261,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
+                <a href="javascript:void(0)" class="js-tag color4">NAS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color5">DDNS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1252,19 +1301,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">php</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">内网穿透</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NAS</a>
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">DDNS</a>
+                <a href="javascript:void(0)" class="js-tag color4">TCP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1297,6 +1342,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">直播</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">php</a>
               </li>
             
             <div class="clearfix"></div>
