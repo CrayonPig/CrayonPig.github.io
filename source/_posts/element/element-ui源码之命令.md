@@ -1,3 +1,9 @@
+---
+title: element-ui源码之命令
+date: 2022.02.15 09:18
+tags: [element, vue]
+---
+
 上一期给大家分享了element项目的目录结构，这次我们着重分析下package.json 中script每项命令的含义
 
 ****

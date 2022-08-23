@@ -1,6 +1,7 @@
 ---
 title: http及其相关
 date: 2022.08.22 23:25
+tag: [http]
 ---
 
 ### HTTP1.0
